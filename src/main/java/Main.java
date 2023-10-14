@@ -2,6 +2,8 @@ public class Main {
     public static void main(String[] args) {
         Captura var = new Captura();
 
+        DadoFormatado dado = new DadoFormatado();
+
 
         System.out.println("Lista de espaço total presente no volume: ");
         System.out.println(var.getListaVolumeTotal() + " \n");
@@ -47,6 +49,13 @@ public class Main {
 
         System.out.println("Pacotes enviados:");
         System.out.println(var.getPacotesEnviados() + " \n");
+
+        System.out.println("Dados formatados: " + " \n");
+        System.out.println(dado.porcentagemVolumeDisponivel + "%" + " \n");
+
+        System.out.println(dado.somaUsoMemoriaProcesso + "%" + " \n");
+
+        System.out.println(var.getCpuEmUso().shortValue() + "%" + " \n");
 
     }
 }

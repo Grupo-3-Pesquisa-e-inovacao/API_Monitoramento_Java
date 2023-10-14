@@ -30,7 +30,7 @@ import java.util.List;
         private List<String> listaTituloJanelas = new ArrayList();
         private List<Long> listaIdJanelas = new ArrayList();
         private List<RedeInterface> redes = looca.getRede().getGrupoDeInterfaces().getInterfaces();
-        private RedeInterface redeAtual;
+        private RedeInterface redeAtual = null;
         private Long pacotesRecebidos;
         private Long pacotesEnviados;
 
@@ -136,8 +136,13 @@ import java.util.List;
             popularListaTituloJanelas();
             popularListaIdJanelas();
             definirRedeAtual();
-            definirPacotesRecebidos();
-            definirPacotesEnviados();
+            if (redeAtual != null) {
+                definirPacotesRecebidos();
+                definirPacotesEnviados();
+            } else {
+                System.out.println("Rede não encontrada, verifice sua conexão com a internet.");
+            }
+
         }
 
         public List<Long> getListaVolumeTotal() {
