@@ -1,14 +1,16 @@
 import com.github.britooo.looca.api.core.Looca;
+import com.github.britooo.looca.api.group.discos.Disco;;
 import com.github.britooo.looca.api.group.discos.Volume;
 import com.github.britooo.looca.api.group.janelas.Janela;
 import com.github.britooo.looca.api.group.processos.Processo;
+import com.github.britooo.looca.api.group.rede.Rede;
 import com.github.britooo.looca.api.group.rede.RedeInterface;
+import com.sun.jna.Memory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-    public class Captura {
-
+    public class Dados {
         Looca looca = new Looca();
 
         private List<Volume> listaVolumes = looca.getGrupoDeDiscos().getVolumes();
@@ -34,6 +36,30 @@ import java.util.List;
         private Long pacotesRecebidos;
         private Long pacotesEnviados;
 
+
+        public Dados() {
+            definirNumeroVolumes();
+
+            if(numeroDeVolumes >= 2) {
+                popularListaVolumeTotal();
+                popularListaVolumeDisponivel();
+            } else {
+                definirVolumeTotal();
+                definirVolumeDisponivel();
+            }
+            popularListaUsoCpuProcesso();
+            popularListaPidProcessos();
+            popularListaUsoMemoriaProcesso();
+            popularListaUsoBytesProcesso();
+            popularListaCaminhoJanelas();
+            popularListaTituloJanelas();
+            popularListaIdJanelas();
+            definirRedeAtual();
+            definirPacotesRecebidos();
+            definirPacotesEnviados();
+        }
+
+
         public void definirNumeroVolumes() {
             Integer volumesValidos = 0;
             for (int i = 0; i < listaVolumes.size(); i++) {
@@ -43,6 +69,7 @@ import java.util.List;
             }
             numeroDeVolumes = volumesValidos;
         }
+
         public void definirVolumeTotal() {
             discoVolumeTotal = listaVolumes.get(0).getTotal();
         }
@@ -119,34 +146,11 @@ import java.util.List;
             pacotesEnviados = redeAtual.getPacotesEnviados();
         }
 
-        public Captura() {
-            definirNumeroVolumes();
-            if(numeroDeVolumes >= 2) {
-                popularListaVolumeTotal();
-                popularListaVolumeDisponivel();
-            } else {
-                definirVolumeTotal();
-                definirVolumeDisponivel();
-            }
-            popularListaUsoCpuProcesso();
-            popularListaPidProcessos();
-            popularListaUsoMemoriaProcesso();
-            popularListaUsoBytesProcesso();
-            popularListaCaminhoJanelas();
-            popularListaTituloJanelas();
-            popularListaIdJanelas();
-            definirRedeAtual();
-            definirPacotesRecebidos();
-            definirPacotesEnviados();
-        }
-
         public List<Long> getListaVolumeTotal() {
-
             return listaVolumeTotal;
         }
 
         public Long getDiscoVolumeTotal() {
-
             return discoVolumeTotal;
         }
 

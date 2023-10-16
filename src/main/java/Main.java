@@ -1,7 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Captura var = new Captura();
-
+        Dados var = new Dados();
 
         System.out.println("Lista de espaço total presente no volume: ");
         System.out.println(var.getListaVolumeTotal() + " \n");
@@ -33,12 +32,6 @@ public class Main {
         System.out.println("Lista de uso de bytes processos:");
         System.out.println(var.getListaUsoBytesProcesso() + " \n");
 
-        System.out.println("Lista de caminhos das janelas abertas:");
-        System.out.println(var.getListaCaminhoJanelas() + " \n");
-
-        System.out.println("Lista de titulos das janelas abertas:");
-        System.out.println(var.getListaTituloJanelas() + " \n");
-
         System.out.println("Lista rede atual:");
         System.out.println(var.getRedeAtual() + " \n");
 
@@ -47,6 +40,8 @@ public class Main {
 
         System.out.println("Pacotes enviados:");
         System.out.println(var.getPacotesEnviados() + " \n");
+
+
 
     }
 }
