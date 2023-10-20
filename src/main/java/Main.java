@@ -52,6 +52,8 @@ public class Main {
         System.out.println(query.getComponente());
         System.out.println(query.getLogCaptura());
 
+        DadoFormatado dado = new DadoFormatado();
+
 
         //RAM
         query.conectarComponente(3);
@@ -72,11 +74,12 @@ public class Main {
         System.out.println(query.getLogCaptura());
 
 
+        System.out.println("Dados formatados: " + " \n");
+        System.out.println(dado.porcentagemVolumeDisponivel + "%" + " \n");
 
+        System.out.println(dado.somaUsoMemoriaProcesso + "%" + " \n");
 
-
-
-
+        System.out.println(var.getCpuEmUso().shortValue() + "%" + " \n");
 
     }
 }

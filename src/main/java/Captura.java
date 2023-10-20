@@ -15,7 +15,7 @@ import java.util.List;
         private Integer numeroDeVolumes;
         private Long discoVolumeTotal;
         private Long discoVolumeDisponivel;
-        private List<Long> listaVolumeTotal = new ArrayList();
+        private List<Long> listaVolumeTotal;
         private List<Long> listaVolumeDisponivel =  new ArrayList();
         private Long memoriaTotal = looca.getMemoria().getTotal();
         private Long memoriaDisponivel = looca.getMemoria().getDisponivel();
@@ -30,12 +30,14 @@ import java.util.List;
         private List<String> listaTituloJanelas = new ArrayList();
         private List<Long> listaIdJanelas = new ArrayList();
         private List<RedeInterface> redes = looca.getRede().getGrupoDeInterfaces().getInterfaces();
-        private RedeInterface redeAtual;
+        private RedeInterface redeAtual = null;
         private Long pacotesRecebidos;
         private Long pacotesEnviados;
 
 
-        public Captura() {
+        public Captura() { }
+
+        public void capturar() {
             definirNumeroVolumes();
 
             if(numeroDeVolumes >= 2) {
@@ -143,6 +145,7 @@ import java.util.List;
         public void definirPacotesEnviados() {
             pacotesEnviados = redeAtual.getPacotesEnviados();
         }
+
 
         public List<Long> getListaVolumeTotal() {
             return listaVolumeTotal;
