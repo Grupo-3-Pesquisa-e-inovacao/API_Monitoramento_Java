@@ -8,7 +8,6 @@ public class Usuario {
 
     private Integer capturar;
 
-
     public Usuario() {}
 
     public String getEmail() {

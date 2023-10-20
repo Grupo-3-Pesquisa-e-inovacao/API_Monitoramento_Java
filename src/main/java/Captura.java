@@ -1,16 +1,14 @@
 import com.github.britooo.looca.api.core.Looca;
-import com.github.britooo.looca.api.group.discos.Disco;;
+;
 import com.github.britooo.looca.api.group.discos.Volume;
 import com.github.britooo.looca.api.group.janelas.Janela;
 import com.github.britooo.looca.api.group.processos.Processo;
-import com.github.britooo.looca.api.group.rede.Rede;
 import com.github.britooo.looca.api.group.rede.RedeInterface;
-import com.sun.jna.Memory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-    public class Dados {
+    public class Captura {
         Looca looca = new Looca();
 
         private List<Volume> listaVolumes = looca.getGrupoDeDiscos().getVolumes();
@@ -37,7 +35,7 @@ import java.util.List;
         private Long pacotesEnviados;
 
 
-        public Dados() {
+        public Captura() {
             definirNumeroVolumes();
 
             if(numeroDeVolumes >= 2) {

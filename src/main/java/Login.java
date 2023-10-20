@@ -1,34 +1,21 @@
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-
-import java.util.List;
-
 public class Login {
 
-    private Conexao conexao;
-
-    private List<Usuario> usuariosBanco;
-
-    private JdbcTemplate con;
+    private Query queryBD;
 
     public Login() {
-        this.conexao = new Conexao();
-        this.con = conexao.getConexaoDoBanco();
+        this.queryBD = new Query();
     }
 
-    public void buscarUsuariosBanco(){
-        this.usuariosBanco = con.query("SELECT * FROM usuario WHERE capturar = 1",
-                new BeanPropertyRowMapper<>(Usuario.class));
-    }
-
-    public Boolean logar(String email, String senha){
+    public Boolean procurarUsuario(String email, String senha){
 
         Boolean usuarioEncontrado = false;
 
-        for (int i = 0; i < usuariosBanco.size(); i++) {
+        queryBD.buscarUsuariosBanco();
 
-            if(email.equals(usuariosBanco.get(i).getEmail()) &&
-                    senha.equals(usuariosBanco.get(i).getSenha())){
+        for (int i = 0; i < queryBD.getUsuarios().size(); i++) {
+
+            if(email.equals(queryBD.getUsuarios().get(i).getEmail()) &&
+                    senha.equals(queryBD.getUsuarios().get(i).getSenha())){
 
                 usuarioEncontrado = true;
             }
@@ -36,6 +23,16 @@ public class Login {
         return usuarioEncontrado;
     }
 
+    public String login(String email, String senha){
 
+        String mensagem = "";
 
+        if (procurarUsuario(email,senha)){
+            mensagem = "Parábens! Você logou!";
+        }else {
+            mensagem = "Email ou senha inválidos!";
+        }
+
+        return mensagem;
+    }
 }

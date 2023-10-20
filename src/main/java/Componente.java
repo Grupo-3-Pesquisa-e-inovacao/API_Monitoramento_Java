@@ -39,11 +39,9 @@ public class Componente {
         this.fkMaquina = fkMaquina;
     }
 
+
     @Override
     public String toString() {
-        return String.format("""
-                +----- %s -----+
-                Descrição: %s
-                """, nome, descricao);
+        return String.format(" +----- %s -----+ ", nome);
     }
 }

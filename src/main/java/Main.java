@@ -1,45 +1,80 @@
+import com.github.britooo.looca.api.core.Looca;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Dados var = new Dados();
 
-        System.out.println("Lista de espaço total presente no volume: ");
-        System.out.println(var.getListaVolumeTotal() + " \n");
+        Scanner leitor = new Scanner(System.in);
+        Captura var = new Captura();
+        Looca looca = new Looca();
+        Query query = new Query();
+        Captura captura = new Captura();
 
-        System.out.println("Lista de espaço disponivel presente no volume: ");
-        System.out.println(var.getListaVolumeDisponivel()  + " \n");
+        Login login = new Login();
 
-        System.out.println("Valor de espaço total presente no volume: ");
-        System.out.println(var.getDiscoVolumeTotal() + " \n");
+        System.out.println("Seja bem-vindo(a)!");
 
-        System.out.println("Valor de espaço disponivel presente no volume: ");
-        System.out.println(var.getDiscoVolumeDisponivel()  + " \n");
+        String email = "";
+        String senha = "";
 
-        System.out.println("Memoria total:");
-        System.out.println(var.getMemoriaTotal()  + " \n");
+        Boolean respostalogin = false;
 
-        System.out.println("Memoria disponivel:");
-        System.out.println(var.getMemoriaDisponivel()  + " \n");
+        while(!respostalogin) {
+            System.out.println("Digite seu email: ");
+            email = leitor.nextLine();
 
-        System.out.println("CPU em uso:");
-        System.out.println(var.getCpuEmUso()  + " \n");
+            System.out.println("Digite sua senha: ");
+            senha = leitor.nextLine();
 
-        System.out.println("Lista de uso de memoria processos:");
-        System.out.println(var.getListaUsoMemoriaProcesso()  + " \n");
+            System.out.println(login.login(email, senha));
 
-        System.out.println("Lista de uso de cpu processos:");
-        System.out.println(var.getListaUsoCpuProcesso() + " \n");
+            respostalogin = login.procurarUsuario(email, senha);
 
-        System.out.println("Lista de uso de bytes processos:");
-        System.out.println(var.getListaUsoBytesProcesso() + " \n");
+        }
 
-        System.out.println("Lista rede atual:");
-        System.out.println(var.getRedeAtual() + " \n");
+        System.out.println("MONITORANDO COMPONENTES...");
+        query.conectarMaquina(1);
 
-        System.out.println("Pacotes recebidos:");
-        System.out.println(var.getPacotesRecebidos() + " \n");
+        //USO CPU
+        query.conectarComponente(1);
+        query.inserirDados("Uso",captura.getCpuEmUso());
+        query.mostrarLogCaptura("Uso");
 
-        System.out.println("Pacotes enviados:");
-        System.out.println(var.getPacotesEnviados() + " \n");
+        System.out.println(query.getComponente());
+        System.out.println(query.getLogCaptura());
+
+        //REDE
+        query.conectarComponente(2);
+        query.inserirDados("Pacotes recebidos",captura.getPacotesRecebidos().doubleValue());
+        query.mostrarLogCaptura("Pacotes recebidos");
+
+        System.out.println(query.getComponente());
+        System.out.println(query.getLogCaptura());
+
+
+        //RAM
+        query.conectarComponente(3);
+        query.inserirDados("Uso", looca.getMemoria().getEmUso().doubleValue());
+        query.mostrarLogCaptura("Uso");
+
+        System.out.println(query.getComponente());
+        System.out.println(query.getLogCaptura());
+
+
+        //DISCO
+        query.conectarComponente(4);
+        Double disco = captura.getDiscoVolumeTotal().doubleValue() - captura.getDiscoVolumeDisponivel().doubleValue();
+        query.inserirDados("Uso", query.converterParaGigas(disco));
+        query.mostrarLogCaptura("Uso");
+
+        System.out.println(query.getComponente());
+        System.out.println(query.getLogCaptura());
+
+
+
+
+
 
 
 
