@@ -1,3 +1,5 @@
+package entidades;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -13,7 +15,6 @@ public class Maquina {
     private Double espacoLivreDisco;
     private String endereco_ipv4;
     private Double capacidadeTotalRam;
-    private Integer fkSala;
 
     public Maquina() {}
 
@@ -97,14 +98,6 @@ public class Maquina {
         this.capacidadeTotalRam = capacidadeTotalRam;
     }
 
-    public Integer getFkSala() {
-        return fkSala;
-    }
-
-    public void setFkSala(Integer fkSala) {
-        this.fkSala = fkSala;
-    }
-
     @Override
     public String toString() {
         return String.format("""
@@ -118,8 +111,7 @@ public class Maquina {
                 Espaço Livre: %.2f
                 Endereço IPV4: %s
                 Capacidade Total: %.2f
-                ID sala: %d
                 """,nome,idMaquina, modelo, numeroSerie, marca, sistemaOperacional,
-                armazenamentoDisco, espacoLivreDisco, endereco_ipv4, capacidadeTotalRam, fkSala);
+                armazenamentoDisco, espacoLivreDisco, endereco_ipv4, capacidadeTotalRam);
     }
 }

@@ -1,16 +1,20 @@
-import com.github.britooo.looca.api.core.Looca;
+import componentes.*;
 
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner leitor = new Scanner(System.in);
-        Captura var = new Captura();
-        Looca looca = new Looca();
         Query query = new Query();
-        Captura captura = new Captura();
-
+        Processador cpu = new Processador();
+        Memoria memoria = new Memoria();
+        Disco disco = new Disco();
+        Processos processos = new Processos();
+        Janela janelas = new Janela();
+        Rede rede = new Rede();
         Login login = new Login();
 
         System.out.println("Seja bem-vindo(a)!");
@@ -33,53 +37,70 @@ public class Main {
 
         }
 
-        System.out.println("MONITORANDO COMPONENTES...");
-        query.conectarMaquina(1);
 
-        //USO CPU
-        query.conectarComponente(1);
-        query.inserirDados("Uso",captura.getCpuEmUso());
-        query.mostrarLogCaptura("Uso");
+        Timer timer = new Timer();
+        TimerTask monitoramentoTempoReal = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("MONITORANDO COMPONENTES...");
+                query.conectarMaquina(1);
 
-        System.out.println(query.getComponente());
-        System.out.println(query.getLogCaptura());
+                //USO CPU
+                query.definirComponente("Processador");
+                query.definirTipoDados("Uso CPU");
+                query.inserirDadosCaptura(cpu.getUso());
 
-        //REDE
-        query.conectarComponente(2);
-        query.inserirDados("Pacotes recebidos",captura.getPacotesRecebidos().doubleValue());
-        query.mostrarLogCaptura("Pacotes recebidos");
+                //REDE
+                query.definirComponente("Rede");
+                rede.definirInformacoesRedeAtual(rede.definirRedeAtual());
+                query.definirTipoDados("Pacotes Enviados");
+                query.inserirDadosCaptura(rede.getPacotesEnviados() / 1000);
+                query.definirTipoDados("Pacotes Recibidos");
+                query.inserirDadosCaptura(rede.getPacotesRecebidos().intValue() / 1000);
 
-        System.out.println(query.getComponente());
-        System.out.println(query.getLogCaptura());
+                //USO MEMORIA
+                query.definirComponente("Ram");
+                query.definirTipoDados("Uso Ram");
+                query.inserirDadosCaptura(query.converterParaGigas(memoria.getUso()));
 
-        DadoFormatado dado = new DadoFormatado();
+                //USO DISCO
+                query.definirComponente("Disco");
+                query.definirTipoDados("Uso disco");
 
+                if(disco.verificarQuantidadeDisco()){
+                    for (int i = 0; i < disco.getListDisco().size(); i++) {
+                        query.inserirDadosCaptura(query.converterParaGigas(disco.getListaUsoVolume().get(i)));
+                    }
+                }else{
+                    query.inserirDadosCaptura(query.converterParaGigas(disco.getUsoVolume()));
+                }
 
-        //RAM
-        query.conectarComponente(3);
-        query.inserirDados("Uso", looca.getMemoria().getEmUso().doubleValue());
-        query.mostrarLogCaptura("Uso");
+                //JANELA
+                janelas.popularListaTitulo();
+                janelas.popularListaCaminho();
+                janelas.popularListaPid();
+                for (int i = 0; i < janelas.getTitulos().size(); i++) {
+                    query.inserirDadosJanela(janelas.getPids().get(i),
+                            janelas.getTitulos().get(i),
+                            janelas.getComandos().get(i));
+                }
 
-        System.out.println(query.getComponente());
-        System.out.println(query.getLogCaptura());
+                //PROCESSOS
+                processos.popularListaNome();
+                processos.popularListaUsoBytesProcesso();
+                processos.popularListaUsoCpuProcesso();
+                processos.popularListaPid();
+                for (int i = 0; i < processos.getPids().size(); i++) {
+                    query.inserirDadosProcesso(
+                            processos.getPids().get(i),
+                            processos.getNome().get(i),
+                            processos.getUsoCPU().get(i),
+                            query.converterParaGigas(processos.getBytesUtilizados().get(i)));
 
+                }
+            }
+        };
 
-        //DISCO
-        query.conectarComponente(4);
-        Double disco = captura.getDiscoVolumeTotal().doubleValue() - captura.getDiscoVolumeDisponivel().doubleValue();
-        query.inserirDados("Uso", query.converterParaGigas(disco));
-        query.mostrarLogCaptura("Uso");
-
-        System.out.println(query.getComponente());
-        System.out.println(query.getLogCaptura());
-
-
-        System.out.println("Dados formatados: " + " \n");
-        System.out.println(dado.porcentagemVolumeDisponivel + "%" + " \n");
-
-        System.out.println(dado.somaUsoMemoriaProcesso + "%" + " \n");
-
-        System.out.println(var.getCpuEmUso().shortValue() + "%" + " \n");
-
+        timer.schedule(monitoramentoTempoReal, 3000, 5000);
     }
 }

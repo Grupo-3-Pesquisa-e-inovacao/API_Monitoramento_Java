@@ -1,3 +1,4 @@
+import entidades.*;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -8,21 +9,23 @@ public class Query {
     private Conexao conexao;
     private JdbcTemplate con;
     private Maquina maquina;
-    private Captura dados;
     private Componente componente;
-    private CamposCaptura camposCaptura;
+    private CapturaDados camposCaptura;
+    private TipoDados tipoDados;
     private List<Usuario> usuarios;
-    private List<CamposCaptura> logCaptura;
+    private List<CapturaDados> logCaptura;
+
+
 
     public Query() {
         this.conexao = new Conexao();
         this.con = conexao.getConexaoDoBanco();
         this.maquina = new Maquina();
         this.componente = new Componente();
-        this.camposCaptura = new CamposCaptura();
+        this.camposCaptura = new CapturaDados();
         this.logCaptura = new ArrayList<>();
-        this.dados = new Captura();
         this.usuarios = new ArrayList<>();
+        this.tipoDados = new TipoDados();
     }
 
     public void conectarMaquina(Integer idMaquina){
@@ -30,38 +33,40 @@ public class Query {
                 new BeanPropertyRowMapper<>(Maquina.class), idMaquina);
     }
 
-    public void conectarComponente(Integer idComponente){
-        componente = con.queryForObject("SELECT * FROM componente WHERE idComponente = ? AND fk_maquina_proc = ?;",
-                new BeanPropertyRowMapper<>(Componente.class),idComponente, maquina.getIdMaquina());
+    public void definirComponente(String nome){
+        componente = con.queryForObject("SELECT * FROM componente WHERE nome = ?",
+                new BeanPropertyRowMapper<>(Componente.class),nome);
+    }
 
-        setComponente(componente);
+    public void definirTipoDados(String nome){
+        tipoDados = con.queryForObject("SELECT * FROM tipo_dados WHERE nome = ?;",
+                new BeanPropertyRowMapper<>(TipoDados.class),nome);
     }
 
     public Double converterParaGigas(Double valor){
         return valor / (1*Math.pow(10,9));
     }
 
-    public void inserirInformacoesMaquinas(){
 
-        Double armazenamentoDisco = converterParaGigas(dados.getDiscoVolumeTotal().doubleValue());
-        Double espacoLivreDisco = converterParaGigas(dados.getDiscoVolumeDisponivel().doubleValue());
-        String enderecoIpv4 = dados.getRedeAtual().getEnderecoIpv4().get(0);
-        Double capacidadeRam = converterParaGigas(dados.getMemoriaTotal().doubleValue());
-
-        con.update("UPDATE maquina SET armazenamento_disco = ?,"
-                        + "espaco_livre_disco = ?, endereco_ipv4 = ?," +
-                        "capacidade_total_ram = ? WHERE idMaquina = ?",
-                armazenamentoDisco, espacoLivreDisco, enderecoIpv4, capacidadeRam, maquina.getIdMaquina());
+    public void inserirDadosCaptura(Double valor){
+        con.update("INSERT INTO captura_dados (`valor_monitorado`, `fk_tiposDados`, `fk_maquina`, fk_componente)" +
+                "VALUES (?, ?, ?, ?);", valor, tipoDados.getIdTipoDados(), maquina.getIdMaquina(), componente.getIdComponente());
     }
 
-    public void inserirDados(String nome, Double valor){
-        con.update("INSERT INTO captura_dados (nome_monitoramento, valor_monitorado, data_hora, fk_componente, `fk_maquina_captura`) " +
-                  "VALUES (?, ?, now(), ?, ?)", nome, valor, componente.getIdComponente(), maquina.getIdMaquina());
+    public void inserirDadosCaptura(Integer valor){
+        con.update("INSERT INTO captura_dados (`valor_monitorado`, `fk_tiposDados`, `fk_maquina`, fk_componente)" +
+                "VALUES (?, ?, ?, ?);",
+                valor, tipoDados.getIdTipoDados(), maquina.getIdMaquina(), componente.getIdComponente());
     }
 
-    public void inserirDados(String nome, Long valor){
-        con.update("INSERT INTO captura_dados (nome_monitoramento, valor_monitorado, data_hora, fk_componente, `fk_maquina_captura`) " +
-                "VALUES (?, ?, now(), ?, ?)", nome, valor, componente.getIdComponente(), maquina.getIdMaquina());
+    public void inserirDadosProcesso(Integer pid, String nome, Double usoCpu, Double bytes){
+        con.update("INSERT INTO processo (`pid`, `nome`, `usoCPU`, `bytesUtilizados`,`fk_maquina`)" +
+                "VALUES (?, ?, ?, ?, ?)", pid, nome, usoCpu, bytes, maquina.getIdMaquina());
+    }
+
+    public void inserirDadosJanela(Integer pid, String nome, String caminho){
+        con.update("INSERT INTO janela (`pid`, `titulos`, `comandos`, `fk_maquina`) " +
+                "VALUES (?, ?, ?, ?)", pid, nome, caminho, maquina.getIdMaquina());
     }
 
     public void buscarUsuariosBanco(){
@@ -71,14 +76,14 @@ public class Query {
 
     public void mostrarLogCaptura(String nomeMonitoramento){
         logCaptura = con.query("SELECT * FROM captura_dados WHERE nome_monitoramento = ? AND fk_componente = ?",
-                new BeanPropertyRowMapper<>(CamposCaptura.class), nomeMonitoramento, componente.getIdComponente());
+                new BeanPropertyRowMapper<>(CapturaDados.class), nomeMonitoramento, componente.getIdComponente());
     }
 
-    public List<CamposCaptura> getLogCaptura() {
+    public List<CapturaDados> getLogCaptura() {
         return logCaptura;
     }
 
-    public void setLogCaptura(List<CamposCaptura> logCaptura) {
+    public void setLogCaptura(List<CapturaDados> logCaptura) {
         this.logCaptura = logCaptura;
     }
 
@@ -110,13 +115,6 @@ public class Query {
         this.maquina = maquina;
     }
 
-    public Captura getDados() {
-        return dados;
-    }
-
-    public void setDados(Captura dados) {
-        this.dados = dados;
-    }
 
     public Componente getComponente() {
         return componente;
@@ -126,11 +124,11 @@ public class Query {
         this.componente = componente;
     }
 
-    public CamposCaptura getCamposCaptura() {
+    public CapturaDados getCamposCaptura() {
         return camposCaptura;
     }
 
-    public void setCamposCaptura(CamposCaptura camposCaptura) {
+    public void setCamposCaptura(CapturaDados camposCaptura) {
         this.camposCaptura = camposCaptura;
     }
 }
