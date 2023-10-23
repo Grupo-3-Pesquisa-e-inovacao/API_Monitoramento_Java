@@ -7,6 +7,7 @@ import java.util.TimerTask;
 public class Main {
     public static void main(String[] args) {
 
+
         Scanner leitor = new Scanner(System.in);
         Query query = new Query();
         Processador cpu = new Processador();
@@ -16,6 +17,10 @@ public class Main {
         Janela janelas = new Janela();
         Rede rede = new Rede();
         Login login = new Login();
+
+        rede.definirInformacoesRedeAtual(rede.definirRedeAtual());
+
+        System.out.println(rede.getPacotesEnviados().intValue() / 1000);
 
         System.out.println("Seja bem-vindo(a)!");
 
@@ -54,9 +59,9 @@ public class Main {
                 query.definirComponente("Rede");
                 rede.definirInformacoesRedeAtual(rede.definirRedeAtual());
                 query.definirTipoDados("Pacotes Enviados");
-                query.inserirDadosCaptura(rede.getPacotesEnviados() / 1000);
+                query.inserirDadosCaptura(rede.getPacotesEnviados().intValue() / 1000);
                 query.definirTipoDados("Pacotes Recibidos");
-                query.inserirDadosCaptura(rede.getPacotesRecebidos().intValue() / 1000);
+                query.inserirDadosCaptura(rede.getPacotesRecebidos().intValue() / 100);
 
                 //USO MEMORIA
                 query.definirComponente("Ram");
