@@ -90,7 +90,7 @@ public class Query {
 
     public void buscarLogCaptura(Integer idComponente){
         logCaptura = con.query(
-                "SELECT td.nome as nome, valor_monitorado, dt_hora FROM \n" +
+                "SELECT td.nome as nome, valor_monitorado, dt_hora as dataHora FROM \n" +
                 "\tcaptura_dados as cd INNER JOIN tipo_dados as td ON td.idTipoDados = cd.fk_tiposDados\n" +
                 "\t\tWHERE fk_maquina = ? AND fk_componente = ? ORDER BY dt_hora DESC",
                 new BeanPropertyRowMapper<>(CapturaDados.class), maquina.getIdMaquina(), idComponente);
