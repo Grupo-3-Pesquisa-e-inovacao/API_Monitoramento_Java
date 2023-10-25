@@ -25,6 +25,8 @@ public class Componente {
 
     @Override
     public String toString() {
-        return String.format(" +----- %s -----+ ", nome);
+        return String.format("""
+                %d - %s
+                """, idComponente, nome);
     }
 }

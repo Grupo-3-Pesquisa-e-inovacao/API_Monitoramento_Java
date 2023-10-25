@@ -13,6 +13,8 @@ public class Query {
     private CapturaDados camposCaptura;
     private TipoDados tipoDados;
     private List<Usuario> usuarios;
+    private List<HistoricoUsuarios> historicoUsuarios;
+    private List<Componente> componentes;
     private List<CapturaDados> logCaptura;
 
 
@@ -25,6 +27,8 @@ public class Query {
         this.camposCaptura = new CapturaDados();
         this.logCaptura = new ArrayList<>();
         this.usuarios = new ArrayList<>();
+        this.componentes = new ArrayList<>();
+        this.historicoUsuarios = new ArrayList<>();
         this.tipoDados = new TipoDados();
     }
 
@@ -69,14 +73,47 @@ public class Query {
                 "VALUES (?, ?, ?, ?)", pid, nome, caminho, maquina.getIdMaquina());
     }
 
+    public void inserirDadosHistoricoUsuario(Integer idUsuario){
+        con.update("INSERT INTO historico_usuarios (`fk_usuario`, `fk_maquina`) " +
+                "VALUES (?, ?)", idUsuario, maquina.getIdMaquina());
+    }
+
+    public void buscarComponentes(){
+        componentes = con.query("SELECT * FROM componente",
+                new BeanPropertyRowMapper<>(Componente.class));
+    }
+
     public void buscarUsuariosBanco(){
         usuarios = con.query("SELECT * FROM usuario WHERE capturar = 1",
                 new BeanPropertyRowMapper<>(Usuario.class));
     }
 
-    public void mostrarLogCaptura(String nomeMonitoramento){
-        logCaptura = con.query("SELECT * FROM captura_dados WHERE nome_monitoramento = ? AND fk_componente = ?",
-                new BeanPropertyRowMapper<>(CapturaDados.class), nomeMonitoramento, componente.getIdComponente());
+    public void buscarLogCaptura(Integer idComponente){
+        logCaptura = con.query(
+                "SELECT td.nome as nome, valor_monitorado, dt_hora FROM \n" +
+                "\tcaptura_dados as cd INNER JOIN tipo_dados as td ON td.idTipoDados = cd.fk_tiposDados\n" +
+                "\t\tWHERE fk_maquina = ? AND fk_componente = ? ORDER BY dt_hora DESC",
+                new BeanPropertyRowMapper<>(CapturaDados.class), maquina.getIdMaquina(), idComponente);
+    }
+
+    public void buscarHistoricoUsuarios(){
+        historicoUsuarios = con.query(
+                    "SELECT usuario.email as email, usuario.nome as nome, data_hora FROM \n" +
+                        "\thistorico_usuarios as historico INNER JOIN usuario ON usuario.idUsuario = historico.fk_usuario \n" +
+                        "    WHERE historico.fk_maquina = ? ORDER BY data_hora DESC;",
+                new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());
+    }
+
+    public TipoDados getTipoDados() {
+        return tipoDados;
+    }
+
+    public List<Componente> getComponentes() {
+        return componentes;
+    }
+
+    public void setComponentes(List<Componente> componentes) {
+        this.componentes = componentes;
     }
 
     public List<CapturaDados> getLogCaptura() {
@@ -124,11 +161,11 @@ public class Query {
         this.componente = componente;
     }
 
-    public CapturaDados getCamposCaptura() {
-        return camposCaptura;
+    public List<HistoricoUsuarios> getHistoricoUsuarios() {
+        return historicoUsuarios;
     }
 
-    public void setCamposCaptura(CapturaDados camposCaptura) {
-        this.camposCaptura = camposCaptura;
+    public void setHistoricoUsuarios(List<HistoricoUsuarios> historicoUsuarios) {
+        this.historicoUsuarios = historicoUsuarios;
     }
 }

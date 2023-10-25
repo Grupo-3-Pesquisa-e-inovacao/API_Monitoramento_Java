@@ -1,6 +1,10 @@
+import entidades.Usuario;
+
 public class Login {
 
     private Query queryBD;
+
+    private Usuario usuarioLogado;
 
     public Login() {
         this.queryBD = new Query();
@@ -17,6 +21,7 @@ public class Login {
             if(email.equals(queryBD.getUsuarios().get(i).getEmail()) &&
                     senha.equals(queryBD.getUsuarios().get(i).getSenha())){
 
+                usuarioLogado = queryBD.getUsuarios().get(i);
                 usuarioEncontrado = true;
             }
         }
@@ -36,5 +41,26 @@ public class Login {
         return mensagem;
     }
 
-    
+    public Boolean  verificarPermissoesUsuario(){
+
+        Boolean usuarioAdmin = true;
+
+        queryBD.buscarUsuariosBanco();
+
+        if(usuarioLogado.getCadastrar() == 0 &&
+           usuarioLogado.getDeletar() ==0 &&
+           usuarioLogado.getAlterar() == 0){
+                usuarioAdmin = false;
+
+        }
+        return usuarioAdmin;
+    }
+
+    public Usuario getUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+    public void setUsuarioLogado(Usuario usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+    }
 }
