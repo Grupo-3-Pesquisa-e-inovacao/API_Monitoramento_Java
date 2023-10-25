@@ -1,6 +1,7 @@
 package entidades;
 
 import javax.management.Query;
+import javax.swing.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -10,6 +11,10 @@ public class CapturaDados {
     private Double valor_monitorado;
     private LocalDateTime dataHora;
     private DateTimeFormatter formatadorDtaHora;
+
+    private String nome;
+
+
 
     public CapturaDados() {
         this.dataHora = LocalDateTime.now();
@@ -48,13 +53,19 @@ public class CapturaDados {
         this.formatadorDtaHora = formatadorDtaHora;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     @Override
     public String toString() {
-        return "CapturaDados{" +
-                "valor_monitorado=" + valor_monitorado +
-                ", dataHora=" + dataHora +
-                ", formatadorDtaHora=" + formatadorDtaHora +
-                '}';
+        return String.format("""
+                %s -> %.2f -> %s
+                """, nome, valor_monitorado, dataHora.format(formatadorDtaHora));
     }
 }
 

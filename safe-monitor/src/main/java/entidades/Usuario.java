@@ -4,11 +4,20 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class Usuario {
 
+    private Integer idUsuario;
+
     private String email;
 
     private String senha;
 
+    private String nome;
+
+
     private Integer capturar;
+    private Integer leitura;
+    private Integer alterar;
+    private Integer deletar;
+    private Integer cadastrar;
 
     public Usuario() {}
 
@@ -36,5 +45,51 @@ public class Usuario {
         this.capturar = capturar;
     }
 
+    public Integer getLeitura() {
+        return leitura;
+    }
 
+    public void setLeitura(Integer leitura) {
+        this.leitura = leitura;
+    }
+
+    public Integer getAlterar() {
+        return alterar;
+    }
+
+    public void setAlterar(Integer alterar) {
+        this.alterar = alterar;
+    }
+
+    public Integer getDeletar() {
+        return deletar;
+    }
+
+    public void setDeletar(Integer deletar) {
+        this.deletar = deletar;
+    }
+
+    public Integer getCadastrar() {
+        return cadastrar;
+    }
+
+    public void setCadastrar(Integer cadastrar) {
+        this.cadastrar = cadastrar;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 }
