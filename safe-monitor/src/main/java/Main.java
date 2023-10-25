@@ -103,6 +103,7 @@ public class Main {
                 processos.popularListaUsoCpuProcesso();
                 processos.popularListaPid();
                 for (int i = 0; i < processos.getPids().size(); i++) {
+                    System.out.println(processos.getUsoCPU().get(i));
                     query.inserirDadosProcesso(
                             processos.getPids().get(i),
                             processos.getNome().get(i),
