@@ -17,7 +17,7 @@ public class CapturaDados {
 
 
     public CapturaDados() {
-        this.dataHora = LocalDateTime.now();
+       /* this.dataHora = LocalDateTime.now();*/
         this.formatadorDtaHora = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");
     }
 

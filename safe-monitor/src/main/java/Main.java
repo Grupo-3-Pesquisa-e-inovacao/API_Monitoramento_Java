@@ -1,9 +1,11 @@
 import componentes.*;
+import entidades.CapturaDados;
 import entidades.Componente;
 import entidades.HistoricoUsuarios;
 import org.springframework.jdbc.object.SqlQuery;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -101,6 +103,7 @@ public class Main {
                 processos.popularListaUsoCpuProcesso();
                 processos.popularListaPid();
                 for (int i = 0; i < processos.getPids().size(); i++) {
+                    System.out.println(processos.getUsoCPU().get(i));
                     query.inserirDadosProcesso(
                             processos.getPids().get(i),
                             processos.getNome().get(i),
@@ -157,7 +160,11 @@ public class Main {
 
 
                         query.buscarLogCaptura(idComponente);
-                        System.out.println(query.getLogCaptura());
+                        /*System.out.println(query.getLogCaptura());*/
+                        List<CapturaDados> capturas = query.getLogCaptura();
+                        for (CapturaDados c : capturas) {
+                            System.out.println(c);
+                        }
                         break;
 
                 }
