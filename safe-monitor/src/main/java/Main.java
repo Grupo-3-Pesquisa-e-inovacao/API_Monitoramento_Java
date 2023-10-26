@@ -101,6 +101,7 @@ public class Main {
                 processos.popularListaUsoCpuProcesso();
                 processos.popularListaPid();
                 for (int i = 0; i < processos.getPids().size(); i++) {
+
                     query.inserirDadosProcesso(
                             processos.getPids().get(i),
                             processos.getNome().get(i),
@@ -124,7 +125,8 @@ public class Main {
                     *--------------------------*
                     | 1 - Histórico usuários   |
                     | 2 - Log Componentes      |
-                    | 3 - Sair                 |
+                    | 3 - Portas USB           |
+                    | 4 - Sair                 |
                     *--------------------------*"""
             );
 
@@ -160,9 +162,16 @@ public class Main {
                         System.out.println(query.getLogCaptura());
                         break;
 
+                    case 3:
+                        Dispositivo dispositivo = new Dispositivo();
+
+                        dispositivo.cadastrarDispositivos();
+
+                        break;
+
                 }
 
-            }while (opcao != 3);
+            }while (opcao != 4);
 
 
         }else{
