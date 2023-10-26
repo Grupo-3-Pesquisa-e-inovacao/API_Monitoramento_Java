@@ -11,10 +11,9 @@ public class Maquina {
     private String numeroSerie;
     private String marca;
     private String sistemaOperacional;
-    private Double armazenamentoDisco;
-    private Double espacoLivreDisco;
-    private String endereco_ipv4;
-    private Double capacidadeTotalRam;
+    private String fabricante;
+
+    private Integer arquitetura;
 
     public Maquina() {}
 
@@ -66,36 +65,20 @@ public class Maquina {
         this.sistemaOperacional = sistemaOperacional;
     }
 
-    public Double getArmazenamentoDisco() {
-        return armazenamentoDisco;
+    public String getFabricante() {
+        return fabricante;
     }
 
-    public void setArmazenamentoDisco(Double armazenamentoDisco) {
-        this.armazenamentoDisco = armazenamentoDisco;
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
     }
 
-    public Double getEspacoLivreDisco() {
-        return espacoLivreDisco;
+    public Integer getArquitetura() {
+        return arquitetura;
     }
 
-    public void setEspacoLivreDisco(Double espacoLivreDisco) {
-        this.espacoLivreDisco = espacoLivreDisco;
-    }
-
-    public String getEnderecoIPV4() {
-        return endereco_ipv4;
-    }
-
-    public void setEnderecoIPV4(String enderecoIPV4) {
-        this.endereco_ipv4 = enderecoIPV4;
-    }
-
-    public Double getCapacidadeTotalRam() {
-        return capacidadeTotalRam;
-    }
-
-    public void setCapacidadeTotalRam(Double capacidadeTotalRam) {
-        this.capacidadeTotalRam = capacidadeTotalRam;
+    public void setArquitetura(Integer arquitetura) {
+        this.arquitetura = arquitetura;
     }
 
     @Override
@@ -107,11 +90,8 @@ public class Maquina {
                 Número de Série: %s
                 Marca: %s
                 Sistema Operacional: %s
-                Armazenamento de Disco: %.2f
-                Espaço Livre: %.2f
-                Endereço IPV4: %s
-                Capacidade Total: %.2f
-                """,nome,idMaquina, modelo, numeroSerie, marca, sistemaOperacional,
-                armazenamentoDisco, espacoLivreDisco, endereco_ipv4, capacidadeTotalRam);
+                Fabricante: %s
+                Arquitetura: %d
+                """,nome,idMaquina, modelo, numeroSerie, marca, sistemaOperacional, fabricante, arquitetura);
     }
 }

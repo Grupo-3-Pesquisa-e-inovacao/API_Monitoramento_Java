@@ -1,16 +1,15 @@
 package componentes;
 
 import com.github.britooo.looca.api.core.Looca;
-import com.github.britooo.looca.api.group.processos.Processo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Processos {
+public class Processo {
 
     private Looca looca;
 
-    private List<Processo> listaProcessos;
+    private List<com.github.britooo.looca.api.group.processos.Processo> listaProcessos;
 
     private List<Integer> pids;
 
@@ -22,7 +21,7 @@ public class Processos {
 
     private List<Double> bytesUtilizados;
 
-    public Processos() {
+    public Processo() {
         this.looca = new Looca();
         this.listaProcessos = looca.getGrupoDeProcessos().getProcessos();
         this.pids = new ArrayList<>();
@@ -98,5 +97,23 @@ public class Processos {
 
     public void setNome(List<String> nome) {
         this.nome = nome;
+    }
+
+    public List<com.github.britooo.looca.api.group.processos.Processo> getListaProcessos() {
+        return listaProcessos;
+    }
+
+    public void setListaProcessos(List<com.github.britooo.looca.api.group.processos.Processo> listaProcessos) {
+        this.listaProcessos = listaProcessos;
+    }
+
+    @Override
+    public String toString() {
+        return """
+               %d  ->  %s
+               Uso CPU: %.2f
+               Bytes Utilizados:  %.2f
+               """.formatted(pids, nome, usoCPU, bytesUtilizados);
+
     }
 }

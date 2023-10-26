@@ -2,9 +2,7 @@ import componentes.*;
 import entidades.CapturaDados;
 import entidades.Componente;
 import entidades.HistoricoUsuarios;
-import org.springframework.jdbc.object.SqlQuery;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
@@ -21,7 +19,7 @@ public class Main {
         Processador cpu = new Processador();
         Memoria memoria = new Memoria();
         Disco disco = new Disco();
-        Processos processos = new Processos();
+        Processo processos = new Processo();
         Janela janelas = new Janela();
         Rede rede = new Rede();
         Login login = new Login();
@@ -49,6 +47,7 @@ public class Main {
         }
 
         query.conectarMaquina(idMaquina);
+        query.inserirDadosMaquina();
         query.inserirDadosHistoricoUsuario(login.getUsuarioLogado().getIdUsuario());
 
 
@@ -103,7 +102,6 @@ public class Main {
                 processos.popularListaUsoCpuProcesso();
                 processos.popularListaPid();
                 for (int i = 0; i < processos.getPids().size(); i++) {
-                    System.out.println(processos.getUsoCPU().get(i));
                     query.inserirDadosProcesso(
                             processos.getPids().get(i),
                             processos.getNome().get(i),
@@ -122,13 +120,17 @@ public class Main {
 
             String menuAdmin = String.format(
                     """
-                    *--------------------------*
-                    |          Menu            |
-                    *--------------------------*
-                    | 1 - Histórico usuários   |
-                    | 2 - Log Componentes      |
-                    | 3 - Sair                 |
-                    *--------------------------*"""
+                    *---------------------------*
+                    |          Menu             |
+                    *---------------------------*
+                    | 1 - Histórico usuários    |
+                    | 2 - Registros componentes |
+                    | 3 - Processos             |
+                    | 4 - Janelas               |
+                    | 5 - Infomações da máquina |
+                    | 6 - Dispositivos          |
+                    | 7 - Sair                  |
+                    *---------------------------*"""
             );
 
 
@@ -140,7 +142,12 @@ public class Main {
 
                     case 1:
                         query.buscarHistoricoUsuarios();
-                        System.out.println(query.getHistoricoUsuarios());
+
+                        List<HistoricoUsuarios> usuarios = query.getHistoricoUsuarios();
+                        for (HistoricoUsuarios u: usuarios) {
+                            System.out.println(u);
+                        }
+
                         break;
 
                     case 2:
@@ -155,21 +162,51 @@ public class Main {
                                  """
 
                         );
-                        System.out.println(query.getComponentes());
+
+                        List<Componente> componentes = query.getComponentes();
+                        for (Componente cp: componentes) {
+                            System.out.println(cp);
+                        }
                         idComponente = leitor.nextInt();
 
 
                         query.buscarLogCaptura(idComponente);
-                        /*System.out.println(query.getLogCaptura());*/
+
                         List<CapturaDados> capturas = query.getLogCaptura();
                         for (CapturaDados c : capturas) {
                             System.out.println(c);
                         }
                         break;
 
+                    case 3:
+                        for (int i = 0; i < processos.getNome().size(); i++) {
+
+                            if(processos.getUsoCPU().get(i) > 0.05){
+                                System.out.println(String.format("""
+                                    PID: %d
+                                    Nome: %s
+                                    Uso CPU: %.2f
+                                    """, processos.getPids().get(i), processos.getNome().get(i), processos.getUsoCPU().get(i)));
+                            }
+                        }
+
+                        break;
+
+                    case 4:
+                        for (int i = 0; i < janelas.getTitulos().size(); i++) {
+
+                            System.out.println(String.format("""
+                                    PID: %d
+                                    Título: %s
+                                    Caminho: %s
+                                    """, janelas.getPids().get(i), janelas.getTitulos().get(i), janelas.getComandos().get(i)));
+
+                        }
+                        break;
+
                 }
 
-            }while (opcao != 3);
+            }while (opcao != 7);
 
 
         }else{

@@ -14,7 +14,6 @@ public class HistoricoUsuarios {
     private DateTimeFormatter formatadorDtaHora;
 
     public HistoricoUsuarios() {
-        this.dataHora = LocalDateTime.now();
         this.formatadorDtaHora = DateTimeFormatter.ofPattern(" dd/MM/yyyy hh:mm:ss ");
     }
 

@@ -1,3 +1,5 @@
+import componentes.Disco;
+import componentes.Sistema;
 import entidades.*;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -6,12 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Query {
+
+
     private Conexao conexao;
     private JdbcTemplate con;
     private Maquina maquina;
+
+    private Sistema sistema;
     private Componente componente;
     private CapturaDados camposCaptura;
     private TipoDados tipoDados;
+    private Disco disco;
     private List<Usuario> usuarios;
     private List<HistoricoUsuarios> historicoUsuarios;
     private List<Componente> componentes;
@@ -30,11 +37,17 @@ public class Query {
         this.componentes = new ArrayList<>();
         this.historicoUsuarios = new ArrayList<>();
         this.tipoDados = new TipoDados();
+        this.sistema = new Sistema();
     }
 
     public void conectarMaquina(Integer idMaquina){
         maquina = con.queryForObject("SELECT * FROM maquina WHERE idMaquina = ?",
                 new BeanPropertyRowMapper<>(Maquina.class), idMaquina);
+    }
+
+    public void inserirDadosMaquina(){
+       con.update("UPDATE maquina SET sistema_operacional = ?, arquitetura = ?, fabricante = ? WHERE idMaquina = ?;",
+               sistema.getSistemaOperacional(), sistema.getArquitetura(), sistema.getFabricante(), maquina.getIdMaquina());
     }
 
     public void definirComponente(String nome){
@@ -98,7 +111,7 @@ public class Query {
 
     public void buscarHistoricoUsuarios(){
         historicoUsuarios = con.query(
-                    "SELECT usuario.email as email, usuario.nome as nome, data_hora FROM \n" +
+                    "SELECT usuario.email as email, usuario.nome as nome, data_hora as dataHora FROM \n" +
                         "\thistorico_usuarios as historico INNER JOIN usuario ON usuario.idUsuario = historico.fk_usuario \n" +
                         "    WHERE historico.fk_maquina = ? ORDER BY data_hora DESC;",
                 new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());
