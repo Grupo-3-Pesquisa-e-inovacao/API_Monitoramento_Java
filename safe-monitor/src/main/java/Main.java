@@ -204,6 +204,9 @@ public class Main {
                         }
                         break;
 
+                    case 5:
+                        System.out.println(query.getMaquina());
+
                 }
 
             }while (opcao != 7);

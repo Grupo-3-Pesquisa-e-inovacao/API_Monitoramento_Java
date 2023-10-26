@@ -91,7 +91,7 @@ public class Maquina {
                 Marca: %s
                 Sistema Operacional: %s
                 Fabricante: %s
-                Arquitetura: %d
+                Arquitetura: %d bits
                 """,nome,idMaquina, modelo, numeroSerie, marca, sistemaOperacional, fabricante, arquitetura);
     }
 }
