@@ -23,6 +23,7 @@ public class Main {
         Janela janelas = new Janela();
         Rede rede = new Rede();
         Login login = new Login();
+        Sistema sistema = new Sistema();
         HistoricoUsuarios historicoUsuarios = new HistoricoUsuarios();
 
         Integer idMaquina = 1;
@@ -113,7 +114,6 @@ public class Main {
 
         timer.schedule(monitoramentoTempoReal, 3000, 5000);
 
-
         if (login.verificarPermissoesUsuario()){
             System.out.println("Bem - vindo(a) administrador!");
 
@@ -124,7 +124,8 @@ public class Main {
                     *--------------------------*
                     | 1 - Histórico usuários   |
                     | 2 - Log Componentes      |
-                    | 3 - Sair                 |
+                    | 3 - Sistema Operacional  |
+                    | 4 - Sair                 |
                     *--------------------------*"""
             );
 
@@ -160,10 +161,13 @@ public class Main {
                         System.out.println(query.getLogCaptura());
                         break;
 
+                    case 3:
+                        System.out.println(sistema);
+                        break;
                 }
 
-            }while (opcao != 3);
-
+            }while (opcao != 4);
+            System.out.println("Operação Finalizada");
 
         }else{
             System.out.println("ESTÁ MÁQUINA ESTÁ SENDO MONITORADA...");
