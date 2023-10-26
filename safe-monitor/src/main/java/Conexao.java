@@ -9,7 +9,7 @@ public class Conexao {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://34.231.94.175:3306/safe_monitor");
-        dataSource.setUsername("SafeMonitor ");
+        dataSource.setUsername("SafeMonitor");
         dataSource.setPassword("Sptech123456");
 
         conexaoDoBanco = new JdbcTemplate(dataSource);
