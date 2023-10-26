@@ -23,7 +23,7 @@ public class Main {
         Janela janelas = new Janela();
         Rede rede = new Rede();
         Login login = new Login();
-        HistoricoUsuarios historicoUsuarios = new HistoricoUsuarios();
+        Dispositivo dispositivo = new Dispositivo();
 
         Integer idMaquina = 1;
 
@@ -206,10 +206,18 @@ public class Main {
 
                     case 5:
                         System.out.println(query.getMaquina());
+                        break;
 
+                    case 6:
+                        dispositivo.cadastrarDispositivos();
+                        break;
+
+                    case 7:
+                        System.exit(0);
+                        break;
                 }
 
-            }while (opcao != 7);
+            }while (true);
 
 
         }else{
