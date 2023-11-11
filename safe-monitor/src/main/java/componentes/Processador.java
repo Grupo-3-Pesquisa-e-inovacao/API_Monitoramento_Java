@@ -3,17 +3,12 @@ package componentes;
 import com.github.britooo.looca.api.core.Looca;
 
 public class Processador {
-
     private Looca looca;
-
     private  Double uso;
-
     private Double frequecia;
-
     private String nome;
     private String arquitetura;
     private Double pacotesFisicos;
-
 
     public Processador() {
         this.looca = new Looca();

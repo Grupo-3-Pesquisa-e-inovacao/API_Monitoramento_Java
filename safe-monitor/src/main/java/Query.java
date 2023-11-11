@@ -9,7 +9,6 @@ public class Query {
     private Conexao conexao;
     private JdbcTemplate con;
     private Maquina maquina;
-    private Componente componente;
     private CapturaDados camposCaptura;
     private TipoDados tipoDados;
     private List<Usuario> usuarios;
@@ -23,7 +22,6 @@ public class Query {
         this.conexao = new Conexao();
         this.con = conexao.getConexaoDoBanco();
         this.maquina = new Maquina();
-        this.componente = new Componente();
         this.camposCaptura = new CapturaDados();
         this.logCaptura = new ArrayList<>();
         this.usuarios = new ArrayList<>();
@@ -38,8 +36,19 @@ public class Query {
     }
 
     public void definirComponente(String nome){
-        componente = con.queryForObject("SELECT * FROM componente WHERE nome = ?",
+        componentes = con.query("SELECT idComponente, c.nome AS 'nome'" +
+                        "FROM componente AS c INNER JOIN tipo_componente AS t ON c.idComponente = t.fk_Componente" +
+                        "INNER JOIN maquina AS m ON t.fk_Maquina = m.idMaquina" +
+                        "WHERE idMaquina = 1;",
                 new BeanPropertyRowMapper<>(Componente.class),nome);
+    }
+
+    public void definirComponente(){
+        componentes = con.query("SELECT idComponente, c.nome AS nome" +
+                        "FROM componente AS c INNER JOIN tipo_componente AS t ON c.idComponente = t.fk_Componente" +
+                        "INNER JOIN maquina AS m ON t.fk_Maquina = m.idMaquina" +
+                        "WHERE idMaquina = ?",
+                new BeanPropertyRowMapper<>(Componente.class), 1);
     }
 
     public void definirTipoDados(String nome){
@@ -54,13 +63,13 @@ public class Query {
 
     public void inserirDadosCaptura(Double valor){
         con.update("INSERT INTO captura_dados (`valor_monitorado`, `fk_tiposDados`, `fk_maquina`, fk_componente)" +
-                "VALUES (?, ?, ?, ?);", valor, tipoDados.getIdTipoDados(), maquina.getIdMaquina(), componente.getIdComponente());
+                "VALUES (?, ?, ?, ?);", valor, tipoDados.getIdTipoDados(), maquina.getIdMaquina(), 1);
     }
 
     public void inserirDadosCaptura(Integer valor){
         con.update("INSERT INTO captura_dados (`valor_monitorado`, `fk_tiposDados`, `fk_maquina`, fk_componente)" +
                 "VALUES (?, ?, ?, ?);",
-                valor, tipoDados.getIdTipoDados(), maquina.getIdMaquina(), componente.getIdComponente());
+                valor, tipoDados.getIdTipoDados(), maquina.getIdMaquina(), 1);
     }
 
     public void inserirDadosProcesso(Integer pid, String nome, Double usoCpu, Double bytes){
@@ -150,15 +159,6 @@ public class Query {
 
     public void setMaquina(Maquina maquina) {
         this.maquina = maquina;
-    }
-
-
-    public Componente getComponente() {
-        return componente;
-    }
-
-    public void setComponente(Componente componente) {
-        this.componente = componente;
     }
 
     public List<HistoricoUsuarios> getHistoricoUsuarios() {

@@ -1,11 +1,18 @@
 package entidades;
 
-public class Componente {
+import com.github.britooo.looca.api.core.Looca;
+
+public abstract class Componente {
 
     private Integer idComponente;
     private String nome;
+    protected Looca looca;
 
-    public Componente() {}
+    public Componente(Integer idComponente, String nome) {
+        this.idComponente = idComponente;
+        this.nome = nome;
+        this.looca = new Looca();
+    }
 
     public Integer getIdComponente() {
         return idComponente;
