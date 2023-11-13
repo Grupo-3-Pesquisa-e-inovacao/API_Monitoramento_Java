@@ -13,6 +13,7 @@ public class Main {
 
 
         Scanner leitor = new Scanner(System.in);
+        Scanner leitorNum = new Scanner(System.in);
         Integer opcao = null;
 
         Query query = new Query();
@@ -36,10 +37,10 @@ public class Main {
 
         while(!respostalogin) {
             System.out.println("Digite seu email: ");
-            email = leitor.nextLine();
+            email = leitor.next();
 
             System.out.println("Digite sua senha: ");
-            senha = leitor.nextLine();
+            senha = leitor.next();
 
             System.out.println(login.login(email, senha));
 
@@ -136,7 +137,7 @@ public class Main {
 
             do{
                 System.out.println(menuAdmin);
-                opcao = leitor.nextInt();
+                opcao = leitorNum.nextInt();
 
                 switch(opcao){
 
