@@ -3,15 +3,18 @@ import entidades.CapturaDados;
 import entidades.Componente;
 import entidades.HistoricoUsuarios;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Scanner leitor = new Scanner(System.in);
         Scanner leitorNum = new Scanner(System.in);
         Integer opcao = null;
@@ -37,21 +40,12 @@ public class Main {
 
         while(!respostalogin) {
 
-            if(leitor.hasNextLine()){
                 System.out.println("Digite seu email: ");
-                email = leitor.nextLine();
-            }else {
-                System.out.println("Não tem linha");
-                System.exit(0);
-            }
+                email = reader.readLine();
 
-            if(leitor.hasNextLine()){
                 System.out.println("Digite sua senha: ");
-                senha = leitor.nextLine();
-            }else {
-                System.out.println("Não tem linha");
-                System.exit(0);
-            }
+                senha = reader.readLine();
+
 
 
             System.out.println(login.login(email, senha));
