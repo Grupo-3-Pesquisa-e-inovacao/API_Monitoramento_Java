@@ -36,11 +36,23 @@ public class Main {
         Boolean respostalogin = false;
 
         while(!respostalogin) {
-            System.out.println("Digite seu email: ");
-            email = leitor.next();
 
-            System.out.println("Digite sua senha: ");
-            senha = leitor.next();
+            if(leitor.hasNextLine()){
+                System.out.println("Digite seu email: ");
+                email = leitor.nextLine();
+            }else {
+                System.out.println("Não tem linha");
+                System.exit(0);
+            }
+
+            if(leitor.hasNextLine()){
+                System.out.println("Digite sua senha: ");
+                senha = leitor.nextLine();
+            }else {
+                System.out.println("Não tem linha");
+                System.exit(0);
+            }
+
 
             System.out.println(login.login(email, senha));
 
