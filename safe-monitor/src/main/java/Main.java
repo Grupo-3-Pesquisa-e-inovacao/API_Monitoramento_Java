@@ -2,14 +2,20 @@ import com.github.britooo.looca.api.core.Looca;
 import componentes.*;
 import entidades.HistoricoUsuarios;
 import entidades.Maquina;
+import entidades.Usuario;
+import org.json.JSONObject;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException,InterruptedException{
 
 
+        JSONObject json = new JSONObject();
         Scanner leitor = new Scanner(System.in);
         Scanner leitorNum = new Scanner(System.in);
         Sistema sistema = new Sistema();
@@ -43,6 +49,18 @@ public class Main {
             respostalogin = monitoramento.procurarUsuario(email, senha);
 
         }while(!respostalogin);
+
+        // Mensagem do Slack de quem entrou
+        Usuario usuarioLogado = monitoramento.getUsuarioLogado();
+        String nomeUsuario = usuarioLogado.getNome();
+        LocalDateTime agora = LocalDateTime.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dataFormatada = agora.format(formato);
+
+        JSONObject mensagemLogin = new JSONObject();
+        mensagemLogin.put("text", nomeUsuario + " iniciou a aplicação de monitoramento da SafeMonitor em " + dataFormatada);
+        Slack.enviarMensagem(mensagemLogin);
+        // Fim da Mensagem do Slack de quem entrou
 
         monitoramento.definirIdEmpresa();
         rede.definirInformacoesRedeAtual(rede.definirRedeAtual());
@@ -204,7 +222,18 @@ public class Main {
                         System.out.println(query.getMaquina());
                         break;
 
-                    case 7:
+                    case 4:
+                        // Mensagem quando alguém está saindo
+                        System.out.println("Saindo da aplicação...");
+
+                        agora = LocalDateTime.now();
+                        dataFormatada = agora.format(formato);
+
+                        JSONObject mensagemDesligamento = new JSONObject();
+                        mensagemDesligamento.put("text", nomeUsuario + " está desligando a aplicação de monitoramento da SafeMonitor em " + dataFormatada);
+                        Slack.enviarMensagem(mensagemDesligamento);
+                        // Fim da Mensagem quando alguém está saindo
+
                         System.exit(0);
                         break;
                 }
