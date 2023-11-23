@@ -151,7 +151,7 @@ public class Main {
 
                 for (Janela j : query.getJanelas()) {
                     if (j.getMatar() != null) {
-                        monitoramento.fecharJanelaAtravesDoPid(j.getComando());
+                        monitoramento.fecharJanelaAtravesDoPid(j.getPid(), sistema.getSistemaOperacional());
                         query.alterarStatusJanelaFechada(j);
                     }
                 }

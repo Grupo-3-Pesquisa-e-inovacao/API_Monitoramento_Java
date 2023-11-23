@@ -102,11 +102,8 @@ public class Monitoramento {
                 j.definirTtiulo(i);
                 j.definirComando(i);
                 j.definirStatus(i);
+                janelasAbertas.add(j);
 
-                if(!j.getTitulo().equals("")){
-                    janelasAbertas.add(j);
-
-                }
 
             }
 
@@ -126,23 +123,25 @@ public class Monitoramento {
     }
 
 
-    public void fecharJanelaAtravesDoPid(String caminho){
+    public void fecharJanelaAtravesDoPid(Integer pid, String so){
+
 
         try {
             ProcessBuilder processBuilder = null;
             String os = System.getProperty("os.name").toLowerCase();
 
-            if (maquina.getSistemaOperacional().equals("Windows")) {
-                processBuilder = new ProcessBuilder("taskkill", "/F", "/IM", caminho);
+            if (so.equals("Windows")) {
+                processBuilder = new ProcessBuilder("taskkill", "/F", "/PID" + pid);
 
-            } else if (maquina.getIdMaquina().equals("MacOS") || maquina.getIdMaquina().equals("Linux") ) {
-                processBuilder = new ProcessBuilder("pkill", "-f", caminho);
+            } else if (so.equals("MacOS") || so.equals("Linux") ) {
+                processBuilder = new ProcessBuilder("kill " + pid);
             }
 
             Process process = processBuilder.start();
             process.waitFor();
 
-            System.out.println("O processo com caminho " + caminho + " foi encerrado.");
+            System.out.println("O processo com caminho " + pid + " foi encerrado.");
+
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
