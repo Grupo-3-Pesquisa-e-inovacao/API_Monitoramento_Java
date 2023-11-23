@@ -6,12 +6,13 @@ public class Usuario {
 
     private Integer idUsuario;
 
+    private Integer fkEmpresa;
+
     private String email;
 
     private String senha;
 
     private String nome;
-
 
     private Integer capturar;
     private Integer leitura;
@@ -91,5 +92,13 @@ public class Usuario {
 
     public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public Integer getFkEmpresa() {
+        return fkEmpresa;
+    }
+
+    public void setFkEmpresa(Integer fkEmpresa) {
+        this.fkEmpresa = fkEmpresa;
     }
 }

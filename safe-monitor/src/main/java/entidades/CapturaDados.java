@@ -11,14 +11,13 @@ public class CapturaDados {
     private Double valor_monitorado;
     private LocalDateTime dataHora;
     private DateTimeFormatter formatadorDtaHora;
-
     private String nome;
 
-
-
+    Query query;
     public CapturaDados() {
        /* this.dataHora = LocalDateTime.now();*/
         this.formatadorDtaHora = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");
+        this.query = new Query();
     }
 
     public Integer getIdCaptura() {

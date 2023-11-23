@@ -2,42 +2,33 @@ package componentes;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.Volume;
+import entidades.Componente;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class Disco {
-
-    private Looca looca;
-    private List<com.github.britooo.looca.api.group.discos.Disco> listDisco;
+public class Disco extends Componente {
     private List<Volume> listaVolume;
     private List<Long> listaVolumeTotal;
     private List<Long> listaVolumeDisponivel;
 
-    private Double volumeTotal;
-
     private Double volumeDisponivel;
-
-    private Double usoVolume;
 
     private List<Double> listaUsoVolume;
 
     private Integer quantidadeDeDisco;
-    private String nome;
-    private String modelo;
+
 
 
     public Disco() {
-        this.looca = new Looca();
-        this.listDisco = looca.getGrupoDeDiscos().getDiscos();
         this.listaVolume = looca.getGrupoDeDiscos().getVolumes();
-        this.volumeTotal = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal().doubleValue();
         this.volumeDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel().doubleValue();
         this.quantidadeDeDisco = looca.getGrupoDeDiscos().getQuantidadeDeDiscos();
         this.listaVolumeTotal = new ArrayList<>();
         this.listaVolumeDisponivel = new ArrayList<>();
         this.listaUsoVolume = new ArrayList<>();
-        this.usoVolume = volumeTotal - volumeDisponivel;
+
     }
 
     public Boolean verificarQuantidadeDisco(){
@@ -80,36 +71,29 @@ public class Disco {
         }
     }
 
-    public void nomeDiscoPorPosicao(Integer posicaoDisco){
-        nome = looca.getGrupoDeDiscos().getDiscos().get(posicaoDisco).getNome();
+    @Override
+    public void definirUso() {
+       uso = total - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel().doubleValue();
     }
 
-    public void modeloDiscoPorPosicao(Integer posicaoDisco){
-        modelo = looca.getGrupoDeDiscos().getDiscos().get(posicaoDisco).getModelo();
+    @Override
+    public void definirTotal() {
+        total = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal().doubleValue();
     }
 
-    public List<com.github.britooo.looca.api.group.discos.Disco> getListDisco() {
-        return listDisco;
+    @Override
+    public void definirNome() {
+        nome = looca.getGrupoDeDiscos().getDiscos().get(0).getNome();
     }
 
-    public Double getUsoVolume() {
-        return usoVolume;
+    @Override
+    public void definirModelo() {
+        modelo = looca.getGrupoDeDiscos().getDiscos().get(0).getModelo();
     }
 
-    public void setUsoVolume(Double usoVolume) {
-        this.usoVolume = usoVolume;
-    }
-
-    public List<Double> getListaUsoVolume() {
-        return listaUsoVolume;
-    }
-
-    public void setListaUsoVolume(List<Double> listaUsoVolume) {
-        this.listaUsoVolume = listaUsoVolume;
-    }
-
-    public void setListDisco(List<com.github.britooo.looca.api.group.discos.Disco> listDisco) {
-        this.listDisco = listDisco;
+    @Override
+    public Double converterParaGigas(Double valor) {
+        return valor / 1000000000;
     }
 
     public List<Volume> getListaVolume() {
@@ -136,14 +120,6 @@ public class Disco {
         this.listaVolumeDisponivel = listaVolumeDisponivel;
     }
 
-    public Double getVolumeTotal() {
-        return volumeTotal;
-    }
-
-    public void setVolumeTotal(Double volumeTotal) {
-        this.volumeTotal = volumeTotal;
-    }
-
     public Double getVolumeDisponivel() {
         return volumeDisponivel;
     }
@@ -152,43 +128,19 @@ public class Disco {
         this.volumeDisponivel = volumeDisponivel;
     }
 
+    public List<Double> getListaUsoVolume() {
+        return listaUsoVolume;
+    }
+
+    public void setListaUsoVolume(List<Double> listaUsoVolume) {
+        this.listaUsoVolume = listaUsoVolume;
+    }
+
     public Integer getQuantidadeDeDisco() {
         return quantidadeDeDisco;
     }
 
     public void setQuantidadeDeDisco(Integer quantidadeDeDisco) {
         this.quantidadeDeDisco = quantidadeDeDisco;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    @Override
-    public String toString() {
-        return "DiscoComponente{" +
-                "looca=" + looca +
-                ", listDisco=" + listDisco +
-                ", listaVolume=" + listaVolume +
-                ", listaVolumeTotal=" + listaVolumeTotal +
-                ", listaVolumeDisponivel=" + listaVolumeDisponivel +
-                ", volumeTotal=" + volumeTotal +
-                ", volumeDisponivel=" + volumeDisponivel +
-                ", quantidadeDeDisco=" + quantidadeDeDisco +
-                ", nome='" + nome + '\'' +
-                ", modelo='" + modelo + '\'' +
-                '}';
     }
 }

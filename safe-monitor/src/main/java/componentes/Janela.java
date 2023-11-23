@@ -8,99 +8,84 @@ import java.util.List;
 
 public class Janela {
 
-    private Looca looca = new Looca();
+    private Looca looca;
+    private Integer pid;
+    private String titulo;
 
-    private List<com.github.britooo.looca.api.group.janelas.Janela> janelas;
+    private String comando;
 
-    private List<Integer> pids;
+    private String stt;
 
-    private List<String> titulos;
-
-    private List<String> comandos;
-
+    private Integer matar;
 
     public Janela() {
         this.looca = new Looca();
-        this.janelas = looca.getGrupoDeJanelas().getJanelasVisiveis();
-        this.pids = new ArrayList<>();
-        this.titulos = new ArrayList<>();
-        this.comandos = new ArrayList<>();
     }
 
-
-    public void popularListaPid() {
-        for (int i = 0; i < janelas.size(); i++) {
-            pids.add(janelas.get(i).getPid().intValue());
-        }
+    public void definirPID(Integer index){
+        pid = looca.getGrupoDeJanelas().getJanelas().get(index).getPid().intValue();
+    }
+    public void definirTtiulo(Integer index){
+        titulo = looca.getGrupoDeJanelas().getJanelas().get(index).getTitulo();
+    }
+    public void definirComando(Integer index){
+        comando = looca.getGrupoDeJanelas().getJanelas().get(index).getComando();
     }
 
-    public void popularListaCaminho() {
-        for (int i = 0; i < janelas.size(); i++) {
-            comandos.add(janelas.get(i).getComando());
-        }
-    }
-    public void popularListaTitulo() {
-        for (int i = 0; i < janelas.size(); i++) {
-            if (!janelas.get(i).getTitulo().equals("")) {
-                titulos.add(janelas.get(i).getTitulo());
-            }
-
-        }
+    public void definirStatus(Integer index){
+        stt = "Aberta";
     }
 
-    public void fecharJanelaAtravesDoPid(Integer pid, Boolean fecharJanela){
-
-        if (fecharJanela) {
-            try {
-                Process processo = Runtime.getRuntime().exec("taskkill /F /PID " + pid);
-                processo.waitFor();
-                System.out.println("O processo com PID " + pid + " foi encerrado.");
-
-            } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
+    public Integer getPid() {
+        return pid;
     }
 
-    public List<com.github.britooo.looca.api.group.janelas.Janela> getJanelas() {
-        return janelas;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
-    public void setJanelas(List<com.github.britooo.looca.api.group.janelas.Janela> janelas) {
-        this.janelas = janelas;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public List<Integer> getPids() {
-        return pids;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public void setPids(List<Integer> pids) {
-        this.pids = pids;
+    public String getComando() {
+        return comando;
     }
 
-    public List<String> getTitulos() {
-        return titulos;
+    public void setComando(String comando) {
+        this.comando = comando;
     }
 
-    public void setTitulos(List<String> titulos) {
-        this.titulos = titulos;
+    public String getStt() {
+        return stt;
     }
 
-    public List<String> getComandos() {
-        return comandos;
+    public void setStt(String stt) {
+        this.stt = stt;
     }
 
-    public void setComandos(List<String> comandos) {
-        this.comandos = comandos;
+    public Integer getMatar() {
+        return matar;
+    }
+
+    public void setMatar(Integer matar) {
+        this.matar = matar;
     }
 
     @Override
     public String toString() {
-        return "JanelaComponente{" +
-                "pids=" + pids +
-                ", titulos=" + titulos +
-                ", comandos=" + comandos +
-                '}';
+        return String.format("""
+               PID: %d
+               Titulo: %s
+               Comando: %s
+               Statu: %s
+               Matar: %s
+               """, pid,titulo, comando, stt, matar);
+
+
     }
 }

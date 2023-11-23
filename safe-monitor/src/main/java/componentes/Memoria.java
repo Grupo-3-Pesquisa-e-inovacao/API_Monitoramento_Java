@@ -1,39 +1,31 @@
 package componentes;
 
 import com.github.britooo.looca.api.core.Looca;
+import entidades.Componente;
 
-public class Memoria {
+public class Memoria extends Componente {
 
-    private Looca looca;
-    private Double uso;
-    private Double total;
-    private Double disponivel;
-
-    public Memoria() {
-        this.looca = new Looca();
-        this.uso = looca.getMemoria().getEmUso().doubleValue();
-        this.total = looca.getMemoria().getTotal().doubleValue();
-        this.disponivel =looca.getMemoria().getDisponivel().doubleValue();
-    }
-
-    public Double getUso() {
-        return uso;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public Double getDisponivel() {
-        return disponivel;
+    public Double converterParaGigas(Double valor) {
+        return valor / 1000000000;
     }
 
     @Override
-    public String toString() {
-        return "Memoria{" +
-                "uso=" + uso +
-                ", total=" + total +
-                ", disponivel=" + disponivel +
-                '}';
+    public void definirModelo() {
+        modelo = null;
+    }
+
+    @Override
+    public void definirNome() {
+        nome = null;
+    }
+
+    @Override
+    public void definirUso() {
+        uso = looca.getMemoria().getEmUso().doubleValue();
+    }
+
+    @Override
+    public void definirTotal() {
+        total = looca.getMemoria().getTotal().doubleValue();
     }
 }

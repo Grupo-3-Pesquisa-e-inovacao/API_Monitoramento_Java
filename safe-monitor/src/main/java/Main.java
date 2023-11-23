@@ -1,12 +1,10 @@
+import com.github.britooo.looca.api.core.Looca;
 import componentes.*;
-import entidades.CapturaDados;
-import entidades.Componente;
 import entidades.HistoricoUsuarios;
+import entidades.Maquina;
 
-import java.util.List;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,19 +12,17 @@ public class Main {
 
         Scanner leitor = new Scanner(System.in);
         Scanner leitorNum = new Scanner(System.in);
+        Sistema sistema = new Sistema();
         Integer opcao = null;
-
         Query query = new Query();
         Processador cpu = new Processador();
-        Memoria memoria = new Memoria();
+        Memoria ram = new Memoria();
         Disco disco = new Disco();
-        Processo processos = new Processo();
-        Janela janelas = new Janela();
+        Janela janela = new Janela();
         Rede rede = new Rede();
-        Login login = new Login();
+        Monitoramento monitoramento = new Monitoramento();
         Dispositivo dispositivo = new Dispositivo();
 
-        Integer idMaquina = 1;
 
         System.out.println("Seja bem-vindo(a)!");
 
@@ -35,34 +31,71 @@ public class Main {
 
         Boolean respostalogin = false;
 
-        while(!respostalogin) {
+        do{
+            System.out.println("Digite seu email: ");
+            email = leitor.nextLine();
 
-            if(leitor.hasNextLine()){
-                System.out.println("Digite seu email: ");
-                email = leitor.nextLine();
-            }else {
-                System.out.println("Não tem linha");
+            System.out.println("Digite sua senha: ");
+            senha = leitor.nextLine();
+
+            System.out.println(monitoramento.login(email, senha));
+
+            respostalogin = monitoramento.procurarUsuario(email, senha);
+
+        }while(!respostalogin);
+
+        monitoramento.definirIdEmpresa();
+        rede.definirInformacoesRedeAtual(rede.definirRedeAtual());
+
+
+
+        query.conectarMaquina(rede.getHostName());
+
+
+        while(query.getMaquina() == null){
+            Integer idSala = null;
+
+            if (monitoramento.verificarPermissoesUsuario()){
+                System.out.println("Ops!Essa máquina não está cadastrada!");
+                System.out.println("Deseja cadastrar? S ou N");
+                String resposta = leitor.nextLine();
+
+                if(resposta.equalsIgnoreCase("S")){
+                    System.out.println("Selecione um número e defina uma sala para essa máquina: ");
+                    query.buscarSalas(monitoramento.getIdEmpresa());
+                    System.out.println(query.getSalas());
+                    idSala = leitorNum.nextInt();
+
+                    Maquina maquina = new Maquina();
+                    maquina.definirInfoMaquina();
+                    maquina.definirInfoMaquinaHardware(
+                            sistema.getSistemaOperacional(),
+                            sistema.getFabricante(),
+                            sistema.getArquitetura(),
+                            rede.getEndereco_ipv4().get(0),
+                            rede.getEnderecoMac(),
+                            rede.getHostName()
+                    );
+
+                    monitoramento.definirInformacoesComponentes();
+                    query.inserirDaodosMaquina(maquina, monitoramento.getIdEmpresa(), idSala);
+                    query.inserirComponentes(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
+                    query.conectarMaquina(rede.getHostName());
+
+                }else{
+                    System.out.println("Ok, até mais!");
+                    System.exit(0);
+                }
+
+            }else{
+                System.out.println("Ops!Essa máquina não está cadastrada!");
+                System.out.println("Por favor, reporte ao responsável pelo monitoramento dela!");
                 System.exit(0);
             }
-
-            if(leitor.hasNextLine()){
-                System.out.println("Digite sua senha: ");
-                senha = leitor.nextLine();
-
-            }else {
-                System.out.println("Não tem linha");
-                System.exit(0);
-            }
-
-
-            System.out.println(login.login(email, senha));
-
-            respostalogin = login.procurarUsuario(email, senha);
         }
 
-        query.conectarMaquina(idMaquina);
-        query.inserirDadosMaquina();
-        query.inserirDadosHistoricoUsuario(login.getUsuarioLogado().getIdUsuario());
+
+        query.inserirDadosHistoricoUsuario(monitoramento.getUsuarioLogado().getIdUsuario());
 
 
         Timer timer = new Timer();
@@ -71,65 +104,67 @@ public class Main {
             public void run() {
 
                 //USO CPU
-                query.definirComponente("Processador");
-                query.definirTipoDados("Uso CPU");
+                query.definirTipoComponente("Processador");
+                query.definirComponente();
+                query.definirTipoDados("Uso");
+                cpu.definirUso();
                 query.inserirDadosCaptura(cpu.getUso());
 
-                //REDE
-                query.definirComponente("Rede");
-                rede.definirInformacoesRedeAtual(rede.definirRedeAtual());
-                query.definirTipoDados("Pacotes Enviados");
-                query.inserirDadosCaptura(rede.getPacotesEnviados().intValue() / 1000);
-                query.definirTipoDados("Pacotes Recibidos");
-                query.inserirDadosCaptura(rede.getPacotesRecebidos().intValue() / 100);
 
-                //USO MEMORIA
-                query.definirComponente("Ram");
-                query.definirTipoDados("Uso Ram");
-                query.inserirDadosCaptura(query.converterParaGigas(memoria.getUso()));
+              //USO MEMORIA
+                query.definirTipoComponente("Ram");
+                query.definirComponente();
+                query.definirTipoDados("Uso");
+                ram.definirUso();
+                query.inserirDadosCaptura(ram.converterParaGigas(ram.getUso()));
+
 
                 //USO DISCO
-                query.definirComponente("Disco");
-                query.definirTipoDados("Uso disco");
+                query.definirTipoComponente("Disco");
+                query.definirComponente();
+                query.definirTipoDados("Uso");
+                disco.definirTotal();
+                disco.definirUso();
+                query.inserirDadosCaptura(disco.converterParaGigas(disco.getUso()));
 
-                if(disco.verificarQuantidadeDisco()){
-                    for (int i = 0; i < disco.getListDisco().size(); i++) {
-                        query.inserirDadosCaptura(query.converterParaGigas(disco.getListaUsoVolume().get(i)));
-                    }
-                }else{
-                    query.inserirDadosCaptura(query.converterParaGigas(disco.getUsoVolume()));
-                }
 
                 //JANELA
-                janelas.popularListaTitulo();
-                janelas.popularListaCaminho();
-                janelas.popularListaPid();
-                for (int i = 0; i < janelas.getTitulos().size(); i++) {
-                    query.inserirDadosJanela(janelas.getPids().get(i),
-                            janelas.getTitulos().get(i),
-                            janelas.getComandos().get(i));
+                monitoramento.popularListaJanela();
+                query.buscarJanelas();
+
+                for (int i = 0; i < monitoramento.getJanelasAbertas().size(); i++) {
+
+                    boolean encontrado = false;
+                    for (int j = 0; j < query.getJanelas().size(); j++) {
+
+                        if (monitoramento.getJanelasAbertas().get(i).getComando().equals(query.getJanelas().get(j).getComando())) {
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (!encontrado) {
+                        query.inserirDadosJanela(monitoramento.getJanelasAbertas().get(i));
+                    }
                 }
 
-                //PROCESSOS
-                processos.popularListaNome();
-                processos.popularListaUsoBytesProcesso();
-                processos.popularListaUsoCpuProcesso();
-                processos.popularListaPid();
-                for (int i = 0; i < processos.getPids().size(); i++) {
-                    query.inserirDadosProcesso(
-                            processos.getPids().get(i),
-                            processos.getNome().get(i),
-                            processos.getUsoCPU().get(i),
-                            query.converterParaGigas(processos.getBytesUtilizados().get(i)));
-
+                for (Janela j : query.getJanelas()) {
+                    if (j.getMatar() != null) {
+                        monitoramento.fecharJanelaAtravesDoPid(j.getComando());
+                        query.alterarStatusJanelaFechada(j);
+                    }
                 }
+
+                System.out.println("SUA MÁQUINA ESTÁ SENDO MONITORADA");
+
             }
         };
 
-        timer.schedule(monitoramentoTempoReal, 3000, 5000);
+        timer.schedule(monitoramentoTempoReal, 3000, 1000);
 
 
-        if (login.verificarPermissoesUsuario()){
+
+        if (monitoramento.verificarPermissoesUsuario()){
             System.out.println("Bem - vindo(a) administrador!");
 
             String menuAdmin = String.format(
@@ -138,12 +173,9 @@ public class Main {
                     |          Menu             |
                     *---------------------------*
                     | 1 - Histórico usuários    |
-                    | 2 - Registros componentes |
-                    | 3 - Processos             |
-                    | 4 - Janelas               |
-                    | 5 - Infomações da máquina |
-                    | 6 - Dispositivos          |
-                    | 7 - Sair                  |
+                    | 2 - Janelas               |
+                    | 3 - Infomações da máquina |
+                    | 4 - Sair                  |
                     *---------------------------*"""
             );
 
@@ -165,65 +197,10 @@ public class Main {
                         break;
 
                     case 2:
-                        Integer idComponente = null;
-                        query.buscarComponentes();
-
-                        System.out.println(
-                                """
-                                 *--------------------------------------------*
-                                 |          Selecione um componente           |
-                                 *--------------------------------------------* 
-                                 """
-
-                        );
-
-                        List<Componente> componentes = query.getComponentes();
-                        for (Componente cp: componentes) {
-                            System.out.println(cp);
-                        }
-                        idComponente = leitor.nextInt();
-
-
-                        query.buscarLogCaptura(idComponente);
-
-                        List<CapturaDados> capturas = query.getLogCaptura();
-                        for (CapturaDados c : capturas) {
-                            System.out.println(c);
-                        }
-                        break;
+                        System.out.println(monitoramento.getJanelasAbertas());
 
                     case 3:
-                        for (int i = 0; i < processos.getNome().size(); i++) {
-
-                            if(processos.getUsoCPU().get(i) > 0.05){
-                                System.out.println(String.format("""
-                                    PID: %d
-                                    Nome: %s
-                                    Uso CPU: %.2f
-                                    """, processos.getPids().get(i), processos.getNome().get(i), processos.getUsoCPU().get(i)));
-                            }
-                        }
-
-                        break;
-
-                    case 4:
-                        for (int i = 0; i < janelas.getTitulos().size(); i++) {
-
-                            System.out.println(String.format("""
-                                    PID: %d
-                                    Título: %s
-                                    Caminho: %s
-                                    """, janelas.getPids().get(i), janelas.getTitulos().get(i), janelas.getComandos().get(i)));
-
-                        }
-                        break;
-
-                    case 5:
                         System.out.println(query.getMaquina());
-                        break;
-
-                    case 6:
-                        dispositivo.cadastrarDispositivos();
                         break;
 
                     case 7:

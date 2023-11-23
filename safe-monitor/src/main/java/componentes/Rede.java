@@ -8,14 +8,11 @@ import java.util.List;
 public class Rede {
 
     private Looca looca;
-
     private List<RedeInterface> redes;
-    private String nome;
     private List<String> endereco_ipv4;
-    private List<String> endereco_ipv6;
     private String enderecoMac;
-    private Double pacotesRecebidos;
-    private Double pacotesEnviados;
+
+    private String hostName;
 
 
     public Rede() {
@@ -38,12 +35,10 @@ public class Rede {
 
 
     public void definirInformacoesRedeAtual(Integer redeAtual){
-        nome = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(redeAtual).getNome();
         endereco_ipv4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(redeAtual).getEnderecoIpv4();
-        endereco_ipv6 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(redeAtual).getEnderecoIpv6();
         enderecoMac = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(redeAtual).getEnderecoMac();
-        pacotesRecebidos = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(2).getPacotesRecebidos().doubleValue();
-        pacotesEnviados = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(redeAtual).getPacotesEnviados().doubleValue();
+        hostName = looca.getRede().getParametros().getHostName();
+
     }
 
     public List<RedeInterface> getRedes() {
@@ -54,28 +49,12 @@ public class Rede {
         this.redes = redes;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public List<String> getEndereco_ipv4() {
         return endereco_ipv4;
     }
 
     public void setEndereco_ipv4(List<String> endereco_ipv4) {
         this.endereco_ipv4 = endereco_ipv4;
-    }
-
-    public List<String> getEndereco_ipv6() {
-        return endereco_ipv6;
-    }
-
-    public void setEndereco_ipv6(List<String> endereco_ipv6) {
-        this.endereco_ipv6 = endereco_ipv6;
     }
 
     public String getEnderecoMac() {
@@ -86,31 +65,11 @@ public class Rede {
         this.enderecoMac = enderecoMac;
     }
 
-    public Double getPacotesRecebidos() {
-        return pacotesRecebidos;
+    public String getHostName() {
+        return hostName;
     }
 
-    public void setPacotesRecebidos(Double pacotesRecebidos) {
-        this.pacotesRecebidos = pacotesRecebidos;
-    }
-
-    public Double getPacotesEnviados() {
-        return pacotesEnviados;
-    }
-
-    public void setPacotesEnviados(Double pacotesEnviados) {
-        this.pacotesEnviados = pacotesEnviados;
-    }
-
-    @Override
-    public String toString() {
-        return "Rede{" +
-                ", nome='" + nome + '\'' +
-                ", endereco_ipv4=" + endereco_ipv4 +
-                ", endereco_ipv6=" + endereco_ipv6 +
-                ", enderecoMac='" + enderecoMac + '\'' +
-                ", pacotesRecebidos=" + pacotesRecebidos +
-                ", pacotesEnviados=" + pacotesEnviados +
-                '}';
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
     }
 }

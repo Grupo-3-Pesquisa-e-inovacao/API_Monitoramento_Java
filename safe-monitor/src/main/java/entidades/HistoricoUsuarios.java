@@ -3,7 +3,7 @@ package entidades;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class HistoricoUsuarios {
+ public class HistoricoUsuarios {
 
     private Integer idHistorico;
     private String email;
