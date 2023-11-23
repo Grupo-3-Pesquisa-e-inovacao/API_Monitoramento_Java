@@ -79,8 +79,9 @@ public class Main {
 
                     monitoramento.definirInformacoesComponentes();
                     query.inserirDaodosMaquina(maquina, monitoramento.getIdEmpresa(), idSala);
-                    query.inserirComponentes(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
                     query.conectarMaquina(rede.getHostName());
+                    query.inserirComponentes(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
+
 
                 }else{
                     System.out.println("Ok, até mais!");

@@ -34,6 +34,9 @@ public class Monitoramento {
         this.looca = new Looca();
         this.janelasAbertas = new ArrayList<>();
         this.maquina = new Maquina();
+        this.disco = new Disco();
+        this.ram = new Memoria();
+        this.cpu = new Processador();
     }
 
     public Boolean procurarUsuario(String email, String senha){
@@ -100,7 +103,10 @@ public class Monitoramento {
                 j.definirComando(i);
                 j.definirStatus(i);
 
-                janelasAbertas.add(j);
+                if(!j.getTitulo().equals("")){
+                    janelasAbertas.add(j);
+
+                }
 
             }
 

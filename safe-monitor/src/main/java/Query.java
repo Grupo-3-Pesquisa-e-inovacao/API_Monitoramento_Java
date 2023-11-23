@@ -94,10 +94,10 @@ public class Query {
                 "VALUES (?, ?, ?, 1, ?)", cpu.getNome(), cpu.getModelo(), cpu.getTotal(), maquina.getIdMaquina());
 
         con.update(" INSERT INTO componente (total, `fk_tipoComponente`, `fk_maquina`) " +
-                "VALUES (?, 2, ?)", ram.getTotal(), maquina.getIdMaquina());
+                "VALUES (?, 2, ?)", ram.converterParaGigas(ram.getTotal()), maquina.getIdMaquina());
 
         con.update(" INSERT INTO componente (nome, modelo, total, `fk_tipoComponente`, `fk_maquina`) " +
-                "VALUES (?, ?, ?, 3, ?)", disco.getNome(), disco.getModelo(), disco.getTotal(), maquina.getIdMaquina());
+                "VALUES (?, ?, ?, 3, ?)", disco.getNome(), disco.getModelo(), disco.converterParaGigas(disco.getTotal()), maquina.getIdMaquina());
 
        /* conNuvem.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
                 "VALUES (?, ?, ?, 1, ?)", cpu.getNome(), cpu.getModelo(), cpu.getTotal(), maquina.getIdMaquina());
