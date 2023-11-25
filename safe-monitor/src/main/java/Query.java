@@ -52,7 +52,6 @@ public class Query {
                     new BeanPropertyRowMapper<>(Maquina.class), hostname);*/
 
         } catch (EmptyResultDataAccessException e) {
-            // A EmptyResultDataAccessException será lançada se a consulta não retornar resultados
             System.out.println("Nenhum resultado encontrado para o hostname: " + hostname);
         }
     }
@@ -90,13 +89,13 @@ public class Query {
     }
 
     public void inserirComponentes(Processador cpu, Memoria ram, Disco disco){
-        con.update(" INSERT INTO componente (nome, modelo, total, `fk_tipoComponente`, `fk_maquina`) " +
+        con.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
                 "VALUES (?, ?, ?, 1, ?)", cpu.getNome(), cpu.getModelo(), cpu.getTotal(), maquina.getIdMaquina());
 
-        con.update(" INSERT INTO componente (total, `fk_tipoComponente`, `fk_maquina`) " +
+        con.update(" INSERT INTO componente (total, fk_tipoComponente, fk_maquina) " +
                 "VALUES (?, 2, ?)", ram.converterParaGigas(ram.getTotal()), maquina.getIdMaquina());
 
-        con.update(" INSERT INTO componente (nome, modelo, total, `fk_tipoComponente`, `fk_maquina`) " +
+        con.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
                 "VALUES (?, ?, ?, 3, ?)", disco.getNome(), disco.getModelo(), disco.converterParaGigas(disco.getTotal()), maquina.getIdMaquina());
 
        /* conNuvem.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
@@ -136,9 +135,15 @@ public class Query {
     }
 
 
+    public  void inserirTiposDeDados(String tipoDado, Integer tipoComponente){
+        con.update("INSERT INTO tipo_dados (nome, fk_componente, fk_maquina, fk_tipoComponente) VALUES (?, ?, ?, ?);",
+                tipoDado, idComponenteList.getId(), maquina.getIdMaquina(), tipoComponente);
+    }
+
+
     public void inserirDadosCaptura(Double valor){
-            con.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tiposDados, fk_maquina, fk_componente, fk_tipoComponente)" +
-                    "VALUES (now(), ?, ?, ?, ?,?);", valor, TipoDados.getId(), maquina.getIdMaquina(), 1, TipoComponente.getId());
+            con.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tipoDados, fk_maquina, fk_componente, fk_tipoComponente)" +
+                    "VALUES (now(), ?, ?, ?, ?,?);", valor, TipoDados.getId(), maquina.getIdMaquina(), idComponenteList.getId(), TipoComponente.getId());
 
       /*  conNuvem.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tiposDados, fk_maquina, fk_componente, fk_tipoComponente)" +
                 "VALUES (now(), ?, ?, ?, ?,?);", valor, TipoDados.getId(), maquina.getIdMaquina(), 1, TipoComponente.getId());*/

@@ -82,6 +82,18 @@ public class Main {
                     query.conectarMaquina(rede.getHostName());
                     query.inserirComponentes(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
 
+                    query.definirTipoComponente("Processador");
+                    query.definirComponente();
+                    query.inserirTiposDeDados("Uso CPU", 1);
+
+                    query.definirTipoComponente("Ram");
+                    query.definirComponente();
+                    query.inserirTiposDeDados("Uso RAM", 2);
+
+                    query.definirTipoComponente("Disco");
+                    query.definirComponente();
+                    query.inserirTiposDeDados("Uso DISCO", 3);
+
 
                 }else{
                     System.out.println("Ok, até mais!");
@@ -107,7 +119,7 @@ public class Main {
                 //USO CPU
                 query.definirTipoComponente("Processador");
                 query.definirComponente();
-                query.definirTipoDados("Uso");
+                query.definirTipoDados("Uso CPU");
                 cpu.definirUso();
                 query.inserirDadosCaptura(cpu.getUso());
 
@@ -115,7 +127,7 @@ public class Main {
               //USO MEMORIA
                 query.definirTipoComponente("Ram");
                 query.definirComponente();
-                query.definirTipoDados("Uso");
+                query.definirTipoDados("Uso RAM");
                 ram.definirUso();
                 query.inserirDadosCaptura(ram.converterParaGigas(ram.getUso()));
 
@@ -123,7 +135,7 @@ public class Main {
                 //USO DISCO
                 query.definirTipoComponente("Disco");
                 query.definirComponente();
-                query.definirTipoDados("Uso");
+                query.definirTipoDados("Uso DISCO");
                 disco.definirTotal();
                 disco.definirUso();
                 query.inserirDadosCaptura(disco.converterParaGigas(disco.getUso()));
@@ -133,6 +145,8 @@ public class Main {
                 monitoramento.popularListaJanela();
                 query.buscarJanelas();
 
+
+                //INSERIR JANELAS NO BANCO
                 for (int i = 0; i < monitoramento.getJanelasAbertas().size(); i++) {
 
                     boolean encontrado = false;
@@ -149,12 +163,7 @@ public class Main {
                     }
                 }
 
-                for (Janela j : query.getJanelas()) {
-                    if (j.getMatar() != null) {
-                        monitoramento.fecharJanelaAtravesDoPid(j.getPid(), sistema.getSistemaOperacional());
-                        query.alterarStatusJanelaFechada(j);
-                    }
-                }
+
 
                 System.out.println("SUA MÁQUINA ESTÁ SENDO MONITORADA");
 
