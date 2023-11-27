@@ -51,17 +51,13 @@ public class Main {
 
         }while(!respostalogin);
 
-        // Mensagem do Slack de quem entrou
+        // Uso nas coisas do slack
         Usuario usuarioLogado = monitoramento.getUsuarioLogado();
         String nomeUsuario = usuarioLogado.getNome();
         LocalDateTime agora = LocalDateTime.now();
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         String dataFormatada = agora.format(formato);
-
-        JSONObject mensagemLogin = new JSONObject();
-        mensagemLogin.put("text", nomeUsuario + " iniciou a aplicação de monitoramento da SafeMonitor em " + dataFormatada);
-        Slack.enviarMensagem(mensagemLogin);
-        // Fim da Mensagem do Slack de quem entrou
+        // Fim do uso nas coisas do slack
 
         monitoramento.definirIdEmpresa();
         rede.definirInformacoesRedeAtual(rede.definirRedeAtual());
@@ -190,9 +186,6 @@ public class Main {
                         query.alterarStatusJanelaFechada(j);
                     }
                 }
-
-                //System.out.println("SUA MÁQUINA ESTÁ SENDO MONITORADA");
-
             }
         };
 
@@ -240,16 +233,7 @@ public class Main {
                         break;
 
                     case 4:
-                        // Mensagem quando alguém está saindo
                         System.out.println("Saindo da aplicação...");
-
-                        agora = LocalDateTime.now();
-                        dataFormatada = agora.format(formato);
-
-                        JSONObject mensagemDesligamento = new JSONObject();
-                        mensagemDesligamento.put("text", nomeUsuario + " está desligando a aplicação de monitoramento da SafeMonitor em " + dataFormatada);
-                        Slack.enviarMensagem(mensagemDesligamento);
-                        // Fim da Mensagem quando alguém está saindo
 
                         System.exit(0);
                         break;

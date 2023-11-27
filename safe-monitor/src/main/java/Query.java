@@ -135,7 +135,6 @@ public class Query {
                 new BeanPropertyRowMapper<>(Dado.class),nome);*/
     }
 
-
     public void inserirDadosCaptura(Double valor){
             con.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tiposDados, fk_maquina, fk_componente, fk_tipoComponente)" +
                     "VALUES (now(), ?, ?, ?, ?,?);", valor, TipoDados.getId(), maquina.getIdMaquina(), 1, TipoComponente.getId());
