@@ -35,6 +35,7 @@ public class Main {
         String email = "";
         String senha = "";
 
+
         Boolean respostalogin = false;
 
         do{
@@ -70,6 +71,7 @@ public class Main {
         query.conectarMaquina(rede.getHostName());
 
 
+
         while(query.getMaquina() == null){
             Integer idSala = null;
 
@@ -95,13 +97,28 @@ public class Main {
                             rede.getHostName()
                     );
 
+                    // Armazenando o nome do usuário que está cadastrando a máquina
+                    usuarioLogado = monitoramento.getUsuarioLogado();
+                    // Fim do armazenando o nome do usuário que está cadastrando a máquina
+
                     monitoramento.definirInformacoesComponentes();
                     query.inserirDaodosMaquina(maquina, monitoramento.getIdEmpresa(), idSala);
                     query.conectarMaquina(rede.getHostName());
                     query.inserirComponentes(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
 
+                    // Notificação no Slack ao cadastrar com sucesso
+                    JSONObject mensagemCadastroSucesso = new JSONObject();
+                    mensagemCadastroSucesso.put("text", usuarioLogado.getNome() + " cadastrou uma nova máquina para ser monitorada com sucesso em " + dataFormatada);
+                    Slack.enviarMensagem(mensagemCadastroSucesso);
+                    // Fim notificação no Slack ao cadastrar com sucesso
 
                 }else{
+                    // Notificação no Slack se a resposta for "N"
+                    JSONObject mensagemCadastroFalha = new JSONObject();
+                    mensagemCadastroFalha.put("text", usuarioLogado.getNome() + " não conseguiu cadastrar uma máquina com sucesso em " + dataFormatada);
+                    Slack.enviarMensagem(mensagemCadastroFalha);
+                    // Fim do notificação no Slack se a resposta for "N"
+
                     System.out.println("Ok, até mais!");
                     System.exit(0);
                 }
