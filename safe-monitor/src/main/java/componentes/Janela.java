@@ -18,6 +18,8 @@ public class Janela {
 
     private Integer matar;
 
+
+
     public Janela() {
         this.looca = new Looca();
     }
@@ -31,6 +33,7 @@ public class Janela {
     public void definirComando(Integer index){
         comando = looca.getGrupoDeJanelas().getJanelas().get(index).getComando();
     }
+
 
     public void definirStatus(Integer index){
         stt = "Aberta";
@@ -75,6 +78,7 @@ public class Janela {
     public void setMatar(Integer matar) {
         this.matar = matar;
     }
+
 
     @Override
     public String toString() {

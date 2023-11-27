@@ -1,9 +1,7 @@
-import com.github.britooo.looca.api.core.Looca;
 import componentes.*;
 import entidades.HistoricoUsuarios;
 import entidades.Maquina;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.*;
 
 public class Main {
@@ -22,6 +20,7 @@ public class Main {
         Rede rede = new Rede();
         Monitoramento monitoramento = new Monitoramento();
         Dispositivo dispositivo = new Dispositivo();
+        Log log = new Log();
 
 
         System.out.println("Seja bem-vindo(a)!");
@@ -115,6 +114,10 @@ public class Main {
         TimerTask monitoramentoTempoReal = new TimerTask() {
             @Override
             public void run() {
+
+
+                //INICIAR O LOG
+                log.iniciarAplicacao();
 
                 //USO CPU
                 query.definirTipoComponente("Processador");
@@ -222,7 +225,7 @@ public class Main {
 
 
         }else{
-            System.out.println("ESTÁ MÁQUINA ESTÁ SENDO MONITORADA...");
+            System.out.println("ESTA MÁQUINA ESTÁ SENDO MONITORADA...");
         }
     }
 }

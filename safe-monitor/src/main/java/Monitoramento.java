@@ -23,6 +23,7 @@ public class Monitoramento {
 
     private Looca looca;
 
+    private List<String> tituloJanelasAbertas;
     private List<Janela> janelasAbertas;
 
     private Maquina maquina;
@@ -37,6 +38,7 @@ public class Monitoramento {
         this.disco = new Disco();
         this.ram = new Memoria();
         this.cpu = new Processador();
+        this.tituloJanelasAbertas = new ArrayList<>();
     }
 
     public Boolean procurarUsuario(String email, String senha){
@@ -116,6 +118,8 @@ public class Monitoramento {
         cpu.definirTotal();
 
         ram.definirTotal();
+        ram.definirUso();
+        ram.definirDisponivel();
 
         disco.definirNome();
         disco.definirModelo();
@@ -147,8 +151,15 @@ public class Monitoramento {
             e.printStackTrace();
         }
 
+    }
 
+    public List<String> getTituloJanelasAbertas() {
 
+        for (Janela janela : janelasAbertas) {
+            tituloJanelasAbertas.add(janela.getTitulo());
+        }
+
+        return tituloJanelasAbertas;
     }
 
     public List<Janela> getJanelasAbertas() {
@@ -187,6 +198,8 @@ public class Monitoramento {
         return ram;
     }
 
+
+
     public void setRam(Memoria ram) {
         this.ram = ram;
     }
@@ -198,4 +211,10 @@ public class Monitoramento {
     public void setCpu(Processador cpu) {
         this.cpu = cpu;
     }
+
+    public void setTituloJanelasAbertas(List<String> tituloJanelasAbertas) {
+        this.tituloJanelasAbertas = tituloJanelasAbertas;
+    }
+
+
 }
