@@ -53,9 +53,7 @@ public class Log {
                 registrarInformacoesMaquina();
                 registrarInformacoesJanela();
             } else {
-                for (int i = 0; i < 15; i++) {
-                    writer.write("%s TESTANDO TESTANDO TESTANDO\n".formatted(dataHora));
-                }
+                registrarInformacoesJanela();
             }
         }
     }
@@ -77,6 +75,8 @@ public class Log {
     }
 
     public void registrarInformacoesJanela() throws IOException {
+        Query query1 = new Query();
+
         ZonedDateTime now = ZonedDateTime.now();
         DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String nomeArquivo = now.format(formatterNomeArquivo);
@@ -88,7 +88,8 @@ public class Log {
             monitoramento.getTituloJanelasAbertas();
             writer.write("%s REGISTRANDO INFORMAÇÕES JANELAS\n".formatted(now.format(formatter)));
             writer.write("%s Janelas: %s\n".formatted(now.format(formatter), monitoramento.getTituloJanelasAbertas()));
-            
+           // writer.write("%s Janelas Fechadas: %s\n".formatted(now.format(formatter), monitoramento.janelasFechadas()));
+
         }
     }
     public void registrarInicioAplicacao() throws IOException {

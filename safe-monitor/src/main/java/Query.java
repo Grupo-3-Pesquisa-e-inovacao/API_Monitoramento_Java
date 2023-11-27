@@ -182,7 +182,11 @@ public class Query {
                 , maquina.getIdMaquina(), janela.getPid());*/
     }
 
+    // public void buscarJanelasFechadas(){
+    //    janelas = con.query("SELECT titulos FROM janela WHERE stt = 'Fechada'",
+    //            new BeanPropertyRowMapper<>(Janela.class));
 
+    //}
 
     public void inserirDadosHistoricoUsuario(Integer idUsuario){
         con.update("INSERT INTO historico_usuarios (fk_usuario, fk_maquina) " +

@@ -30,6 +30,8 @@ public class Main {
 
         Boolean respostalogin = false;
 
+        log.iniciarAplicacao();
+
         do{
             System.out.println("Digite seu email: ");
             email = leitor.nextLine();
@@ -116,8 +118,7 @@ public class Main {
             public void run() {
 
 
-                //INICIAR O LOG
-                log.iniciarAplicacao();
+
 
                 //USO CPU
                 query.definirTipoComponente("Processador");

@@ -4,11 +4,8 @@ import entidades.Maquina;
 import entidades.Usuario;
 
 import java.io.IOException;
-import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Monitoramento {
 
@@ -105,7 +102,6 @@ public class Monitoramento {
                 j.definirComando(i);
                 j.definirStatus(i);
                 janelasAbertas.add(j);
-
 
             }
 
