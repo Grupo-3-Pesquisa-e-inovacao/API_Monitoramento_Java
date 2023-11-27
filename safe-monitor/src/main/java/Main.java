@@ -174,7 +174,7 @@ public class Main {
                     }
                 }
 
-                System.out.println("SUA MÁQUINA ESTÁ SENDO MONITORADA");
+                //System.out.println("SUA MÁQUINA ESTÁ SENDO MONITORADA");
 
             }
         };
