@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) throws IOException,InterruptedException{
 
 
@@ -134,13 +135,28 @@ public class Main {
         TimerTask monitoramentoTempoReal = new TimerTask() {
             @Override
             public void run() {
+                double LIMITE_CPU = 43.0;
+                double LIMITE_MEMORIA = 43.0;
+                double LIMITE_DISCO = 43.0;
+
 
                 //USO CPU
                 query.definirTipoComponente("Processador");
                 query.definirComponente();
                 query.definirTipoDados("Uso");
                 cpu.definirUso();
+                double usoCpu = cpu.getUso();
                 query.inserirDadosCaptura(cpu.getUso());
+
+
+                // Verifica se o uso da CPU ultrapassa o limite
+                    if (usoCpu > LIMITE_CPU) {
+                    try {
+                        enviarAlertaSlack("CPU", "Uso da CPU ultrapassou o limite: " + usoCpu + "%");
+                    } catch (IOException e) {
+                        System.out.println("Não consegui enviar o alerta");
+                    }
+                }
 
 
               //USO MEMORIA
@@ -148,7 +164,18 @@ public class Main {
                 query.definirComponente();
                 query.definirTipoDados("Uso");
                 ram.definirUso();
-                query.inserirDadosCaptura(ram.converterParaGigas(ram.getUso()));
+                double usoMemoria = ram.converterParaGigas(ram.getUso());
+                query.inserirDadosCaptura(usoMemoria);
+                //query.inserirDadosCaptura(ram.converterParaGigas(ram.getUso()));
+
+                // Verifica se o uso de memória ultrapassa o limite
+                if (usoMemoria > LIMITE_MEMORIA) {
+                    try {
+                        enviarAlertaSlack("Memória", "Uso de memória ultrapassou o limite: " + usoMemoria + " GB");
+                    } catch (IOException e) {
+                        System.out.println("Não consegui enviar o alerta");
+                    }
+                }
 
 
                 //USO DISCO
@@ -157,7 +184,18 @@ public class Main {
                 query.definirTipoDados("Uso");
                 disco.definirTotal();
                 disco.definirUso();
-                query.inserirDadosCaptura(disco.converterParaGigas(disco.getUso()));
+                double usoDisco = disco.converterParaGigas(disco.getUso());
+                query.inserirDadosCaptura(usoDisco);
+                //query.inserirDadosCaptura(disco.converterParaGigas(disco.getUso()));
+
+                // Verifica se o uso do disco ultrapassa o limite
+                if (usoDisco > LIMITE_DISCO) {
+                    try {
+                        enviarAlertaSlack("Disco", "Uso do disco ultrapassou o limite: " + usoDisco + " GB");
+                    } catch (IOException e) {
+                        System.out.println("Não consegui enviar o alerta");
+                    }
+                }
 
 
                 //JANELA
@@ -227,6 +265,7 @@ public class Main {
 
                     case 2:
                         System.out.println(monitoramento.getJanelasAbertas());
+                        break;
 
                     case 3:
                         System.out.println(query.getMaquina());
@@ -245,5 +284,24 @@ public class Main {
         }else{
             System.out.println("ESTÁ MÁQUINA ESTÁ SENDO MONITORADA...");
         }
+
+
+    }
+    private static void enviarAlertaSlack(String hardware, String mensagem) throws IOException{
+        // Monta a mensagem indicando qual hardware está excedendo o limite
+        String mensagemAlerta = "[" + hardware + "] " + mensagem;
+
+        // Cria o objeto JSON para enviar a mensagem ao Slack
+        JSONObject mensagemAlertaJson = new JSONObject();
+        mensagemAlertaJson.put("text", mensagemAlerta);
+
+
+        // Envia a mensagem ao Slack
+        try {
+            Slack.enviarMensagem(mensagemAlertaJson);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

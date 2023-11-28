@@ -89,6 +89,49 @@ public class Query {
                 idEmpresa, idSala);*/
     }
 
+    public List<Limite> consultarLimites() {
+        String consultaSql = "SELECT * FROM limites";
+
+        try {
+            List<Limite> limites = con.query(consultaSql, new BeanPropertyRowMapper<>(Limite.class));
+
+            // Exibir ou processar os dados conforme necessário
+            for (Limite limite : limites) {
+                System.out.println("Limite: " + limite.getLimite() +
+                        ", fk_notificacao: " + limite.getFk_notificacao() +
+                        ", fk_tipoComponente: " + limite.getFk_tipoComponente());
+            }
+
+            return limites;
+
+        } catch (EmptyResultDataAccessException e) {
+            // A EmptyResultDataAccessException será lançada se a consulta não retornar resultados
+            System.out.println("Nenhum resultado encontrado ao consultar limites.");
+            return null;
+        }
+    }
+
+    public List<Limite> buscarLimites(String tipoComponente) {
+        String consultaSql = "SELECT * FROM limites WHERE fk_tipoComponente = (SELECT idTipoComponente FROM tipo_componente WHERE nome = ?);";
+
+        try {
+            List<Limite> limites = con.query(consultaSql, new BeanPropertyRowMapper<>(Limite.class), tipoComponente);
+
+            // Exibir ou processar os dados conforme necessário
+            for (Limite limite : limites) {
+                System.out.println("Limite: " + limite.getLimite() +
+                        ", fk_notificacao: " + limite.getFk_notificacao() +
+                        ", fk_tipoComponente: " + limite.getFk_tipoComponente());
+            }
+
+            return limites;
+
+        } catch (EmptyResultDataAccessException e) {
+            // A EmptyResultDataAccessException será lançada se a consulta não retornar resultados
+            System.out.println("Nenhum resultado encontrado ao consultar limites.");
+            return null;
+        }
+    }
     public void inserirComponentes(Processador cpu, Memoria ram, Disco disco){
         con.update(" INSERT INTO componente (nome, modelo, total, `fk_tipoComponente`, `fk_maquina`) " +
                 "VALUES (?, ?, ?, 1, ?)", cpu.getNome(), cpu.getModelo(), cpu.getTotal(), maquina.getIdMaquina());
@@ -109,8 +152,7 @@ public class Query {
                 "VALUES (?, ?, ?, 3, ?)", disco.getNome(), disco.getModelo(), disco.getTotal(), maquina.getIdMaquina());*/
     }
 
-
-
+    
     public void definirTipoComponente(String nome){
         TipoComponente = con.queryForObject("SELECT idTipoComponente as id, nome AS nome FROM tipo_componente WHERE nome = ?;",
                 new BeanPropertyRowMapper<>(Dado.class),nome);
