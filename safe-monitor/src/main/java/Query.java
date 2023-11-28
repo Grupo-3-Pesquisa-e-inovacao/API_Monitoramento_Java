@@ -182,6 +182,14 @@ public class Query {
                 , maquina.getIdMaquina(), janela.getPid());*/
     }
 
+    public void removerJanelaFechada(Janela janela){
+        con.update("DELETE FROM janela WHERE comandos = ?"
+                , janela.getComando());
+
+      /*  conNuvem.update("UPDATE janela SET stt = 'Fechada' WHERE fk_maquina = ? AND pid = ?;"
+                , maquina.getIdMaquina(), janela.getPid());*/
+    }
+
 
 
     public void inserirDadosHistoricoUsuario(Integer idUsuario){
