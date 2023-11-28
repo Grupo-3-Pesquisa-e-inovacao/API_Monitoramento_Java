@@ -32,6 +32,7 @@ public class Janela {
         comando = looca.getGrupoDeJanelas().getJanelas().get(index).getComando();
     }
 
+
     public void definirStatus(Integer index){
         stt = "Aberta";
     }

@@ -80,7 +80,11 @@ public class Main {
                 if(resposta.equalsIgnoreCase("S")){
                     System.out.println("Selecione um número e defina uma sala para essa máquina: ");
                     query.buscarSalas(monitoramento.getIdEmpresa());
-                    System.out.println(query.getSalas());
+
+                    for (int i = 0; i < query.getSalas().size(); i++) {
+                        System.out.println(query.getSalas().get(i));
+                    }
+
                     idSala = leitorNum.nextInt();
 
                     Maquina maquina = new Maquina();
@@ -108,6 +112,18 @@ public class Main {
                     mensagemCadastroSucesso.put("text", usuarioLogado.getNome() + " cadastrou uma nova máquina para ser monitorada com sucesso em " + dataFormatada);
                     Slack.enviarMensagem(mensagemCadastroSucesso);
                     // Fim notificação no Slack ao cadastrar com sucesso
+                    query.definirTipoComponente("Processador");
+                    query.definirComponente();
+                    query.inserirTiposDeDados("Uso CPU", 1);
+
+                    query.definirTipoComponente("Ram");
+                    query.definirComponente();
+                    query.inserirTiposDeDados("Uso RAM", 2);
+
+                    query.definirTipoComponente("Disco");
+                    query.definirComponente();
+                    query.inserirTiposDeDados("Uso DISCO", 3);
+
 
                 }else{
                     // Notificação no Slack se a resposta for "N"
@@ -143,7 +159,7 @@ public class Main {
                 //USO CPU
                 query.definirTipoComponente("Processador");
                 query.definirComponente();
-                query.definirTipoDados("Uso");
+                query.definirTipoDados("Uso CPU");
                 cpu.definirUso();
                 double usoCpu = cpu.getUso();
                 query.inserirDadosCaptura(cpu.getUso());
@@ -162,7 +178,7 @@ public class Main {
               //USO MEMORIA
                 query.definirTipoComponente("Ram");
                 query.definirComponente();
-                query.definirTipoDados("Uso");
+                query.definirTipoDados("Uso RAM");
                 ram.definirUso();
                 double usoMemoria = ram.converterParaGigas(ram.getUso());
                 query.inserirDadosCaptura(usoMemoria);
@@ -181,7 +197,7 @@ public class Main {
                 //USO DISCO
                 query.definirTipoComponente("Disco");
                 query.definirComponente();
-                query.definirTipoDados("Uso");
+                query.definirTipoDados("Uso DISCO");
                 disco.definirTotal();
                 disco.definirUso();
                 double usoDisco = disco.converterParaGigas(disco.getUso());
@@ -199,35 +215,67 @@ public class Main {
 
 
                 //JANELA
+                monitoramento.getJanelasAbertas().clear();
+
                 monitoramento.popularListaJanela();
                 query.buscarJanelas();
 
+                // Remover janelas que não estão mais abertas
+                for (Janela jBD : query.getJanelas()) {
+                    boolean janelaEncontrada = false;
+
+                    for (Janela j : monitoramento.getJanelasAbertas()) {
+                        if (jBD.getComando().equals(j.getComando())) {
+                            janelaEncontrada = true;
+                            break;
+                        }
+                    }
+
+                    if (!janelaEncontrada) {
+                        query.removerJanelaFechada(jBD);
+                    }
+                }
+
+
+                //INSERIR JANELAS NO BANCO
                 for (int i = 0; i < monitoramento.getJanelasAbertas().size(); i++) {
 
                     boolean encontrado = false;
                     for (int j = 0; j < query.getJanelas().size(); j++) {
 
-                        if (monitoramento.getJanelasAbertas().get(i).getComando().equals(query.getJanelas().get(j).getComando())) {
+                        if (monitoramento.getJanelasAbertas().get(i).getComando().equals(query.getJanelas().get(j).getComando())
+                            && monitoramento.getJanelasAbertas().get(i).getPid().equals(query.getJanelas().get(j).getPid())) {
                             encontrado = true;
                             break;
                         }
                     }
 
                     if (!encontrado) {
-                        query.inserirDadosJanela(monitoramento.getJanelasAbertas().get(i));
+                        if(!monitoramento.getJanelasAbertas().get(i).getTitulo().isEmpty()){
+                            query.inserirDadosJanela(monitoramento.getJanelasAbertas().get(i));
+                        }
+
                     }
                 }
 
+                //VERIFICAR COMANDO PARA MATAR
                 for (Janela j : query.getJanelas()) {
-                    if (j.getMatar() != null) {
-                        monitoramento.fecharJanelaAtravesDoPid(j.getPid(), sistema.getSistemaOperacional());
-                        query.alterarStatusJanelaFechada(j);
+                    if(j.getMatar() != null){
+                        String nomeProcesso = monitoramento.pegarNomeProcessoPeloComando(j.getComando());
+                        monitoramento.matarProcessoPorNome(nomeProcesso);
                     }
+
                 }
+
+
+
+
+                System.out.println("SUA MÁQUINA ESTÁ SENDO MONITORADA");
+
             }
         };
 
-        timer.schedule(monitoramentoTempoReal, 3000, 1000);
+        timer.schedule(monitoramentoTempoReal, 10000, 10000);
 
 
 
