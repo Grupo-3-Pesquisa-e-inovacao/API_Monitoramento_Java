@@ -2,10 +2,11 @@ import componentes.*;
 import entidades.HistoricoUsuarios;
 import entidades.Maquina;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 
         Scanner leitor = new Scanner(System.in);
@@ -30,7 +31,7 @@ public class Main {
 
         Boolean respostalogin = false;
 
-        log.iniciarAplicacao();
+//        log.iniciarAplicacao();
 
         do{
             System.out.println("Digite seu email: ");
@@ -219,6 +220,7 @@ public class Main {
 
                     case 7:
                         System.exit(0);
+                        log.fecharLog();
                         break;
                 }
 

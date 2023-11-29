@@ -1,0 +1,85 @@
+---------------------------------- [29/11/2023 | 19:13:44] ----------------------------------
+[29/11/2023 | 19:13:44] Iniciando a aplicação...
+[29/11/2023 | 19:13:44] Aplicação iniciada
+[29/11/2023 | 19:13:44] REGISTRANDO INFORMAÇÕES MÁQUINAS
+[29/11/2023 | 19:13:44] CPU: Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz
+[29/11/2023 | 19:13:44] RAM TOTAL: 17,1 GB
+[29/11/2023 | 19:13:44] RAM DISPONÍVEL: 8,9 GB
+[29/11/2023 | 19:13:44] SO: Windows
+[29/11/2023 | 19:13:44] Arquitetura: 64 bits
+[29/11/2023 | 19:13:44] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 19:13:44] Janelas: [safe-monitor – Log, ChatGPT e mais 1 página - Pessoal — Microsoft​ Edge, Projeto Sprint | SPRINT 3 DOS CASAS (2ADSC) - Discord, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Log, ChatGPT e mais 1 página - Pessoal — Microsoft​ Edge, Projeto Sprint | SPRINT 3 DOS CASAS (2ADSC) - Discord, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+[29/11/2023 | 19:13:44] Janelas Fechadas: null
+[29/11/2023 | 19:17:49] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 19:17:49] Janelas: [safe-monitor – Log, MySQL Workbench, ChatGPT e mais 1 página - Pessoal — Microsoft​ Edge, Projeto Sprint | SPRINT 3 DOS CASAS (2ADSC) - Discord, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Log, MySQL Workbench, ChatGPT e mais 1 página - Pessoal — Microsoft​ Edge, Projeto Sprint | SPRINT 3 DOS CASAS (2ADSC) - Discord, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+[29/11/2023 | 19:17:49] Janelas Fechadas: null
+
+
+
+
+
+
+
+
+
+
+
+[29/11/2023 | 19:18:38] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 19:18:38] Janelas: [safe-monitor – Log, safe-monitor – Log, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, ChatGPT e mais 1 página - Pessoal — Microsoft​ Edge, Projeto Sprint | SPRINT 3 DOS CASAS (2ADSC) - Discord, Reprodutor Multimídia, safe-monitor – Log, safe-monitor – Log, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, ChatGPT e mais 1 página - Pessoal — Microsoft​ Edge, Projeto Sprint | SPRINT 3 DOS CASAS (2ADSC) - Discord, Reprodutor Multimídia]
+[29/11/2023 | 19:18:38] Janelas Fechadas: null
+
+
+
+[29/11/2023 | 19:28:02] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 19:28:02] Janelas: [safe-monitor – Log, ChatGPT e mais 1 página - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Projeto Sprint | SPRINT 3 DOS CASAS (2ADSC) - Discord, Reprodutor Multimídia, safe-monitor – Log, ChatGPT e mais 1 página - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Projeto Sprint | SPRINT 3 DOS CASAS (2ADSC) - Discord, Reprodutor Multimídia]
+[29/11/2023 | 19:28:02] Janelas Fechadas: null
+
+
+
+[29/11/2023 | 20:08:03] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 20:08:03] Janelas: [safe-monitor – Log, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Log, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+[29/11/2023 | 20:08:03] Janelas Fechadas: null
+
+
+
+[29/11/2023 | 20:11:32] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 20:11:32] Janelas: [safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+[29/11/2023 | 20:11:32] Janelas Fechadas: [PID: null
+Titulo: null
+Comando: null
+Statu: null
+Matar: null
+]
+[29/11/2023 | 20:11:32] Janelas Fechadas: null
+
+
+
+[29/11/2023 | 20:17:50] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 20:17:50] Janelas: [safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+
+
+
+[29/11/2023 | 20:18:32] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 20:18:32] Janelas: [safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+
+
+
+[29/11/2023 | 20:19:02] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 20:19:02] Janelas: [safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+[29/11/2023 | 20:19:02] Janelas Fechadas: null
+
+
+
+[29/11/2023 | 20:20:16] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 20:20:16] Janelas: [, safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, , safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+
+
+
+[29/11/2023 | 20:21:11] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 20:21:11] Janelas: [safe-monitor – Query, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Query, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+
+
+
+[29/11/2023 | 20:21:48] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 20:21:48] Janelas: [safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia, safe-monitor – Log, MySQL Workbench, Spotify Premium, #💼-tarefas | SPRINT 3 DOS CASAS (2ADSC) - Discord, TOTVS | Portal - TOTVS Educacional e mais 4 páginas - Pessoal — Microsoft​ Edge, config.js - SafeMonitor-Frontend - Visual Studio Code, Reprodutor Multimídia]
+[29/11/2023 | 20:21:48] Janelas Fechadas: Reprodutor Multimídia

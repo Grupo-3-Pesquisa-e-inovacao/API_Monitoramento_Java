@@ -18,11 +18,8 @@ public class Teste {
 
         Monitoramento monitoramento = new Monitoramento();
         Query query = new Query();
-        List<Janela> janelasAbertas = new ArrayList<>();
 
-        monitoramento.popularListaJanelasFechadas("TESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTETESTE");
-
-        System.out.println(monitoramento.getJanelasFechadas());
+        query.buscarJanelasFechada();
 
         }
     }

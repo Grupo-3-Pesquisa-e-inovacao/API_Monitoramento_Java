@@ -23,12 +23,14 @@ public class Monitoramento {
     private List<String> tituloJanelasAbertas;
     private List<Janela> janelasAbertas;
 
+    private List<Janela> janelaFechada;
     private List<String> tituloJanelasFechadas;
-    private List<Janela>janelasFechadas;
 
     private Maquina maquina;
 
     private Usuario usuarioLogado;
+
+
 
     public Monitoramento() {
         this.queryBD = new Query();
@@ -39,10 +41,10 @@ public class Monitoramento {
         this.ram = new Memoria();
         this.cpu = new Processador();
         this.tituloJanelasAbertas = new ArrayList<>();
-        this.janelasFechadas = new ArrayList<>();
+        this.janelaFechada = new ArrayList<>();
     }
 
-    public Boolean procurarUsuario(String email, String senha){
+    public Boolean procurarUsuario(String email, String senha) {
 
         Boolean usuarioEncontrado = false;
 
@@ -50,8 +52,8 @@ public class Monitoramento {
 
         for (int i = 0; i < queryBD.getUsuarios().size(); i++) {
 
-            if(email.equals(queryBD.getUsuarios().get(i).getEmail()) &&
-               senha.equals(queryBD.getUsuarios().get(i).getSenha())){
+            if (email.equals(queryBD.getUsuarios().get(i).getEmail()) &&
+                    senha.equals(queryBD.getUsuarios().get(i).getSenha())) {
                 usuarioLogado = queryBD.getUsuarios().get(i);
 
                 usuarioEncontrado = true;
@@ -60,46 +62,46 @@ public class Monitoramento {
         return usuarioEncontrado;
     }
 
-    public void definirIdEmpresa(){
+    public void definirIdEmpresa() {
         idEmpresa = usuarioLogado.getFkEmpresa();
     }
 
-    public String login(String email, String senha){
+    public String login(String email, String senha) {
 
         String mensagem = "";
 
-        if (procurarUsuario(email,senha)){
+        if (procurarUsuario(email, senha)) {
             mensagem = "Parábens! Você logou!";
 
 
-        }else {
+        } else {
             mensagem = "Email ou senha inválidos!";
         }
 
         return mensagem;
     }
 
-    public Boolean  verificarPermissoesUsuario(){
+    public Boolean verificarPermissoesUsuario() {
 
         Boolean usuarioAdmin = true;
 
         queryBD.buscarUsuariosBanco();
 
-        if(usuarioLogado.getCadastrar() == 0 &&
-           usuarioLogado.getDeletar() ==0 &&
-           usuarioLogado.getAlterar() == 0){
-                usuarioAdmin = false;
+        if (usuarioLogado.getCadastrar() == 0 &&
+                usuarioLogado.getDeletar() == 0 &&
+                usuarioLogado.getAlterar() == 0) {
+            usuarioAdmin = false;
 
         }
         return usuarioAdmin;
     }
 
 
-    public void popularListaJanela(){
+    public void popularListaJanela() {
         for (int i = 0; i < looca.getGrupoDeJanelas().getJanelasVisiveis().size(); i++) {
             Integer filtro = looca.getGrupoDeJanelas().getJanelasVisiveis().get(i).getComando().indexOf("C:\\Windows");
 
-            if(filtro ==  -1){
+            if (filtro == -1) {
                 Janela j = new Janela();
                 j.definirPID(i);
                 j.definirTtiulo(i);
@@ -112,7 +114,7 @@ public class Monitoramento {
         }
     }
 
-    public void definirInformacoesComponentes(){
+    public void definirInformacoesComponentes() {
         cpu.definirNome();
         cpu.definirModelo();
         cpu.definirTotal();
@@ -127,7 +129,7 @@ public class Monitoramento {
     }
 
 
-    public void fecharJanelaAtravesDoPid(Integer pid, String so){
+    public void fecharJanelaAtravesDoPid(Integer pid, String so) {
 
 
         try {
@@ -137,7 +139,7 @@ public class Monitoramento {
             if (so.equals("Windows")) {
                 processBuilder = new ProcessBuilder("taskkill", "/F", "/PID" + pid);
 
-            } else if (so.equals("MacOS") || so.equals("Linux") ) {
+            } else if (so.equals("MacOS") || so.equals("Linux")) {
                 processBuilder = new ProcessBuilder("kill " + pid);
             }
 
@@ -163,17 +165,20 @@ public class Monitoramento {
         return tituloJanelasAbertas;
     }
 
-    public List<String> popularListaJanelasFechadas(String titulo) {
-
-        queryBD.buscarJanelaFechada();
-
-        for (Janela janela: janelasFechadas) {
-            tituloJanelasFechadas.add(titulo);
-
-        }
-
-        return tituloJanelasFechadas;
-    }
+//    public void verificarAppNovo(){
+//        getTituloJanelasAbertas();
+//
+//        Integer tamanhoAntigo = getTituloJanelasAbertas().size();
+//
+//        for (int i = 0; i == tamanhoAntigo ; i++) {
+//            Integer tamanhoAtual = getTituloJanelasAbertas().size();
+//
+//            if (tamanhoAtual > tamanhoAntigo) {
+//                String novaJanela = getTituloJanelasAbertas().get(tamanhoAtual - 1);
+//                System.out.println("Nova fruta adicionada: " + novaJanela);
+//            }
+//        }
+//    }
 
     public List<Janela> getJanelasAbertas() {
         return janelasAbertas;
@@ -212,7 +217,6 @@ public class Monitoramento {
     }
 
 
-
     public void setRam(Memoria ram) {
         this.ram = ram;
     }
@@ -229,19 +233,19 @@ public class Monitoramento {
         this.tituloJanelasAbertas = tituloJanelasAbertas;
     }
 
+    public List<Janela> getJanelaFechada() {
+        return janelaFechada;
+    }
+
+    public void setJanelaFechada(List<Janela> janelaFechada) {
+        this.janelaFechada = janelaFechada;
+    }
+
     public List<String> getTituloJanelasFechadas() {
         return tituloJanelasFechadas;
     }
 
     public void setTituloJanelasFechadas(List<String> tituloJanelasFechadas) {
         this.tituloJanelasFechadas = tituloJanelasFechadas;
-    }
-
-    public List<String> getJanelasFechadas() {
-        return tituloJanelasFechadas;
-    }
-
-    public void setJanelasFechadas(List<Janela> janelasFechadas) {
-        this.janelasFechadas = janelasFechadas;
     }
 }

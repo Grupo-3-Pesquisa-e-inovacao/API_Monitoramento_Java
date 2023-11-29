@@ -159,6 +159,11 @@ public class Query {
                 new BeanPropertyRowMapper<>(Janela.class), maquina.getIdMaquina());*/
     }
 
+    public void buscarJanelasFechada() {
+        janelasFechadas = con.query("SELECT pid, titulos as titulo, comandos as comando, matar, stt FROM janela WHERE matar = 1",
+                new BeanPropertyRowMapper<>(Janela.class));
+    }
+
     public void buscarSalas(Integer idEmpresa){
         salas = con.query("SELECT idSala as id, nome FROM sala_de_aula WHERE fk_empresa = ?;",
                 new BeanPropertyRowMapper<>(Dado.class), idEmpresa);
@@ -182,12 +187,6 @@ public class Query {
       /*  conNuvem.update("UPDATE janela SET stt = 'Fechada' WHERE fk_maquina = ? AND pid = ?;"
                 , maquina.getIdMaquina(), janela.getPid());*/
     }
-
-    // public void buscarJanelasFechadas(){
-    //    janelas = con.query("SELECT titulos FROM janela WHERE stt = 'Fechada'",
-    //            new BeanPropertyRowMapper<>(Janela.class));
-
-    //}
 
     public void inserirDadosHistoricoUsuario(Integer idUsuario){
         con.update("INSERT INTO historico_usuarios (fk_usuario, fk_maquina) " +
@@ -228,26 +227,6 @@ public class Query {
                 new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());*/
     }
 
-    public void buscarJanelaFechada() {
-         janelasFechadas = con.query("SELECT titulos FROM janela WHERE matar = 1",
-                new BeanPropertyRowMapper<>(Janela.class));
-    }
-
-    public List<Janela> getJanelasFechadas() {
-        return janelasFechadas;
-    }
-
-    public void setJanelasFechadas(List<Janela> janelasFechadas) {
-        this.janelasFechadas = janelasFechadas;
-    }
-
-    public List<Janela> getJanelas() {
-        return janelas;
-    }
-
-    public void setJanelas(List<Janela> janelas) {
-        this.janelas = janelas;
-    }
 
     public Conexao getConexao() {
         return conexao;
@@ -255,14 +234,6 @@ public class Query {
 
     public void setConexao(Conexao conexao) {
         this.conexao = conexao;
-    }
-
-    public JdbcTemplate getCon() {
-        return con;
-    }
-
-    public void setCon(JdbcTemplate con) {
-        this.con = con;
     }
 
     public List<Usuario> getUsuarios() {
@@ -279,6 +250,14 @@ public class Query {
 
     public void setHistoricoUsuarios(List<HistoricoUsuarios> historicoUsuarios) {
         this.historicoUsuarios = historicoUsuarios;
+    }
+
+    public List<Janela> getJanelas() {
+        return janelas;
+    }
+
+    public void setJanelas(List<Janela> janelas) {
+        this.janelas = janelas;
     }
 
     public List<Componente> getComponentes() {
@@ -329,7 +308,6 @@ public class Query {
         TipoComponente = tipoComponente;
     }
 
-
     public List<Dado> getSalas() {
         return salas;
     }
@@ -338,5 +316,11 @@ public class Query {
         this.salas = salas;
     }
 
+    public List<Janela> getJanelasFechadas() {
+        return janelasFechadas;
+    }
 
+    public void setJanelasFechadas(List<Janela> janelasFechadas) {
+        this.janelasFechadas = janelasFechadas;
+    }
 }

@@ -8,6 +8,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import com.github.britooo.looca.api.core.Looca;
 import componentes.*;
 import entidades.Usuario;
 
@@ -22,32 +23,47 @@ public class Log {
     Rede rede = new Rede();
     Usuario usuario = new Usuario();
     Monitoramento monitoramento = new Monitoramento();
+    Looca looca = new Looca();
 
-    public void iniciarAplicacao() {
+    public static void main(String[] args) {
+        Log log = new Log();
         try {
-            //limparLog();
-            iniciarLog();
+            log.iniciarLog();
 
         } catch (IOException erro) {
             erro.printStackTrace();
         }
     }
 
-    public void encerrarAplicacao() throws IOException {
-        fecharLog();
-        registrarEncerramentoAplicacao();
-    }
+//    public void iniciarAplicacao() {
+//        try {
+//            //limparLog();
+//            iniciarLog();
+//
+//        } catch (IOException erro) {
+//            erro.printStackTrace();
+//        }
+//    }
 
     public void iniciarLog() throws IOException {
         ZonedDateTime now = ZonedDateTime.now();
         DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         DateTimeFormatter formatterDataHora = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
+
         String nomeArquivo = now.format(formatterNomeArquivo);
         String dataHora = now.format(formatterDataHora);
-        Path path = Paths.get(nomeArquivo + "-funcionamento-inovacao.txt");
+
+        Path diretorioLogs = Paths.get("logs");
+        if (!Files.exists(diretorioLogs)) {
+            Files.createDirectories(diretorioLogs);
+        }
+
+        Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
         Boolean jaInicializado = Files.exists(path);
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo + "-funcionamento-inovacao.txt", true))) {
+
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
             if (!jaInicializado) {
                 registrarInicioAplicacao();
                 registrarInformacoesMaquina();
@@ -58,17 +74,37 @@ public class Log {
         }
     }
 
+    public void registrarInicioAplicacao() throws IOException {
+        ZonedDateTime now = ZonedDateTime.now();
+        DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String nomeArquivo = now.format(formatterNomeArquivo);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
+
+        Path diretorioLogs = Paths.get("logs");
+        Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
+            writer.write("---------------------------------- %s ----------------------------------\n".formatted(now.format(formatter)));
+            writer.write("%s Iniciando a aplicação...\n".formatted(now.format(formatter)));
+            writer.write("%s Aplicação iniciada\n".formatted(now.format(formatter)));
+        }
+    }
+
 
     public void registrarInformacoesMaquina() throws IOException {
         ZonedDateTime now = ZonedDateTime.now();
         DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String nomeArquivo = now.format(formatterNomeArquivo);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo + "-funcionamento-inovacao.txt", true))) {
+        Double ramDiponivel = looca.getMemoria().getDisponivel() / 1e9;
+
+        Path diretorioLogs = Paths.get("logs");
+        Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
             writer.write("%s REGISTRANDO INFORMAÇÕES MÁQUINAS\n".formatted(now.format(formatter)));
             monitoramento.definirInformacoesComponentes();
             writer.write("%s CPU: %s\n".formatted(now.format(formatter), monitoramento.getCpu().getNome()));
-            writer.write("%s RAM DISPONÍVEL: %.1f GB\n".formatted(now.format(formatter), monitoramento.getRam().getTotal() - monitoramento.getRam().getUso()));
+            writer.write("%s RAM TOTAL: %.1f GB\n".formatted(now.format(formatter), monitoramento.getRam().getTotal()));
+            writer.write("%s RAM DISPONÍVEL: %.1f GB\n".formatted(now.format(formatter), ramDiponivel));
             writer.write("%s SO: %s\n".formatted(now.format(formatter), sistema.getSistemaOperacional()));
             writer.write("%s Arquitetura: %s bits\n".formatted(now.format(formatter), sistema.getArquitetura()));
         }
@@ -83,46 +119,37 @@ public class Log {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
         Janela listaNomes = new Janela();
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo + "-funcionamento-inovacao.txt", true))) {
+        Path diretorioLogs = Paths.get("logs");
+        Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
             monitoramento.popularListaJanela();
             monitoramento.getTituloJanelasAbertas();
-            writer.write("%s REGISTRANDO INFORMAÇÕES JANELAS\n".formatted(now.format(formatter)));
+            writer.write("\n\n\n%s REGISTRANDO INFORMAÇÕES JANELAS\n".formatted(now.format(formatter)));
             writer.write("%s Janelas: %s\n".formatted(now.format(formatter), monitoramento.getTituloJanelasAbertas()));
-           // writer.write("%s Janelas Fechadas: %s\n".formatted(now.format(formatter), monitoramento.janelasFechadas()));
 
-        }
-    }
-    public void registrarInicioAplicacao() throws IOException {
-        ZonedDateTime now = ZonedDateTime.now();
-        DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String nomeArquivo = now.format(formatterNomeArquivo);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo + "-funcionamento-inovacao.txt", true))) {
-            writer.write("---------------------------------- %s ----------------------------------\n".formatted(now.format(formatter)));
-            writer.write("%s Iniciando a aplicação...\n".formatted(now.format(formatter)));
-            writer.write("%s Aplicação iniciada\n".formatted(now.format(formatter)));
-        }
-    }
+            query.buscarJanelasFechada();
 
-    public void limparLog() throws IOException {
 
-        ZonedDateTime now = ZonedDateTime.now();
-        DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String nomeArquivo = now.format(formatterNomeArquivo);
-        Path path = Paths.get(nomeArquivo);
+            for (int i = 0; i < query.getJanelasFechadas().size(); i++) {
+                System.out.println(query.getJanelasFechadas().get(0));
+                writer.write("%s Janelas Fechadas: %s\n".formatted(now.format(formatter), query.getJanelasFechadas().get(i).getTitulo()));
+            }
 
-        if (Files.exists(path)) {
-            Files.delete(path);
-        }
-    }
 
-    public void registrarEncerramentoAplicacao() throws IOException {
-        ZonedDateTime now = ZonedDateTime.now();
-        DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String nomeArquivo = now.format(formatterNomeArquivo);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo + "-funcionamento-inovacao.txt", true))) {
-            writer.write("%s Aplicação encerrada\n".formatted(now.format(formatter)));
+
+//            monitoramento.getTituloJanelasAbertas();
+//
+//            Integer tamanhoAntigo = monitoramento.getTituloJanelasAbertas().size();
+//
+//            for (int i = 0; i == tamanhoAntigo ; i++) {
+//                Integer tamanhoAtual = monitoramento.getTituloJanelasAbertas().size();
+//
+//                if (tamanhoAtual > tamanhoAntigo) {
+//                    String novaJanela = monitoramento.getTituloJanelasAbertas().get(tamanhoAtual - 1);
+//                    System.out.println("Nova fruta adicionada: " + novaJanela);
+//                }
+//            }
+
         }
     }
 
@@ -131,8 +158,16 @@ public class Log {
         DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String nomeArquivo = now.format(formatterNomeArquivo);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo+"-funcionamento-inovacao.txt", true))) {
+
+
+        Path diretorioLogs = Paths.get("logs");
+        Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
             writer.write("%s Encerrando a aplicação...\n".formatted(now.format(formatter)));
+            writer.write("%s Aplicação encerrada\n".formatted(now.format(formatter)));
         }
     }
+
+
+
 }
