@@ -109,7 +109,7 @@ public class Main {
 
                     // Notificação no Slack ao cadastrar com sucesso
                     JSONObject mensagemCadastroSucesso = new JSONObject();
-                    mensagemCadastroSucesso.put("text", usuarioLogado.getNome() + " cadastrou uma nova máquina para ser monitorada com sucesso em " + dataFormatada);
+                    mensagemCadastroSucesso.put("text", usuarioLogado.getNome() + " cadastrou uma nova máquina para ser monitorada com sucesso em " + dataFormatada + " \uD83D\uDE09");
                     Slack.enviarMensagem(mensagemCadastroSucesso);
                     // Fim notificação no Slack ao cadastrar com sucesso
                     query.definirTipoComponente("Processador");
@@ -151,9 +151,9 @@ public class Main {
         TimerTask monitoramentoTempoReal = new TimerTask() {
             @Override
             public void run() {
-                double LIMITE_CPU = 43.0;
-                double LIMITE_MEMORIA = 43.0;
-                double LIMITE_DISCO = 43.0;
+                double LIMITE_CPU = 1.0;
+                double LIMITE_MEMORIA = 3.0;
+                double LIMITE_DISCO = 220.0;
 
 
                 //USO CPU
@@ -161,16 +161,22 @@ public class Main {
                 query.definirComponente();
                 query.definirTipoDados("Uso CPU");
                 cpu.definirUso();
-                double usoCpu = cpu.getUso();
+                double usoCpu = (cpu.getUso());
                 query.inserirDadosCaptura(cpu.getUso());
 
 
                 // Verifica se o uso da CPU ultrapassa o limite
-                    if (usoCpu > LIMITE_CPU) {
+                if (usoCpu > LIMITE_CPU) {
                     try {
-                        enviarAlertaSlack("CPU", "Uso da CPU ultrapassou o limite: " + usoCpu + "%");
+                        enviarAlertaSlack("CPU", "\uD83D\uDEA8 Uso da CPU ultrapassou o limite \uD83D\uDEA8");
                     } catch (IOException e) {
-                        System.out.println("Não consegui enviar o alerta");
+                        System.out.println("Não consegui enviar o alerta para o Slack");
+                    }
+                } else if (usoCpu > LIMITE_CPU * 0.9) {
+                    try {
+                        enviarAlertaSlack("CPU", "⚠ Uso da CPU está chegando perto de exceder! ⚠");
+                    } catch (IOException e) {
+                        System.out.println("Não consegui enviar o alerta para o Slack");
                     }
                 }
 
@@ -180,6 +186,7 @@ public class Main {
                 query.definirComponente();
                 query.definirTipoDados("Uso RAM");
                 ram.definirUso();
+                Double totalMemoria = ram.getTotal();
                 double usoMemoria = ram.converterParaGigas(ram.getUso());
                 query.inserirDadosCaptura(usoMemoria);
                 //query.inserirDadosCaptura(ram.converterParaGigas(ram.getUso()));
@@ -187,9 +194,17 @@ public class Main {
                 // Verifica se o uso de memória ultrapassa o limite
                 if (usoMemoria > LIMITE_MEMORIA) {
                     try {
-                        enviarAlertaSlack("Memória", "Uso de memória ultrapassou o limite: " + usoMemoria + " GB");
+                        enviarAlertaSlack("Memória", "\uD83D\uDEA8 Uso de memória ultrapassou o limite \uD83D\uDEA8");
                     } catch (IOException e) {
-                        System.out.println("Não consegui enviar o alerta");
+                        System.out.println("Não consegui enviar o alerta para o Slack");
+                    }
+                }
+                double margemErro = 0.0001;
+                if (usoMemoria > LIMITE_MEMORIA * (1 - margemErro)) {
+                    try {
+                        enviarAlertaSlack("Memória", "⚠ Uso de memória está chegando perto de exceder! ⚠");
+                    } catch (IOException e) {
+                        System.out.println("Não consegui enviar o alerta para o Slack");
                     }
                 }
 
@@ -207,9 +222,17 @@ public class Main {
                 // Verifica se o uso do disco ultrapassa o limite
                 if (usoDisco > LIMITE_DISCO) {
                     try {
-                        enviarAlertaSlack("Disco", "Uso do disco ultrapassou o limite: " + usoDisco + " GB");
+                        enviarAlertaSlack("Disco", "\uD83D\uDEA8 Uso do disco ultrapassou o limite \uD83D\uDEA8");
                     } catch (IOException e) {
-                        System.out.println("Não consegui enviar o alerta");
+                        System.out.println("Não consegui enviar o alerta para o Slack");
+                    }
+                }
+
+                 if (usoDisco > LIMITE_DISCO * (1 - margemErro)) {
+                    try {
+                        enviarAlertaSlack("Disco", "⚠ Uso do disco está chegando perto de exceder! ⚠");
+                    } catch (IOException e) {
+                        System.out.println("Não consegui enviar o alerta para o Slack");
                     }
                 }
 
@@ -275,7 +298,7 @@ public class Main {
             }
         };
 
-        timer.schedule(monitoramentoTempoReal, 10000, 10000);
+        timer.schedule(monitoramentoTempoReal, 0, 5 * 60 * 1000);
 
 
 
