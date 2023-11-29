@@ -98,6 +98,8 @@ public class Query {
         con.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
                 "VALUES (?, ?, ?, 3, ?)", disco.getNome(), disco.getModelo(), disco.converterParaGigas(disco.getTotal()), maquina.getIdMaquina());
 
+
+
        /* conNuvem.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
                 "VALUES (?, ?, ?, 1, ?)", cpu.getNome(), cpu.getModelo(), cpu.getTotal(), maquina.getIdMaquina());
 
