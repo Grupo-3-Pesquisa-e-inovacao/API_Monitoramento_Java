@@ -4,7 +4,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +23,7 @@ public class Query {
     private Dado TipoDados;
     private Dado TipoComponente;
     private List<Dado> salas;
+    private List<Janela> janelasFechadas;
 
 
 
@@ -37,6 +37,7 @@ public class Query {
         this.usuarios = new ArrayList<>();
         this.componentes = new ArrayList<>();
         this.historicoUsuarios = new ArrayList<>();
+        this.janelasFechadas = new ArrayList<>();
     }
 
 
@@ -227,6 +228,19 @@ public class Query {
                 new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());*/
     }
 
+    public void buscarJanelaFechada() {
+         janelasFechadas = con.query("SELECT titulos FROM janela WHERE matar = 1",
+                new BeanPropertyRowMapper<>(Janela.class));
+    }
+
+    public List<Janela> getJanelasFechadas() {
+        return janelasFechadas;
+    }
+
+    public void setJanelasFechadas(List<Janela> janelasFechadas) {
+        this.janelasFechadas = janelasFechadas;
+    }
+
     public List<Janela> getJanelas() {
         return janelas;
     }
@@ -323,4 +337,6 @@ public class Query {
     public void setSalas(List<Dado> salas) {
         this.salas = salas;
     }
+
+
 }

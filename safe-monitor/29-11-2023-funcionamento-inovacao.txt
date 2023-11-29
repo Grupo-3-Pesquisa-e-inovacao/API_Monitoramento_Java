@@ -1,0 +1,10 @@
+---------------------------------- [29/11/2023 | 10:52:40] ----------------------------------
+[29/11/2023 | 10:52:40] Iniciando a aplicação...
+[29/11/2023 | 10:52:40] Aplicação iniciada
+[29/11/2023 | 10:52:40] REGISTRANDO INFORMAÇÕES MÁQUINAS
+[29/11/2023 | 10:52:40] CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+[29/11/2023 | 10:52:40] RAM DISPONÍVEL: -7368458231,7 GB
+[29/11/2023 | 10:52:40] SO: Windows
+[29/11/2023 | 10:52:40] Arquitetura: 64 bits
+[29/11/2023 | 10:52:40] REGISTRANDO INFORMAÇÕES JANELAS
+[29/11/2023 | 10:52:40] Janelas: [dashboard_geral.html - SafeMonitor-Frontend - Visual Studio Code]

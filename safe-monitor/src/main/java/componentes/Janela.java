@@ -11,11 +11,8 @@ public class Janela {
     private Looca looca;
     private Integer pid;
     private String titulo;
-
     private String comando;
-
     private String stt;
-
     private Integer matar;
 
 

@@ -23,6 +23,9 @@ public class Monitoramento {
     private List<String> tituloJanelasAbertas;
     private List<Janela> janelasAbertas;
 
+    private List<String> tituloJanelasFechadas;
+    private List<Janela>janelasFechadas;
+
     private Maquina maquina;
 
     private Usuario usuarioLogado;
@@ -36,6 +39,7 @@ public class Monitoramento {
         this.ram = new Memoria();
         this.cpu = new Processador();
         this.tituloJanelasAbertas = new ArrayList<>();
+        this.janelasFechadas = new ArrayList<>();
     }
 
     public Boolean procurarUsuario(String email, String senha){
@@ -152,10 +156,23 @@ public class Monitoramento {
     public List<String> getTituloJanelasAbertas() {
 
         for (Janela janela : janelasAbertas) {
+
             tituloJanelasAbertas.add(janela.getTitulo());
         }
 
         return tituloJanelasAbertas;
+    }
+
+    public List<String> popularListaJanelasFechadas(String titulo) {
+
+        queryBD.buscarJanelaFechada();
+
+        for (Janela janela: janelasFechadas) {
+            tituloJanelasFechadas.add(titulo);
+
+        }
+
+        return tituloJanelasFechadas;
     }
 
     public List<Janela> getJanelasAbertas() {
@@ -212,5 +229,19 @@ public class Monitoramento {
         this.tituloJanelasAbertas = tituloJanelasAbertas;
     }
 
+    public List<String> getTituloJanelasFechadas() {
+        return tituloJanelasFechadas;
+    }
 
+    public void setTituloJanelasFechadas(List<String> tituloJanelasFechadas) {
+        this.tituloJanelasFechadas = tituloJanelasFechadas;
+    }
+
+    public List<String> getJanelasFechadas() {
+        return tituloJanelasFechadas;
+    }
+
+    public void setJanelasFechadas(List<Janela> janelasFechadas) {
+        this.janelasFechadas = janelasFechadas;
+    }
 }
