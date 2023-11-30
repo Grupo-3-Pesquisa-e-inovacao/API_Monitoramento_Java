@@ -1,19 +1,25 @@
-import com.github.britooo.looca.api.core.Looca;
 import componentes.*;
 import entidades.HistoricoUsuarios;
 import entidades.Maquina;
 import entidades.Usuario;
 import org.json.JSONObject;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
-
-    public static void main(String[] args) throws IOException,InterruptedException{
+    public static void main(String[] args) {
 
 
         JSONObject json = new JSONObject();
@@ -29,6 +35,9 @@ public class Main {
         Rede rede = new Rede();
         Monitoramento monitoramento = new Monitoramento();
         Dispositivo dispositivo = new Dispositivo();
+        Log log = new Log();
+        List<String> janelaAntesDeRemoverDoBanco = new ArrayList<>();
+
 
 
         System.out.println("Seja bem-vindo(a)!");
@@ -38,6 +47,8 @@ public class Main {
 
 
         Boolean respostalogin = false;
+
+        log.iniciarLog();
 
         do{
             System.out.println("Digite seu email: ");
@@ -151,10 +162,6 @@ public class Main {
         TimerTask monitoramentoTempoReal = new TimerTask() {
             @Override
             public void run() {
-                double LIMITE_CPU = 1.0;
-                double LIMITE_MEMORIA = 3.0;
-                double LIMITE_DISCO = 220.0;
-
 
                 //USO CPU
                 query.definirTipoComponente("Processador");
@@ -286,6 +293,23 @@ public class Main {
                     if(j.getMatar() != null){
                         String nomeProcesso = monitoramento.pegarNomeProcessoPeloComando(j.getComando());
                         monitoramento.matarProcessoPorNome(nomeProcesso);
+
+                        //Variaveis para conseguir adicionar isso ao log
+                        ZonedDateTime now = ZonedDateTime.now();
+                        DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                        String nomeArquivo = now.format(formatterNomeArquivo);
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
+                        Path diretorioLogs = Paths.get("logs");
+                        Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
+
+                            writer.write("%s %s foi fechado com sucesso!\n".formatted(now.format(formatter), nomeProcesso));
+
+                        }catch (IOException erro) {
+                            erro.printStackTrace();
+                        }
+
+
                     }
 
                 }
@@ -346,6 +370,7 @@ public class Main {
                         System.out.println("Saindo da aplicação...");
 
                         System.exit(0);
+                        log.fecharLog();
                         break;
                 }
 
@@ -353,7 +378,7 @@ public class Main {
 
 
         }else{
-            System.out.println("ESTÁ MÁQUINA ESTÁ SENDO MONITORADA...");
+            System.out.println("ESTA MÁQUINA ESTÁ SENDO MONITORADA...");
         }
 
 

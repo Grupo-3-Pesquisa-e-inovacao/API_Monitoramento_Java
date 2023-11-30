@@ -10,6 +10,7 @@ public class Processador extends Componente {
         total = looca.getProcessador().getNumeroCpusLogicas().doubleValue();
     }
 
+
     @Override
     public void definirUso() {
         uso = looca.getProcessador().getUso();

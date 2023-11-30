@@ -5,16 +5,21 @@ import entidades.Maquina;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class Teste {
 
     public static void main(String[] args) {
 
+        Timer timer = new Timer();
+
+
         Monitoramento monitoramento = new Monitoramento();
+        Query query = new Query();
 
-
-
-        System.out.println(monitoramento.getJanelasAbertas());
+        query.buscarJanelasFechada();
 
         }
     }
