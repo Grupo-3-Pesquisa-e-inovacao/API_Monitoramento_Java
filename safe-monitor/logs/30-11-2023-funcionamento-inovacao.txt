@@ -132,3 +132,38 @@
 
 [30/11/2023 | 15:13:43] REGISTRANDO INFORMAÇÕES JANELAS
 [30/11/2023 | 15:13:43] Janelas: [safe-monitor – Main.java, Sergio Tanaka | Microsoft Teams classic, settings.py - Bot-To-Human-Teams - Visual Studio Code, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend at Slack and 1 more page - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Manage your flows | Power Automate and 5 more pages - Work - Microsoft​ Edge, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Main.java, Sergio Tanaka | Microsoft Teams classic, settings.py - Bot-To-Human-Teams - Visual Studio Code, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend at Slack and 1 more page - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Manage your flows | Power Automate and 5 more pages - Work - Microsoft​ Edge, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 18:41:29] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 18:41:29] Janelas: [safe-monitor – Main.java, MINGW64:/c/Users/a913666/Documents, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend: Aplicação que capta dados do hardware da maquina em que esta rodando. and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, MINGW64:/c/Users/a913666/Documents, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend: Aplicação que capta dados do hardware da maquina em que esta rodando. and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 18:53:19] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 18:53:19] Janelas: [Geral | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, safe-monitor – Query.java, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , Geral | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, safe-monitor – Query.java, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 18:58:18] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 18:58:18] Janelas: [safe-monitor – Main.java, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 19:01:31] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:01:31] Janelas: [login.js - SafeMonitor-Frontend - Visual Studio Code, safe-monitor – Main.java, MySQL Workbench, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , login.js - SafeMonitor-Frontend - Visual Studio Code, safe-monitor – Main.java, MySQL Workbench, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 19:03:38] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:03:38] Janelas: [safe-monitor – Main.java, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 19:13:26] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:13:26] Janelas: [safe-monitor – Main.java, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MINGW64:/c/Users/a913666/Documents, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MINGW64:/c/Users/a913666/Documents, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 19:16:00] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:16:00] Janelas: [safe-monitor – Main.java, Computador | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MINGW64:/c/Users/a913666/Documents, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, Computador | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MINGW64:/c/Users/a913666/Documents, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
