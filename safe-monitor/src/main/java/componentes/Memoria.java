@@ -26,6 +26,10 @@ public class Memoria extends Componente {
 
     @Override
     public void definirTotal() {
-        total = looca.getMemoria().getTotal().doubleValue();
+        total = looca.getMemoria().getTotal().doubleValue() / 1e9;
+    }
+
+    public void definirDisponivel(){
+        Double disponivel = looca.getMemoria().getDisponivel().doubleValue() / 1e9;
     }
 }
