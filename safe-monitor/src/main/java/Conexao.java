@@ -11,12 +11,12 @@ public class Conexao {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/safe_monitor");
         dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setPassword("Mel05bat@*");
         conexaoDoBanco = new JdbcTemplate(dataSource);
 
         BasicDataSource dataSourceNuvem = new BasicDataSource();
         dataSourceNuvem.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSourceNuvem.setUrl("jdbc:sqlserver://34.231.94.175:1433;databaseName=safe_monitor");
+        dataSourceNuvem.setUrl("jdbc:sqlserver://44.219.233.147:1433;databaseName=safe_monitor");
         dataSourceNuvem.setUsername("SafeMonitor");
         dataSourceNuvem.setPassword("Sptech123456");
         conexaoNuvem = new JdbcTemplate(dataSourceNuvem);

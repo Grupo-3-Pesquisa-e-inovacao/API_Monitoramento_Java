@@ -61,10 +61,10 @@ public class Main {
 
 
 
-        query.conectarMaquina(rede.getHostName());
 
 
-        while(query.getMaquina() == null){
+
+        while(!query.conectarMaquinaLocal(rede.getHostName()) || !query.conectarMaquinaNuvem(rede.getHostName())){
             Integer idSala = null;
 
             if (monitoramento.verificarPermissoesUsuario()){
@@ -94,21 +94,43 @@ public class Main {
                     );
 
                     monitoramento.definirInformacoesComponentes();
-                    query.inserirDaodosMaquina(maquina, monitoramento.getIdEmpresa(), idSala);
-                    query.conectarMaquina(rede.getHostName());
-                    query.inserirComponentes(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
 
-                    query.definirTipoComponente("Processador");
-                    query.definirComponente();
-                    query.inserirTiposDeDados("Uso CPU", 1);
+                    if(!query.conectarMaquinaNuvem(rede.getHostName())){
+                        query.inserirDaodosMaquinaNuvem(maquina, monitoramento.getIdEmpresa(), idSala);
+                        query.conectarMaquinaNuvem(rede.getHostName());
+                        query.inserirComponentesNuvem(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
 
-                    query.definirTipoComponente("Ram");
-                    query.definirComponente();
-                    query.inserirTiposDeDados("Uso RAM", 2);
+                        query.definirTipoComponente("Processador");
+                        query.definirComponente();
+                        query.inserirTiposDeDadosNuvem("Uso CPU", 1);
 
-                    query.definirTipoComponente("Disco");
-                    query.definirComponente();
-                    query.inserirTiposDeDados("Uso DISCO", 3);
+                        query.definirTipoComponente("Ram");
+                        query.definirComponente();
+                        query.inserirTiposDeDadosNuvem("Uso RAM", 2);
+
+                        query.definirTipoComponente("Disco");
+                        query.definirComponente();
+                        query.inserirTiposDeDadosNuvem("Uso DISCO", 3);
+                    }
+
+                    if(!query.conectarMaquinaLocal(rede.getHostName())){
+                        query.inserirDaodosMaquinaLocal(maquina, monitoramento.getIdEmpresa(), idSala);
+                        query.conectarMaquinaLocal(rede.getHostName());
+                        query.inserirComponentesLocal(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
+
+                        query.definirTipoComponente("Processador");
+                        query.definirComponente();
+                        query.inserirTiposDeDadosLocal("Uso CPU", 1);
+
+                        query.definirTipoComponente("Ram");
+                        query.definirComponente();
+                        query.inserirTiposDeDadosLocal("Uso RAM", 2);
+
+                        query.definirTipoComponente("Disco");
+                        query.definirComponente();
+                        query.inserirTiposDeDadosLocal("Uso DISCO", 3);
+                    }
+
 
 
                 }else{
@@ -124,174 +146,175 @@ public class Main {
         }
 
 
-        query.inserirDadosHistoricoUsuario(monitoramento.getUsuarioLogado().getIdUsuario());
+        if (query.conectarMaquinaNuvem(rede.getHostName()) && query.conectarMaquinaLocal(rede.getHostName())){
+            query.inserirDadosHistoricoUsuario(monitoramento.getUsuarioLogado().getIdUsuario());
+            Timer timer = new Timer();
+            TimerTask monitoramentoTempoReal = new TimerTask() {
+                @Override
+                public void run() {
 
 
-        Timer timer = new Timer();
-        TimerTask monitoramentoTempoReal = new TimerTask() {
-            @Override
-            public void run() {
 
 
+                    //USO CPU
+                    query.definirTipoComponente("Processador");
+                    query.definirComponente();
+                    query.definirTipoDados("Uso CPU");
+                    cpu.definirUso();
+                    query.inserirDadosCaptura(cpu.getUso());
 
 
-                //USO CPU
-                query.definirTipoComponente("Processador");
-                query.definirComponente();
-                query.definirTipoDados("Uso CPU");
-                cpu.definirUso();
-                query.inserirDadosCaptura(cpu.getUso());
+                    //USO MEMORIA
+                    query.definirTipoComponente("Ram");
+                    query.definirComponente();
+                    query.definirTipoDados("Uso RAM");
+                    ram.definirUso();
+                    query.inserirDadosCaptura(ram.converterParaGigas(ram.getUso()));
 
 
-              //USO MEMORIA
-                query.definirTipoComponente("Ram");
-                query.definirComponente();
-                query.definirTipoDados("Uso RAM");
-                ram.definirUso();
-                query.inserirDadosCaptura(ram.converterParaGigas(ram.getUso()));
+                    //USO DISCO
+                    query.definirTipoComponente("Disco");
+                    query.definirComponente();
+                    query.definirTipoDados("Uso DISCO");
+                    disco.definirTotal();
+                    disco.definirUso();
+                    query.inserirDadosCaptura(disco.converterParaGigas(disco.getUso()));
 
 
-                //USO DISCO
-                query.definirTipoComponente("Disco");
-                query.definirComponente();
-                query.definirTipoDados("Uso DISCO");
-                disco.definirTotal();
-                disco.definirUso();
-                query.inserirDadosCaptura(disco.converterParaGigas(disco.getUso()));
+                    //JANELA
+                    monitoramento.getJanelasAbertas().clear();
 
+                    monitoramento.popularListaJanela();
+                    query.buscarJanelas();
 
-                //JANELA
-                monitoramento.getJanelasAbertas().clear();
+                    // Remover janelas que não estão mais abertas
+                    for (Janela jBD : query.getJanelas()) {
+                        boolean janelaEncontrada = false;
 
-                monitoramento.popularListaJanela();
-                query.buscarJanelas();
+                        for (Janela j : monitoramento.getJanelasAbertas()) {
+                            if (jBD.getComando().equals(j.getComando())) {
+                                janelaEncontrada = true;
+                                break;
+                            }
+                        }
 
-                // Remover janelas que não estão mais abertas
-                for (Janela jBD : query.getJanelas()) {
-                    boolean janelaEncontrada = false;
-
-                    for (Janela j : monitoramento.getJanelasAbertas()) {
-                        if (jBD.getComando().equals(j.getComando())) {
-                            janelaEncontrada = true;
-                            break;
+                        if (!janelaEncontrada) {
+                            query.removerJanelaFechada(jBD);
                         }
                     }
 
-                    if (!janelaEncontrada) {
-                        query.removerJanelaFechada(jBD);
+
+                    //INSERIR JANELAS NO BANCO
+                    for (int i = 0; i < monitoramento.getJanelasAbertas().size(); i++) {
+
+                        boolean encontrado = false;
+                        for (int j = 0; j < query.getJanelas().size(); j++) {
+
+                            if (monitoramento.getJanelasAbertas().get(i).getComando().equals(query.getJanelas().get(j).getComando())
+                                    && monitoramento.getJanelasAbertas().get(i).getPid().equals(query.getJanelas().get(j).getPid())) {
+                                encontrado = true;
+                                break;
+                            }
+                        }
+
+                        if (!encontrado) {
+                            if(!monitoramento.getJanelasAbertas().get(i).getTitulo().isEmpty()){
+                                query.inserirDadosJanela(monitoramento.getJanelasAbertas().get(i));
+                            }
+
+                        }
                     }
+
+                    //VERIFICAR COMANDO PARA MATAR
+                    for (Janela j : query.getJanelas()) {
+                        if(j.getMatar() != null){
+                            String nomeProcesso = monitoramento.pegarNomeProcessoPeloComando(j.getComando());
+                            monitoramento.matarProcessoPorNome(nomeProcesso);
+
+                            //Variaveis para conseguir adicionar isso ao log
+                            ZonedDateTime now = ZonedDateTime.now();
+                            DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                            String nomeArquivo = now.format(formatterNomeArquivo);
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
+                            Path diretorioLogs = Paths.get("logs");
+                            Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
+                            try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
+
+                                writer.write("%s %s foi fechado com sucesso!\n".formatted(now.format(formatter), nomeProcesso));
+
+                            }catch (IOException erro) {
+                                erro.printStackTrace();
+                            }
+
+
+                        }
+
+                    }
+
+
+
+
+
+
                 }
+            };
 
-
-                //INSERIR JANELAS NO BANCO
-                for (int i = 0; i < monitoramento.getJanelasAbertas().size(); i++) {
-
-                    boolean encontrado = false;
-                    for (int j = 0; j < query.getJanelas().size(); j++) {
-
-                        if (monitoramento.getJanelasAbertas().get(i).getComando().equals(query.getJanelas().get(j).getComando())
-                            && monitoramento.getJanelasAbertas().get(i).getPid().equals(query.getJanelas().get(j).getPid())) {
-                            encontrado = true;
-                            break;
-                        }
-                    }
-
-                    if (!encontrado) {
-                        if(!monitoramento.getJanelasAbertas().get(i).getTitulo().isEmpty()){
-                            query.inserirDadosJanela(monitoramento.getJanelasAbertas().get(i));
-                        }
-
-                    }
-                }
-
-                //VERIFICAR COMANDO PARA MATAR
-                for (Janela j : query.getJanelas()) {
-                    if(j.getMatar() != null){
-                        String nomeProcesso = monitoramento.pegarNomeProcessoPeloComando(j.getComando());
-                        monitoramento.matarProcessoPorNome(nomeProcesso);
-
-                        //Variaveis para conseguir adicionar isso ao log
-                        ZonedDateTime now = ZonedDateTime.now();
-                        DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                        String nomeArquivo = now.format(formatterNomeArquivo);
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
-                        Path diretorioLogs = Paths.get("logs");
-                        Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
-                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
-
-                            writer.write("%s %s foi fechado com sucesso!\n".formatted(now.format(formatter), nomeProcesso));
-
-                        }catch (IOException erro) {
-                            erro.printStackTrace();
-                        }
-
-
-                    }
-
-                }
+            timer.schedule(monitoramentoTempoReal, 3000, 1000);
 
 
 
-
+            if (monitoramento.verificarPermissoesUsuario()){
                 System.out.println("SUA MÁQUINA ESTÁ SENDO MONITORADA");
+                System.out.println("Bem - vindo(a) administrador!");
 
+                String menuAdmin = String.format(
+                        """
+                        *---------------------------*
+                        |          Menu             |
+                        *---------------------------*
+                        | 1 - Histórico usuários    |
+                        | 2 - Janelas               |
+                        | 3 - Infomações da máquina |
+                        | 4 - Sair                  |
+                        *---------------------------*"""
+                );
+
+
+                do{
+                    System.out.println(menuAdmin);
+                    opcao = leitorNum.nextInt();
+
+                    switch(opcao){
+
+                        case 1:
+                            query.buscarHistoricoUsuarios();
+
+                            List<HistoricoUsuarios> usuarios = query.getHistoricoUsuarios();
+                            for (HistoricoUsuarios u: usuarios) {
+                                System.out.println(u);
+                            }
+
+                            break;
+
+                        case 2:
+                            System.out.println(monitoramento.getJanelasAbertas());
+
+                        case 3:
+                            System.out.println(query.getMaquina());
+                            break;
+
+                        case 4:
+                            System.exit(0);
+                            log.fecharLog();
+                            break;
+                    }
+
+                }while (true);
+
+
+            }else{
+                System.out.println("ESTA MÁQUINA ESTÁ SENDO MONITORADA...");
             }
-        };
-
-        timer.schedule(monitoramentoTempoReal, 3000, 1000);
-
-
-
-        if (monitoramento.verificarPermissoesUsuario()){
-            System.out.println("Bem - vindo(a) administrador!");
-
-            String menuAdmin = String.format(
-                    """
-                    *---------------------------*
-                    |          Menu             |
-                    *---------------------------*
-                    | 1 - Histórico usuários    |
-                    | 2 - Janelas               |
-                    | 3 - Infomações da máquina |
-                    | 4 - Sair                  |
-                    *---------------------------*"""
-            );
-
-
-            do{
-                System.out.println(menuAdmin);
-                opcao = leitorNum.nextInt();
-
-                switch(opcao){
-
-                    case 1:
-                        query.buscarHistoricoUsuarios();
-
-                        List<HistoricoUsuarios> usuarios = query.getHistoricoUsuarios();
-                        for (HistoricoUsuarios u: usuarios) {
-                            System.out.println(u);
-                        }
-
-                        break;
-
-                    case 2:
-                        System.out.println(monitoramento.getJanelasAbertas());
-
-                    case 3:
-                        System.out.println(query.getMaquina());
-                        break;
-
-                    case 7:
-                        System.exit(0);
-                        log.fecharLog();
-                        break;
-                }
-
-            }while (true);
-
-
-        }else{
-            System.out.println("ESTA MÁQUINA ESTÁ SENDO MONITORADA...");
         }
     }
 }

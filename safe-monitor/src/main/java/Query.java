@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Query {
 
-
     private Conexao conexao;
     private JdbcTemplate con;
     private JdbcTemplate conNuvem;
@@ -41,26 +40,46 @@ public class Query {
     }
 
 
-    public void conectarMaquina(String hostname){
+    public Boolean conectarMaquinaNuvem(String hostname){
+        Boolean existe = false;
 
-        maquina = null;
+        try {
+            maquina = conNuvem.queryForObject("SELECT * FROM maquina WHERE hostname = ?;",
+                    new BeanPropertyRowMapper<>(Maquina.class), hostname);
+
+            existe = true;
+
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Nenhum resultado encontrado para o hostname: " + hostname);
+        }
+
+        return existe;
+
+
+    }
+
+    public Boolean conectarMaquinaLocal(String hostname){
+
+        Boolean existe = false;
 
         try {
             maquina = con.queryForObject("SELECT * FROM maquina WHERE hostname = ?;",
                     new BeanPropertyRowMapper<>(Maquina.class), hostname);
 
-            /*maquina = conNuvem.queryForObject("SELECT * FROM maquina WHERE hostname = ?;",
-                    new BeanPropertyRowMapper<>(Maquina.class), hostname);*/
+            existe = true;
 
         } catch (EmptyResultDataAccessException e) {
             System.out.println("Nenhum resultado encontrado para o hostname: " + hostname);
         }
+
+        return existe;
+
+
     }
 
-    public void inserirDaodosMaquina(Maquina maquina, Integer idEmpresa, Integer idSala){
+    public void inserirDaodosMaquinaLocal(Maquina maquina, Integer idEmpresa, Integer idSala){
        con.update(" INSERT INTO maquina (hostName, nome, modelo, marca, numero_serie,  sistema_operacional, arquitetura, fabricante, " +
-                       "endereco_ipv4, endereco_mac, fk_empresa, fk_sala)" +
-                       "\t    VALUE(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                       "endereco_ipv4, endereco_mac, fk_empresa, fk_sala) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
                maquina.getHostName(),
                maquina.getNome(),
                maquina.getModelo(),
@@ -72,10 +91,11 @@ public class Query {
                maquina.getEndereco_ipv4(),
                maquina.getEnderecoMac(),
                idEmpresa, idSala);
+    }
 
-      /*  conNuvem.update(" INSERT INTO maquina (hostName, nome, modelo, marca, numero_serie,  sistema_operacional, arquitetura, fabricante, " +
-                        "endereco_ipv4, endereco_mac, fk_empresa, fk_sala)" +
-                        "\t    VALUE(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    public void inserirDaodosMaquinaNuvem(Maquina maquina, Integer idEmpresa, Integer idSala){
+        conNuvem.update(" INSERT INTO maquina (hostName, nome, modelo, marca, numero_serie,  sistema_operacional, arquitetura, fabricante, endereco_ipv4, endereco_mac, fk_empresa, fk_sala) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
                 maquina.getHostName(),
                 maquina.getNome(),
                 maquina.getModelo(),
@@ -86,10 +106,10 @@ public class Query {
                 maquina.getFabricante(),
                 maquina.getEndereco_ipv4(),
                 maquina.getEnderecoMac(),
-                idEmpresa, idSala);*/
+                idEmpresa, idSala);
     }
 
-    public void inserirComponentes(Processador cpu, Memoria ram, Disco disco){
+    public void inserirComponentesLocal(Processador cpu, Memoria ram, Disco disco){
         con.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
                 "VALUES (?, ?, ?, 1, ?)", cpu.getNome(), cpu.getModelo(), cpu.getTotal(), maquina.getIdMaquina());
 
@@ -99,55 +119,104 @@ public class Query {
         con.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
                 "VALUES (?, ?, ?, 3, ?)", disco.getNome(), disco.getModelo(), disco.converterParaGigas(disco.getTotal()), maquina.getIdMaquina());
 
-       /* conNuvem.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
-                "VALUES (?, ?, ?, 1, ?)", cpu.getNome(), cpu.getModelo(), cpu.getTotal(), maquina.getIdMaquina());
+    }
 
-        conNuvem.update(" INSERT INTO componente (total, fk_tipoComponente, fk_maquina) " +
-                "VALUES (?, 2, ?)", ram.getTotal(), maquina.getIdMaquina());
+    public void inserirComponentesNuvem(Processador cpu, Memoria ram, Disco disco){
 
-        conNuvem.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) " +
-                "VALUES (?, ?, ?, 3, ?)", disco.getNome(), disco.getModelo(), disco.getTotal(), maquina.getIdMaquina());*/
+        conNuvem.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) VALUES (?, ?, ?, 1, ?)", cpu.getNome(), cpu.getModelo(), cpu.getTotal(), maquina.getIdMaquina());
+
+        conNuvem.update(" INSERT INTO componente (total, fk_tipoComponente, fk_maquina) VALUES (?, 2, ?)", ram.converterParaGigas(ram.getTotal()), maquina.getIdMaquina());
+
+        conNuvem.update(" INSERT INTO componente (nome, modelo, total, fk_tipoComponente, fk_maquina) VALUES (?, ?, ?, 3, ?)", disco.getNome(), disco.getModelo(), disco.converterParaGigas(disco.getTotal()), maquina.getIdMaquina());
     }
 
 
 
     public void definirTipoComponente(String nome){
-        TipoComponente = con.queryForObject("SELECT idTipoComponente as id, nome AS nome FROM tipo_componente WHERE nome = ?;",
-                new BeanPropertyRowMapper<>(Dado.class),nome);
 
-      /*  TipoComponente = conNuvem.queryForObject("SELECT idTipoComponente as id, nome AS nome FROM tipo_componente WHERE nome = ?;",
-                new BeanPropertyRowMapper<>(Dado.class),nome);*/
+        try {
+            TipoComponente = con.queryForObject("SELECT idTipoComponente as id, nome AS nome FROM tipo_componente WHERE nome = ?;",
+                    new BeanPropertyRowMapper<>(Dado.class),nome);
+
+
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Nenhum tipo componente encontrado localmente." );
+        }
+
+        try {
+            TipoComponente = conNuvem.queryForObject("SELECT idTipoComponente as id, nome AS nome FROM tipo_componente WHERE nome = ?;",
+                    new BeanPropertyRowMapper<>(Dado.class),nome);
+
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Nenhum tipo componente encontrado na nuvem." );
+        }
+
+
     }
 
     public void definirComponente(){
-        idComponenteList = con.queryForObject("SELECT idComponente as id, nome FROM componente WHERE fk_tipoComponente = ? AND fk_maquina = ?",
-                new BeanPropertyRowMapper<>(Dado.class), TipoComponente.getId(), maquina.getIdMaquina());
 
-       /* idComponenteList = conNuvem.queryForObject("SELECT idComponente as id, nome FROM componente WHERE fk_tipoComponente = ? AND fk_maquina = ?",
-                new BeanPropertyRowMapper<>(Dado.class), TipoComponente.getId(), maquina.getIdMaquina());*/
+        try {
+            idComponenteList = con.queryForObject("SELECT idComponente as id, nome FROM componente WHERE fk_tipoComponente = ? AND fk_maquina = ?",
+                    new BeanPropertyRowMapper<>(Dado.class), TipoComponente.getId(), maquina.getIdMaquina());
+
+
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Nenhum componente encontrado na localmente." );
+        }
+
+
+        try {
+            idComponenteList = conNuvem.queryForObject("SELECT idComponente as id, nome FROM componente WHERE fk_tipoComponente = ? AND fk_maquina = ?",
+                    new BeanPropertyRowMapper<>(Dado.class), TipoComponente.getId(), maquina.getIdMaquina());
+
+
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Nenhum componente encontrado na nuvem." );
+        }
+
+
     }
 
-    public void definirTipoDados(String nome){
-        TipoDados = con.queryForObject("SELECT idTipoDados as id, nome AS nome FROM tipo_dados WHERE nome = ?;",
-                new BeanPropertyRowMapper<>(Dado.class),nome);
+    public void definirTipoDados(String nome) {
 
-        /*TipoDados = conNuvem.queryForObject("SELECT idTipoDados as id, nome AS nome FROM tipo_dados WHERE nome = ?;",
-                new BeanPropertyRowMapper<>(Dado.class),nome);*/
+        try {
+            TipoDados = con.queryForObject("SELECT idTipoDados as id, nome AS nome FROM tipo_dados WHERE nome = ?;",
+                    new BeanPropertyRowMapper<>(Dado.class), nome);
+
+
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Nenhum tipo dados encontrado na localmente.");
+        }
+
+        try {
+            TipoDados = conNuvem.queryForObject("SELECT idTipoDados as id, nome AS nome FROM tipo_dados WHERE nome = ?;",
+                    new BeanPropertyRowMapper<>(Dado.class), nome);
+
+
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Nenhum tipo dados encontrado na nuvem.");
+        }
     }
 
 
-    public  void inserirTiposDeDados(String tipoDado, Integer tipoComponente){
+
+    public  void inserirTiposDeDadosLocal(String tipoDado, Integer tipoComponente){
         con.update("INSERT INTO tipo_dados (nome, fk_componente, fk_maquina, fk_tipoComponente) VALUES (?, ?, ?, ?);",
                 tipoDado, idComponenteList.getId(), maquina.getIdMaquina(), tipoComponente);
+
+    }
+    public  void inserirTiposDeDadosNuvem(String tipoDado, Integer tipoComponente){
+        conNuvem.update("INSERT INTO tipo_dados (nome, fk_componente, fk_maquina, fk_tipoComponente) VALUES (?, ?, ?, ?);",
+                tipoDado, idComponenteList.getId(), maquina.getIdMaquina(), tipoComponente);
+
     }
 
 
     public void inserirDadosCaptura(Double valor){
-            con.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tipoDados, fk_maquina, fk_componente, fk_tipoComponente)" +
-                    "VALUES (now(), ?, ?, ?, ?,?);", valor, TipoDados.getId(), maquina.getIdMaquina(), idComponenteList.getId(), TipoComponente.getId());
+            con.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tipoDados, fk_maquina, fk_componente, fk_tipoComponente) VALUES (now(), ?, ?, ?, ?,?);", valor, TipoDados.getId(), maquina.getIdMaquina(), idComponenteList.getId(), TipoComponente.getId());
 
-      /*  conNuvem.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tiposDados, fk_maquina, fk_componente, fk_tipoComponente)" +
-                "VALUES (now(), ?, ?, ?, ?,?);", valor, TipoDados.getId(), maquina.getIdMaquina(), 1, TipoComponente.getId());*/
+        conNuvem.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tipoDados, fk_maquina, fk_componente, fk_tipoComponente) VALUES (GETDATE(), ?, ?, ?, ?, ?);", valor, TipoDados.getId(), maquina.getIdMaquina(), idComponenteList.getId(), TipoComponente.getId());
 
     }
 
@@ -155,12 +224,15 @@ public class Query {
         janelas = con.query("SELECT pid, titulos as titulo, comandos as comando, matar, stt FROM janela WHERE fk_maquina = ? AND stt = 'Aberta';",
                 new BeanPropertyRowMapper<>(Janela.class), maquina.getIdMaquina());
 
-        /*janelas = conNuvem.query("SELECT pid, titulos as titulo, comandos as comando, matar, stt FROM janela WHERE fk_maquina = ? AND stt = 'Aberta';",
-                new BeanPropertyRowMapper<>(Janela.class), maquina.getIdMaquina());*/
+        janelas = conNuvem.query("SELECT pid, titulos as titulo, comandos as comando, matar, stt FROM janela WHERE fk_maquina = ? AND stt = 'Aberta';",
+                new BeanPropertyRowMapper<>(Janela.class), maquina.getIdMaquina());
     }
 
     public void buscarJanelasFechada() {
         janelasFechadas = con.query("SELECT pid, titulos as titulo, comandos as comando, matar, stt FROM janela WHERE matar = 1",
+                new BeanPropertyRowMapper<>(Janela.class));
+
+        janelasFechadas = conNuvem.query("SELECT pid, titulos as titulo, comandos as comando, matar, stt FROM janela WHERE matar = 1",
                 new BeanPropertyRowMapper<>(Janela.class));
     }
 
@@ -168,33 +240,35 @@ public class Query {
         salas = con.query("SELECT idSala as id, nome FROM sala_de_aula WHERE fk_empresa = ?;",
                 new BeanPropertyRowMapper<>(Dado.class), idEmpresa);
 
-       /* salas = conNuvem.query("SELECT idSala as id, nome FROM sala_de_aula WHERE fk_empresa = ?;",
-                new BeanPropertyRowMapper<>(Dado.class), idEmpresa);*/
+        salas = conNuvem.query("SELECT idSala as id, nome FROM sala_de_aula WHERE fk_empresa = ?;",
+                new BeanPropertyRowMapper<>(Dado.class), idEmpresa);
     }
 
     public void inserirDadosJanela(Janela janela){
         con.update("INSERT INTO janela (pid, titulos,comandos, fk_maquina, stt) " +
                 "VALUES (?, ?, ?, ?, ?)", janela.getPid(), janela.getTitulo(), janela.getComando(), maquina.getIdMaquina(), "Aberta");
 
-      /*  conNuvem.update("INSERT INTO janela (pid, titulos,comandos, fk_maquina, stt) " +
-                "VALUES (?, ?, ?, ?, ?)", janela.getPid(), janela.getTitulo(), janela.getComando(), maquina.getIdMaquina(), "Aberta");*/
+        conNuvem.update("INSERT INTO janela (pid, titulos,comandos, fk_maquina, stt) VALUES (?, ?, ?, ?, ?)", janela.getPid(), janela.getTitulo(), janela.getComando(), maquina.getIdMaquina(), "Aberta");
     }
 
     public void alterarStatusJanelaFechada(Janela janela){
         con.update("UPDATE janela SET stt = 'Fechada' WHERE fk_maquina = ? AND pid = ?;"
                 , maquina.getIdMaquina(), janela.getPid());
 
-      /*  conNuvem.update("UPDATE janela SET stt = 'Fechada' WHERE fk_maquina = ? AND pid = ?;"
-                , maquina.getIdMaquina(), janela.getPid());*/
+        conNuvem.update("UPDATE janela SET stt = 'Fechada' WHERE fk_maquina = ? AND pid = ?;"
+                , maquina.getIdMaquina(), janela.getPid());
     }
 
     public void removerJanelaFechada(Janela janela){
         con.update("DELETE FROM janela WHERE comandos = ?"
                 , janela.getComando());
 
-      /*  conNuvem.update("UPDATE janela SET stt = 'Fechada' WHERE fk_maquina = ? AND pid = ?;"
-                , maquina.getIdMaquina(), janela.getPid());*/
+        conNuvem.update("DELETE FROM janela WHERE comandos = ?"
+                , janela.getComando());
+
+
     }
+
 
 
 
@@ -202,24 +276,16 @@ public class Query {
         con.update("INSERT INTO historico_usuarios (fk_usuario, fk_maquina) " +
                 "VALUES (?, ?)", idUsuario, maquina.getIdMaquina());
 
-       /* conNuvem.update("INSERT INTO historico_usuarios (fk_usuario, fk_maquina) " +
-                "VALUES (?, ?)", idUsuario, maquina.getIdMaquina());*/
+        conNuvem.update("INSERT INTO historico_usuarios (fk_usuario, fk_maquina) VALUES (?, ?)", idUsuario, maquina.getIdMaquina());
     }
 
-    public void buscarComponentes(){
-        componentes = con.query("SELECT * FROM componente",
-                new BeanPropertyRowMapper<>(Componente.class));
-
-        /*componentes = conNuvem.query("SELECT * FROM componente",
-                new BeanPropertyRowMapper<>(Componente.class));*/
-    }
 
   public void buscarUsuariosBanco(){
         usuarios = con.query("SELECT * FROM usuario WHERE capturar = 1",
                 new BeanPropertyRowMapper<>(Usuario.class));
 
-   /*   usuarios = conNuvem.query("SELECT * FROM usuario WHERE capturar = 1",
-              new BeanPropertyRowMapper<>(Usuario.class));*/
+      usuarios = conNuvem.query("SELECT * FROM usuario WHERE capturar = 1",
+              new BeanPropertyRowMapper<>(Usuario.class));
 
     }
 
@@ -230,11 +296,9 @@ public class Query {
                         "    WHERE historico.fk_maquina = ? ORDER BY data_hora DESC;",
                 new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());
 
-       /* historicoUsuarios = conNuvem.query(
-                "SELECT usuario.email as email, usuario.nome as nome, data_hora as dataHora FROM \n" +
-                        "\thistorico_usuarios as historico INNER JOIN usuario ON usuario.idUsuario = historico.fk_usuario \n" +
-                        "    WHERE historico.fk_maquina = ? ORDER BY data_hora DESC;",
-                new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());*/
+       historicoUsuarios = conNuvem.query(
+                "SELECT usuario.email as email, usuario.nome as nome, data_hora as dataHora FROM historico_usuarios as historico INNER JOIN usuario ON usuario.idUsuario = historico.fk_usuario WHERE historico.fk_maquina = ? ORDER BY data_hora DESC;",
+                new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());
     }
 
 
@@ -333,4 +397,6 @@ public class Query {
     public void setJanelasFechadas(List<Janela> janelasFechadas) {
         this.janelasFechadas = janelasFechadas;
     }
+
+
 }
