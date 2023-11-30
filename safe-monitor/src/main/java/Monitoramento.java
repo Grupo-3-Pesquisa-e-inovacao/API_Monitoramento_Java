@@ -1,8 +1,10 @@
 import com.github.britooo.looca.api.core.Looca;
+import com.github.britooo.looca.api.group.processos.Processo;
 import componentes.*;
 import entidades.Maquina;
 import entidades.Usuario;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,19 +111,63 @@ public class Monitoramento {
                 j.definirStatus(i);
                 janelasAbertas.add(j);
 
+
             }
 
         }
     }
 
-    public void definirInformacoesComponentes() {
+
+        public void matarProcessoPorNome(String nomeProcesso) {
+            Looca looca = new Looca();
+
+            for (Processo processo : looca.getGrupoDeProcessos().getProcessos()) {
+                if (processo.getNome().toLowerCase().contains(nomeProcesso.toLowerCase())) {
+                    long pid = processo.getPid();
+                    try {
+                        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+                            // If it's a Windows system
+                            Process process = Runtime.getRuntime().exec("taskkill /F /PID " + pid);
+                            process.waitFor();
+                        } else {
+                            // If it's a non-Windows system
+                            Process process = Runtime.getRuntime().exec("kill " + pid);
+                            process.waitFor();
+                        }
+                        System.out.println("O processo com PID " + pid + " foi encerrado.");
+                    } catch (IOException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
+    public String pegarNomeProcessoPeloComando(String comando){
+
+        File caminho = new File(comando);
+        return caminhoSemExtensao(caminho);
+    }
+
+
+    // Método para obter o nome do arquivo sem a extensão
+    private static String caminhoSemExtensao(File file) {
+        String nomeCaminho = file.getName();
+        int ultimoPontoIndex = nomeCaminho.lastIndexOf('.');
+
+        if (ultimoPontoIndex > 0) {
+            return nomeCaminho.substring(0, ultimoPontoIndex);
+        } else {
+            return nomeCaminho;
+        }
+    }
+
+
+        public void definirInformacoesComponentes() {
         cpu.definirNome();
         cpu.definirModelo();
         cpu.definirTotal();
 
         ram.definirTotal();
-        ram.definirUso();
-        ram.definirDisponivel();
 
         disco.definirNome();
         disco.definirModelo();

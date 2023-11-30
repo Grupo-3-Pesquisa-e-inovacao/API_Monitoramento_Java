@@ -129,11 +129,11 @@ public class Log {
 
             query.buscarJanelasFechada();
 
-
             for (int i = 0; i < query.getJanelasFechadas().size(); i++) {
                 System.out.println(query.getJanelasFechadas().get(0));
                 writer.write("%s Janelas Fechadas: %s\n".formatted(now.format(formatter), query.getJanelasFechadas().get(i).getTitulo()));
             }
+
 
 
 

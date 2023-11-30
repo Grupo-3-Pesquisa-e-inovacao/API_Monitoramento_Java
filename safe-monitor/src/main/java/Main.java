@@ -3,7 +3,15 @@ import entidades.HistoricoUsuarios;
 import entidades.Maquina;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -22,6 +30,8 @@ public class Main {
         Monitoramento monitoramento = new Monitoramento();
         Dispositivo dispositivo = new Dispositivo();
         Log log = new Log();
+        List<String> janelaAntesDeRemoverDoBanco = new ArrayList<>();
+
 
 
         System.out.println("Seja bem-vindo(a)!");
@@ -31,7 +41,7 @@ public class Main {
 
         Boolean respostalogin = false;
 
-//        log.iniciarAplicacao();
+        log.iniciarLog();
 
         do{
             System.out.println("Digite seu email: ");
@@ -65,7 +75,11 @@ public class Main {
                 if(resposta.equalsIgnoreCase("S")){
                     System.out.println("Selecione um número e defina uma sala para essa máquina: ");
                     query.buscarSalas(monitoramento.getIdEmpresa());
-                    System.out.println(query.getSalas());
+
+                    for (int i = 0; i < query.getSalas().size(); i++) {
+                        System.out.println(query.getSalas().get(i));
+                    }
+
                     idSala = leitorNum.nextInt();
 
                     Maquina maquina = new Maquina();
@@ -147,8 +161,26 @@ public class Main {
 
 
                 //JANELA
+                monitoramento.getJanelasAbertas().clear();
+
                 monitoramento.popularListaJanela();
                 query.buscarJanelas();
+
+                // Remover janelas que não estão mais abertas
+                for (Janela jBD : query.getJanelas()) {
+                    boolean janelaEncontrada = false;
+
+                    for (Janela j : monitoramento.getJanelasAbertas()) {
+                        if (jBD.getComando().equals(j.getComando())) {
+                            janelaEncontrada = true;
+                            break;
+                        }
+                    }
+
+                    if (!janelaEncontrada) {
+                        query.removerJanelaFechada(jBD);
+                    }
+                }
 
 
                 //INSERIR JANELAS NO BANCO
@@ -157,16 +189,47 @@ public class Main {
                     boolean encontrado = false;
                     for (int j = 0; j < query.getJanelas().size(); j++) {
 
-                        if (monitoramento.getJanelasAbertas().get(i).getComando().equals(query.getJanelas().get(j).getComando())) {
+                        if (monitoramento.getJanelasAbertas().get(i).getComando().equals(query.getJanelas().get(j).getComando())
+                            && monitoramento.getJanelasAbertas().get(i).getPid().equals(query.getJanelas().get(j).getPid())) {
                             encontrado = true;
                             break;
                         }
                     }
 
                     if (!encontrado) {
-                        query.inserirDadosJanela(monitoramento.getJanelasAbertas().get(i));
+                        if(!monitoramento.getJanelasAbertas().get(i).getTitulo().isEmpty()){
+                            query.inserirDadosJanela(monitoramento.getJanelasAbertas().get(i));
+                        }
+
                     }
                 }
+
+                //VERIFICAR COMANDO PARA MATAR
+                for (Janela j : query.getJanelas()) {
+                    if(j.getMatar() != null){
+                        String nomeProcesso = monitoramento.pegarNomeProcessoPeloComando(j.getComando());
+                        monitoramento.matarProcessoPorNome(nomeProcesso);
+
+                        //Variaveis para conseguir adicionar isso ao log
+                        ZonedDateTime now = ZonedDateTime.now();
+                        DateTimeFormatter formatterNomeArquivo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                        String nomeArquivo = now.format(formatterNomeArquivo);
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'['dd/MM/yyyy | HH:mm:ss']'");
+                        Path diretorioLogs = Paths.get("logs");
+                        Path path = diretorioLogs.resolve(nomeArquivo + "-funcionamento-inovacao.txt");
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
+
+                            writer.write("%s %s foi fechado com sucesso!\n".formatted(now.format(formatter), nomeProcesso));
+
+                        }catch (IOException erro) {
+                            erro.printStackTrace();
+                        }
+
+
+                    }
+
+                }
+
 
 
 
