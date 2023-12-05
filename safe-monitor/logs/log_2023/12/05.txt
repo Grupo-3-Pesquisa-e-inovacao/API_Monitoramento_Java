@@ -1,0 +1,7 @@
+Início do log: Tue Dec 05 09:10:08 BRT 2023
+Erro: Tue Dec 05 09:10:08 BRT 2023
+java.lang.RuntimeException: Erro simulado!
+	at Main.main(Main.java:25)
+Erro: Tue Dec 05 09:11:37 BRT 2023
+java.lang.RuntimeException: Erro simulado!
+	at Main.main(Main.java:25)
