@@ -311,8 +311,10 @@ public class Main {
                         case 3:
                             System.out.println(query.getMaquina());
                             break;
-
                         case 4:
+                            dispositivo.cadastrarDispositivos();
+                            break;
+                        case 5:
                             System.exit(0);
                             log.fecharLog();
                             break;
