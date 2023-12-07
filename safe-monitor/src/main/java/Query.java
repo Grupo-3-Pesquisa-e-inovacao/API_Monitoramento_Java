@@ -166,14 +166,14 @@ public class Query {
         }
 
 
-        try {
+      /*  try {
             idComponenteList = conNuvem.queryForObject("SELECT idComponente as id, nome FROM componente WHERE fk_tipoComponente = ? AND fk_maquina = ?",
                     new BeanPropertyRowMapper<>(Dado.class), TipoComponente.getId(), maquina.getIdMaquina());
 
 
         } catch (EmptyResultDataAccessException e) {
             System.out.println("Nenhum componente encontrado na nuvem." );
-        }
+        }*/
 
 
     }
@@ -189,14 +189,14 @@ public class Query {
             System.out.println("Nenhum tipo dados encontrado na localmente.");
         }
 
-        try {
+      /*  try {
             TipoDados = conNuvem.queryForObject("SELECT idTipoDados as id, nome AS nome FROM tipo_dados WHERE nome = ?;",
                     new BeanPropertyRowMapper<>(Dado.class), nome);
 
 
         } catch (EmptyResultDataAccessException e) {
             System.out.println("Nenhum tipo dados encontrado na nuvem.");
-        }
+        }*/
     }
 
 
@@ -261,7 +261,7 @@ public class Query {
 
 
     public void removerJanelaFechada(Janela janela){
-        con.update("DELETE FROM janela WHERE comandos = ?;"
+        con.update("DELETE FROM janela WHERE comandos = ?"
                 , janela.getComando());
 
     }
@@ -269,8 +269,9 @@ public class Query {
     public void removerJanelaFechadaNuvem(Janela janela){
         conNuvem.update("DELETE FROM janela WHERE CONVERT(varchar(max), comandos) = ?;"
                 , janela.getComando());
-
     }
+
+
 
 
 
@@ -280,22 +281,22 @@ public class Query {
         con.update("INSERT INTO historico_usuarios (fk_usuario, fk_maquina) " +
                 "VALUES (?, ?)", idUsuario, maquina.getIdMaquina());
 
-        conNuvem.update("INSERT INTO historico_usuarios (fk_usuario, fk_maquina) VALUES (?, ?)", idUsuario, maquina.getIdMaquina());
+        /*conNuvem.update("INSERT INTO historico_usuarios (fk_usuario, fk_maquina) VALUES (?, ?)", idUsuario, maquina.getIdMaquina());*/
     }
 
 
   public void buscarUsuariosBanco(){
 
-      usuarios = conNuvem.query("SELECT * FROM usuario WHERE capturar = 1",
-              new BeanPropertyRowMapper<>(Usuario.class));
+     /* usuarios = conNuvem.query("SELECT * FROM usuario WHERE capturar = 1",
+              new BeanPropertyRowMapper<>(Usuario.class));*/
 
     }
 
     public void buscarHistoricoUsuarios(){
 
-       historicoUsuarios = conNuvem.query(
+       /*historicoUsuarios = conNuvem.query(
                 "SELECT usuario.email as email, usuario.nome as nome, data_hora as dataHora FROM historico_usuarios as historico INNER JOIN usuario ON usuario.idUsuario = historico.fk_usuario WHERE historico.fk_maquina = ? ORDER BY data_hora DESC;",
-                new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());
+                new BeanPropertyRowMapper<>(HistoricoUsuarios.class), maquina.getIdMaquina());*/
     }
 
 

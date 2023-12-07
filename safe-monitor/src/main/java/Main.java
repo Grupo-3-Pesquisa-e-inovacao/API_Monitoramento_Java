@@ -64,7 +64,7 @@ public class Main {
 
 
 
-        while(!query.conectarMaquinaLocal(rede.getHostName()) || !query.conectarMaquinaNuvem(rede.getHostName())){
+        while(!query.conectarMaquinaLocal(rede.getHostName())){
             Integer idSala = null;
 
             if (monitoramento.verificarPermissoesUsuario()){
@@ -77,7 +77,7 @@ public class Main {
                     query.buscarSalas(monitoramento.getIdEmpresa());
 
                     for (int i = 0; i < query.getSalas().size(); i++) {
-                        System.out.println(query.getSalas().get(i));
+                        System.out.println(query.getSalas().get(i).getId() + " - " + query.getSalas().get(i).getNome());
                     }
 
                     idSala = leitorNum.nextInt();
@@ -95,7 +95,7 @@ public class Main {
 
                     monitoramento.definirInformacoesComponentes();
 
-                    if(!query.conectarMaquinaNuvem(rede.getHostName())){
+                  /*  if(!query.conectarMaquinaNuvem(rede.getHostName())){
                         query.inserirDaodosMaquinaNuvem(maquina, monitoramento.getIdEmpresa(), idSala);
                         query.conectarMaquinaNuvem(rede.getHostName());
                         query.inserirComponentesNuvem(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
@@ -111,24 +111,32 @@ public class Main {
                         query.definirTipoComponente("Disco");
                         query.definirComponente();
                         query.inserirTiposDeDadosNuvem("Uso DISCO", 3);
-                    }
+                    }*/
 
                     if(!query.conectarMaquinaLocal(rede.getHostName())){
+                        System.out.println("Cadastrou máquina");
                         query.inserirDaodosMaquinaLocal(maquina, monitoramento.getIdEmpresa(), idSala);
+
                         query.conectarMaquinaLocal(rede.getHostName());
+                        System.out.println("Conectou máquina");
+
                         query.inserirComponentesLocal(monitoramento.getCpu(), monitoramento.getRam(), monitoramento.getDisco());
+                        System.out.println("Inseriu componentes");
 
                         query.definirTipoComponente("Processador");
                         query.definirComponente();
                         query.inserirTiposDeDadosLocal("Uso CPU", 1);
+                        System.out.println("Inseriu tipo dados CPU");
 
                         query.definirTipoComponente("Ram");
                         query.definirComponente();
                         query.inserirTiposDeDadosLocal("Uso RAM", 2);
+                        System.out.println("Inseriu tipo dados RAM");
 
                         query.definirTipoComponente("Disco");
                         query.definirComponente();
                         query.inserirTiposDeDadosLocal("Uso DISCO", 3);
+                        System.out.println("Inseriu tipo dados DISCO");
                     }
 
 
@@ -146,8 +154,9 @@ public class Main {
         }
 
 
-        if (query.conectarMaquinaNuvem(rede.getHostName()) && query.conectarMaquinaLocal(rede.getHostName())){
+        if (query.conectarMaquinaLocal(rede.getHostName())){
             query.inserirDadosHistoricoUsuario(monitoramento.getUsuarioLogado().getIdUsuario());
+
             Timer timer = new Timer();
             TimerTask monitoramentoTempoReal = new TimerTask() {
                 @Override
