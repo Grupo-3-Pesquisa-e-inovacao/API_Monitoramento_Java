@@ -1,0 +1,92 @@
+---------------------------------- [07/12/2023 | 17:06:26] ----------------------------------
+[07/12/2023 | 17:06:26] Iniciando a aplicação...
+[07/12/2023 | 17:06:26] Aplicação iniciada
+[07/12/2023 | 17:06:26] REGISTRANDO INFORMAÇÕES MÁQUINAS
+[07/12/2023 | 17:06:26] CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+[07/12/2023 | 17:06:26] RAM TOTAL: 16.9 GB
+[07/12/2023 | 17:06:26] RAM DISPONÍVEL: 4.7 GB
+[07/12/2023 | 17:06:26] SO: Windows
+[07/12/2023 | 17:06:26] Arquitetura: 64 bits
+
+
+
+[07/12/2023 | 17:06:26] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 17:06:26] Janelas: [safe-monitor – Conexao.java, salas.js - SafeMonitor-Frontend - Visual Studio Code, ChatGPT and 2 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, MINGW64:/c/GitHub/SafeMonitor-Backend/safe-monitor, Setup, Mail, JamPostMessageWindow, , Sergio Tanaka | Microsoft Teams classic, MySQL Workbench, safe-monitor – Conexao.java, salas.js - SafeMonitor-Frontend - Visual Studio Code, ChatGPT and 2 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, MINGW64:/c/GitHub/SafeMonitor-Backend/safe-monitor, Setup, Mail, JamPostMessageWindow, , Sergio Tanaka | Microsoft Teams classic, MySQL Workbench]
+
+
+
+[07/12/2023 | 17:13:05] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 17:13:05] Janelas: [safe-monitor – Query.java, salas.js - SafeMonitor-Frontend - Visual Studio Code, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, MySQL Workbench, MINGW64:/c/GitHub/SafeMonitor-Backend/safe-monitor, Setup, Mail, JamPostMessageWindow, , Sergio Tanaka | Microsoft Teams classic, safe-monitor – Query.java, salas.js - SafeMonitor-Frontend - Visual Studio Code, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, MySQL Workbench, MINGW64:/c/GitHub/SafeMonitor-Backend/safe-monitor, Setup, Mail, JamPostMessageWindow, , Sergio Tanaka | Microsoft Teams classic]
+[07/12/2023 | 17:14:43] mintty foi fechado com sucesso!
+[07/12/2023 | 17:14:53] mintty foi fechado com sucesso!
+[07/12/2023 | 17:15:02] mintty foi fechado com sucesso!
+[07/12/2023 | 17:15:12] mintty foi fechado com sucesso!
+[07/12/2023 | 17:15:24] mintty foi fechado com sucesso!
+[07/12/2023 | 17:15:35] mintty foi fechado com sucesso!
+[07/12/2023 | 17:15:37] Teams foi fechado com sucesso!
+[07/12/2023 | 17:15:38] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:15:48] MySQLWorkbench foi fechado com sucesso!
+[07/12/2023 | 17:15:49] mintty foi fechado com sucesso!
+[07/12/2023 | 17:15:49] Teams foi fechado com sucesso!
+[07/12/2023 | 17:15:50] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:15:59] MySQLWorkbench foi fechado com sucesso!
+[07/12/2023 | 17:16:00] mintty foi fechado com sucesso!
+[07/12/2023 | 17:16:00] Teams foi fechado com sucesso!
+[07/12/2023 | 17:16:01] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:16:08] MySQLWorkbench foi fechado com sucesso!
+[07/12/2023 | 17:16:09] mintty foi fechado com sucesso!
+[07/12/2023 | 17:16:09] Teams foi fechado com sucesso!
+[07/12/2023 | 17:16:09] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:16:16] MySQLWorkbench foi fechado com sucesso!
+[07/12/2023 | 17:16:17] mintty foi fechado com sucesso!
+[07/12/2023 | 17:16:17] Teams foi fechado com sucesso!
+[07/12/2023 | 17:16:17] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:16:27] MySQLWorkbench foi fechado com sucesso!
+[07/12/2023 | 17:16:27] mintty foi fechado com sucesso!
+[07/12/2023 | 17:16:28] Teams foi fechado com sucesso!
+[07/12/2023 | 17:16:29] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:16:38] MySQLWorkbench foi fechado com sucesso!
+[07/12/2023 | 17:16:39] mintty foi fechado com sucesso!
+[07/12/2023 | 17:16:39] Teams foi fechado com sucesso!
+[07/12/2023 | 17:16:40] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:16:49] MySQLWorkbench foi fechado com sucesso!
+[07/12/2023 | 17:16:50] mintty foi fechado com sucesso!
+[07/12/2023 | 17:16:51] Teams foi fechado com sucesso!
+[07/12/2023 | 17:16:51] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:17:00] MySQLWorkbench foi fechado com sucesso!
+[07/12/2023 | 17:17:00] mintty foi fechado com sucesso!
+[07/12/2023 | 17:17:00] Teams foi fechado com sucesso!
+[07/12/2023 | 17:17:01] Notepad foi fechado com sucesso!
+
+
+
+[07/12/2023 | 17:19:10] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 17:19:10] Janelas: [safe-monitor – Main.java, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, salas.js - SafeMonitor-Frontend - Visual Studio Code, Setup, Mail, JamPostMessageWindow, , safe-monitor – Main.java, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, salas.js - SafeMonitor-Frontend - Visual Studio Code, Setup, Mail, JamPostMessageWindow, ]
+
+
+
+[07/12/2023 | 17:22:45] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 17:22:45] Janelas: [safe-monitor – Main.java, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge, maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code, *httpslearn.microsoft.comen-usazureh - Notepad, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , safe-monitor – Main.java, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge, maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code, *httpslearn.microsoft.comen-usazureh - Notepad, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, ]
+[07/12/2023 | 17:23:43] Notepad foi fechado com sucesso!
+[07/12/2023 | 17:23:43] Notepad foi fechado com sucesso!
+
+
+
+[07/12/2023 | 17:25:49] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 17:25:49] Janelas: [safe-monitor – Query.java, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge, safe-monitor – Query.java, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge]
+[07/12/2023 | 17:25:49] Janelas Fechadas: *httpslearn.microsoft.comen-usazureh - Notepad
+[07/12/2023 | 17:25:49] Janelas Fechadas: *httpslearn.microsoft.comen-usazureh - Notepad
+
+
+
+[07/12/2023 | 17:26:04] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 17:26:04] Janelas: [safe-monitor – Query.java, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge, safe-monitor – Query.java, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (53))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code, Computador | Dashboard - SafeMonitor and 3 more pages - Work - Microsoft​ Edge]
+[07/12/2023 | 17:26:04] Janelas Fechadas: *httpslearn.microsoft.comen-usazureh - Notepad
+[07/12/2023 | 17:26:04] Janelas Fechadas: *httpslearn.microsoft.comen-usazureh - Notepad
+
+
+
+[07/12/2023 | 17:28:23] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 17:28:23] Janelas: [safe-monitor – Query.java, ChatGPT and 3 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (60))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code, safe-monitor – Query.java, ChatGPT and 3 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (60))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code]
+[07/12/2023 | 17:29:15] HxOutlook foi fechado com sucesso!
+[07/12/2023 | 17:29:22] HxOutlook foi fechado com sucesso!

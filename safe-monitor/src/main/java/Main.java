@@ -200,6 +200,7 @@ public class Main {
 
                         if (!janelaEncontrada) {
                             query.removerJanelaFechada(jBD);
+                            query.removerJanelaFechadaNuvem(jBD);
                         }
                     }
 
