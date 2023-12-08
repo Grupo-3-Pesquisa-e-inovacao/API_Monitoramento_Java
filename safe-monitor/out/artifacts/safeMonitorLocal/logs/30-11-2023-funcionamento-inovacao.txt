@@ -1,0 +1,15 @@
+---------------------------------- [30/11/2023 | 19:24:58] ----------------------------------
+[30/11/2023 | 19:24:58] Iniciando a aplicação...
+[30/11/2023 | 19:24:58] Aplicação iniciada
+[30/11/2023 | 19:24:58] REGISTRANDO INFORMAÇÕES MÁQUINAS
+[30/11/2023 | 19:24:58] CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+[30/11/2023 | 19:24:58] RAM TOTAL: 8,3 GB
+[30/11/2023 | 19:24:58] RAM DISPONÍVEL: 0,9 GB
+[30/11/2023 | 19:24:58] SO: Windows
+[30/11/2023 | 19:24:58] Arquitetura: 64 bits
+[30/11/2023 | 19:24:58]
+[30/11/2023 | 19:24:58] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:24:58] Janelas: [safe-monitor – pom.xml (safe-monitor), C:\Windows\System32\cmd.exe, Computador | Dashboard - SafeMonitor e mais 2 páginas - Pessoal — Microsoft? Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, safe-monitor – pom.xml (safe-monitor), C:\Windows\System32\cmd.exe, Computador | Dashboard - SafeMonitor e mais 2 páginas - Pessoal — Microsoft? Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench]
+[30/11/2023 | 19:26:14]
+[30/11/2023 | 19:26:14] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:26:14] Janelas: [C:\Windows\System32\cmd.exe - java  -jar safeMonitorLocal.jar, safe-monitor – pom.xml (safe-monitor), Computador | Dashboard - SafeMonitor e mais 2 páginas - Pessoal — Microsoft? Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - java  -jar safeMonitorLocal.jar, safe-monitor – pom.xml (safe-monitor), Computador | Dashboard - SafeMonitor e mais 2 páginas - Pessoal — Microsoft? Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench]

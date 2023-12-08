@@ -1,0 +1,87 @@
+---------------------------------- [30/11/2023 | 10:38:27] ----------------------------------
+[30/11/2023 | 10:38:27] Iniciando a aplicação...
+[30/11/2023 | 10:38:27] Aplicação iniciada
+[30/11/2023 | 10:38:27] REGISTRANDO INFORMAÇÕES MÁQUINAS
+[30/11/2023 | 10:38:27] CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+[30/11/2023 | 10:38:27] RAM TOTAL: 8,3 GB
+[30/11/2023 | 10:38:27] RAM DISPONÍVEL: 0,5 GB
+[30/11/2023 | 10:38:27] SO: Windows
+[30/11/2023 | 10:38:27] Arquitetura: 64 bits
+
+
+
+[30/11/2023 | 10:38:27] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 10:38:27] Janelas: [safe-monitor – Main.java, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Grupo-3-Pesquisa-e-inovacao/site-institucional at versao-responsiva-mobile-home e mais 1 página - Pessoal — Microsoft​ Edge, safe-monitor – Main.java, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Grupo-3-Pesquisa-e-inovacao/site-institucional at versao-responsiva-mobile-home e mais 1 página - Pessoal — Microsoft​ Edge]
+
+
+
+[30/11/2023 | 10:39:03] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 10:39:03] Janelas: [safe-monitor – Main.java, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Grupo-3-Pesquisa-e-inovacao/site-institucional at versao-responsiva-mobile-home e mais 1 página - Pessoal — Microsoft​ Edge, safe-monitor – Main.java, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Grupo-3-Pesquisa-e-inovacao/site-institucional at versao-responsiva-mobile-home e mais 1 página - Pessoal — Microsoft​ Edge]
+[30/11/2023 | 10:42:03] Spotify foi fechado com sucesso!
+[30/11/2023 | 10:42:04] Spotify foi fechado com sucesso!
+[30/11/2023 | 10:44:23]
+[30/11/2023 | 10:44:23] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 10:44:23] Janelas: [safe-monitor – Log.java, Computador | Dashboard - SafeMonitor e mais 2 páginas - Pessoal — Microsoft​ Edge,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, safe-monitor – Log.java, Computador | Dashboard - SafeMonitor e mais 2 páginas - Pessoal — Microsoft​ Edge,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench]
+[30/11/2023 | 10:44:47]
+[30/11/2023 | 10:44:47] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 10:44:47] Janelas: [safe-monitor – Main.java, Computador | Dashboard - SafeMonitor e mais 2 páginas - Pessoal — Microsoft​ Edge,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, safe-monitor – Main.java, Computador | Dashboard - SafeMonitor e mais 2 páginas - Pessoal — Microsoft​ Edge,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, config.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench]
+[30/11/2023 | 10:47:57] Spotify foi fechado com sucesso!
+[30/11/2023 | 10:47:58] Spotify foi fechado com sucesso!
+[30/11/2023 | 10:48:31] Notepad foi fechado com sucesso!
+[30/11/2023 | 10:48:33] Notepad foi fechado com sucesso!
+[30/11/2023 | 10:49:20] Spotify foi fechado com sucesso!
+[30/11/2023 | 10:49:21] Spotify foi fechado com sucesso!
+[30/11/2023 | 14:50:14]
+[30/11/2023 | 14:50:14] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 14:50:14] Janelas: [safe-monitor – Main.java, MySQL Workbench,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend: Aplicação que capta dados do hardware da maquina em que esta rodando. e mais 3 páginas - Pessoal — Microsoft​ Edge, maquinaController.js - SafeMonitor-Frontend - Visual Studio Code, MINGW64:/c/Users/dougl/OneDrive/Área de Trabalho/Pixel-Watchers, safe-monitor – Main.java, MySQL Workbench,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend: Aplicação que capta dados do hardware da maquina em que esta rodando. e mais 3 páginas - Pessoal — Microsoft​ Edge, maquinaController.js - SafeMonitor-Frontend - Visual Studio Code, MINGW64:/c/Users/dougl/OneDrive/Área de Trabalho/Pixel-Watchers]
+[30/11/2023 | 14:50:14] Janelas Fechadas: MySQL Workbench
+[30/11/2023 | 14:50:37] MySQLWorkbench foi fechado com sucesso!
+[30/11/2023 | 14:50:38] MySQLWorkbench foi fechado com sucesso!
+[30/11/2023 | 14:53:43]
+[30/11/2023 | 14:53:43] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 14:53:43] Janelas: [safe-monitor – Main.java, Computador | Dashboard - SafeMonitor e mais 5 páginas - Pessoal — Microsoft​ Edge, Spotify Premium, maquinaController.js - SafeMonitor-Frontend - Visual Studio Code,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, safe-monitor – Main.java, Computador | Dashboard - SafeMonitor e mais 5 páginas - Pessoal — Microsoft​ Edge, Spotify Premium, maquinaController.js - SafeMonitor-Frontend - Visual Studio Code,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas]
+[30/11/2023 | 14:53:43] Janelas Fechadas: MINGW64:/c/Users/dougl/OneDrive/Área de Trabalho/Pixel-Watchers
+[30/11/2023 | 14:54:02] mintty foi fechado com sucesso!
+[30/11/2023 | 14:54:20] Spotify foi fechado com sucesso!
+[30/11/2023 | 14:54:21] Spotify foi fechado com sucesso!
+[30/11/2023 | 14:54:50] Notepad foi fechado com sucesso!
+[30/11/2023 | 14:54:51] Notepad foi fechado com sucesso!
+[30/11/2023 | 18:23:54]
+[30/11/2023 | 18:23:54] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 18:23:54] Janelas: [safe-monitor – Main.java, maquinaController.js - SafeMonitor-Frontend - Visual Studio Code, Nova guia e mais 1 página - Pessoal — Microsoft​ Edge, MySQL Workbench, safe-monitor – Main.java, maquinaController.js - SafeMonitor-Frontend - Visual Studio Code, Nova guia e mais 1 página - Pessoal — Microsoft​ Edge, MySQL Workbench]
+[30/11/2023 | 19:41:52]
+[30/11/2023 | 19:41:52] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:41:52] Janelas: [safe-monitor – Main.java,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, Computador | Dashboard - SafeMonitor e mais 5 páginas - Pessoal — Microsoft​ Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, MINGW64:/c/Users/dougl/OneDrive/Área de Trabalho/Nova pasta (2), MINGW64:/c/Users/dougl/OneDrive/Área de Trabalho/Nova pasta (2), C:\Windows\System32\cmd.exe - java  -jar safeMonitorLocal.jar, safe-monitor – Main.java,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, Computador | Dashboard - SafeMonitor e mais 5 páginas - Pessoal — Microsoft​ Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, MINGW64:/c/Users/dougl/OneDrive/Área de Trabalho/Nova pasta (2), MINGW64:/c/Users/dougl/OneDrive/Área de Trabalho/Nova pasta (2), C:\Windows\System32\cmd.exe - java  -jar safeMonitorLocal.jar]
+[30/11/2023 | 19:41:52] Janelas Fechadas: MINGW64:/c/Users/dougl/OneDrive/Área de Trabalho/Nova pasta (2)
+[30/11/2023 | 19:42:17] mintty foi fechado com sucesso!
+[30/11/2023 | 19:42:21] mintty foi fechado com sucesso!
+[30/11/2023 | 19:43:43] Notepad foi fechado com sucesso!
+[30/11/2023 | 19:43:43] Notepad foi fechado com sucesso!
+[30/11/2023 | 19:43:45] idea64 foi fechado com sucesso!
+[30/11/2023 | 19:43:48] Notepad foi fechado com sucesso!
+[30/11/2023 | 19:43:48] Notepad foi fechado com sucesso!
+[30/11/2023 | 19:43:49] idea64 foi fechado com sucesso!
+[30/11/2023 | 19:47:10]
+[30/11/2023 | 19:47:10] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:47:10] Janelas: [safe-monitor – Main.java, MySQL Workbench, Computador | Dashboard - SafeMonitor e mais 4 páginas - Pessoal — Microsoft​ Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, Spotify Premium,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, safe-monitor – Main.java, MySQL Workbench, Computador | Dashboard - SafeMonitor e mais 4 páginas - Pessoal — Microsoft​ Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, Spotify Premium,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas]
+[30/11/2023 | 19:47:10] Janelas Fechadas: C:\Windows\System32\cmd.exe - java  -jar safeMonitorLocal.jar
+[30/11/2023 | 19:47:13]
+[30/11/2023 | 19:47:13] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:47:13] Janelas: [safe-monitor – Main.java, MySQL Workbench, Computador | Dashboard - SafeMonitor e mais 4 páginas - Pessoal — Microsoft​ Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, Spotify Premium,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, safe-monitor – Main.java, MySQL Workbench, Computador | Dashboard - SafeMonitor e mais 4 páginas - Pessoal — Microsoft​ Edge, login.js - SafeMonitor-Frontend - Visual Studio Code, Spotify Premium,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas]
+[30/11/2023 | 19:47:13] Janelas Fechadas: C:\Windows\System32\cmd.exe - java  -jar safeMonitorLocal.jar
+[30/11/2023 | 19:47:35] WindowsTerminal foi fechado com sucesso!
+[30/11/2023 | 19:47:51] Spotify foi fechado com sucesso!
+[30/11/2023 | 19:47:53] Spotify foi fechado com sucesso!
+[30/11/2023 | 19:50:21]
+[30/11/2023 | 19:50:21] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:50:21] Janelas: [safe-monitor – Main.java, MySQL Workbench, Salas | Dashboard - SafeMonitor e mais 4 páginas - Pessoal — Microsoft​ Edge, login.js - SafeMonitor-Frontend - Visual Studio Code,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, safe-monitor – Main.java, MySQL Workbench, Salas | Dashboard - SafeMonitor e mais 4 páginas - Pessoal — Microsoft​ Edge, login.js - SafeMonitor-Frontend - Visual Studio Code,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas]
+[30/11/2023 | 19:52:56] Spotify foi fechado com sucesso!
+[30/11/2023 | 19:52:58] Spotify foi fechado com sucesso!
+[30/11/2023 | 20:21:39]
+[30/11/2023 | 20:21:39] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 20:21:39] Janelas: [safe-monitor – Main.java, Safe Monitor - Apresentação e mais 5 páginas - Pessoal — Microsoft​ Edge, alerta.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, safe-monitor – Main.java, Safe Monitor - Apresentação e mais 5 páginas - Pessoal — Microsoft​ Edge, alerta.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas]
+[30/11/2023 | 20:24:12]
+[30/11/2023 | 20:24:12] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 20:24:12] Janelas: [safe-monitor – Main.java, alerta.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, Safe Monitor - Apresentação e mais 5 páginas - Pessoal — Microsoft​ Edge, safe-monitor – Main.java, alerta.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas,  30-11-2023-funcionamento-inovacao.txt - Bloco de notas, Safe Monitor - Apresentação e mais 5 páginas - Pessoal — Microsoft​ Edge]
+[30/11/2023 | 20:47:41] Spotify foi fechado com sucesso!
+[30/11/2023 | 20:47:43] Spotify foi fechado com sucesso!

@@ -1,0 +1,17 @@
+---------------------------------- [01/12/2023 | 10:11:59] ----------------------------------
+[01/12/2023 | 10:11:59] Iniciando a aplicação...
+[01/12/2023 | 10:11:59] Aplicação iniciada
+[01/12/2023 | 10:11:59] REGISTRANDO INFORMAÇÕES MÁQUINAS
+[01/12/2023 | 10:11:59] CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+[01/12/2023 | 10:11:59] RAM TOTAL: 8,3 GB
+[01/12/2023 | 10:11:59] RAM DISPONÍVEL: 0,2 GB
+[01/12/2023 | 10:11:59] SO: Windows
+[01/12/2023 | 10:11:59] Arquitetura: 64 bits
+[01/12/2023 | 10:11:59]
+[01/12/2023 | 10:11:59] REGISTRANDO INFORMAÇÕES JANELAS
+[01/12/2023 | 10:11:59] Janelas: [safe-monitor – Main.java, MySQL Workbench, Home | Safe Monitor e mais 3 páginas - Pessoal — Microsoft​ Edge, alerta.js - SafeMonitor-Frontend - Visual Studio Code, safe-monitor – Main.java, MySQL Workbench, Home | Safe Monitor e mais 3 páginas - Pessoal — Microsoft​ Edge, alerta.js - SafeMonitor-Frontend - Visual Studio Code]
+[01/12/2023 | 10:13:25]
+[01/12/2023 | 10:13:25] REGISTRANDO INFORMAÇÕES JANELAS
+[01/12/2023 | 10:13:25] Janelas: [safe-monitor – Main.java, Home | Safe Monitor e mais 3 páginas - Pessoal — Microsoft​ Edge, MySQL Workbench, alerta.js - SafeMonitor-Frontend - Visual Studio Code, safe-monitor – Main.java, Home | Safe Monitor e mais 3 páginas - Pessoal — Microsoft​ Edge, MySQL Workbench, alerta.js - SafeMonitor-Frontend - Visual Studio Code]
+[01/12/2023 | 10:15:21] Spotify foi fechado com sucesso!
+[01/12/2023 | 10:15:22] Spotify foi fechado com sucesso!

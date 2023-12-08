@@ -124,7 +124,8 @@ public class Log {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile(), true))) {
             monitoramento.popularListaJanela();
             monitoramento.getTituloJanelasAbertas();
-            writer.write("\n\n\n%s REGISTRANDO INFORMAÇÕES JANELAS\n".formatted(now.format(formatter)));
+            writer.write("%s\n".formatted(now.format(formatter)));
+            writer.write("%s REGISTRANDO INFORMAÇÕES JANELAS\n".formatted(now.format(formatter)));
             writer.write("%s Janelas: %s\n".formatted(now.format(formatter), monitoramento.getTituloJanelasAbertas()));
 
             query.buscarJanelasFechada();
