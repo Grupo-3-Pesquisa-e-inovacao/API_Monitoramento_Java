@@ -51,6 +51,8 @@ public class Main {
             senha = leitor.nextLine();
 
             System.out.println(monitoramento.login(email, senha));
+            query.buscarUsuariosBanco();
+            System.out.println(query.getUsuarios());
 
             respostalogin = monitoramento.procurarUsuario(email, senha);
 
@@ -58,11 +60,6 @@ public class Main {
 
         monitoramento.definirIdEmpresa();
         rede.definirInformacoesRedeAtual(rede.definirRedeAtual());
-
-
-
-
-
 
         while(!query.conectarMaquinaLocal(rede.getHostName())){
             Integer idSala = null;
@@ -161,8 +158,6 @@ public class Main {
             TimerTask monitoramentoTempoReal = new TimerTask() {
                 @Override
                 public void run() {
-
-
 
 
                     //USO CPU
@@ -284,7 +279,8 @@ public class Main {
                         | 1 - Histórico usuários    |
                         | 2 - Janelas               |
                         | 3 - Infomações da máquina |
-                        | 4 - Sair                  |
+                        | 4 - Informações USB       |
+                        | 5 - Sair                  |
                         *---------------------------*"""
                 );
 

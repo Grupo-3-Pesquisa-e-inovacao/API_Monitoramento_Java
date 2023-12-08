@@ -1,0 +1,169 @@
+---------------------------------- [30/11/2023 | 10:45:07] ----------------------------------
+[30/11/2023 | 10:45:07] Iniciando a aplicação...
+[30/11/2023 | 10:45:07] Aplicação iniciada
+[30/11/2023 | 10:45:07] REGISTRANDO INFORMAÇÕES MÁQUINAS
+[30/11/2023 | 10:45:07] CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+[30/11/2023 | 10:45:07] RAM TOTAL: 16.9 GB
+[30/11/2023 | 10:45:07] RAM DISPONÍVEL: 3.4 GB
+[30/11/2023 | 10:45:07] SO: Windows
+[30/11/2023 | 10:45:07] Arquitetura: 64 bits
+
+
+
+[30/11/2023 | 10:45:07] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 10:45:07] Janelas: [safe-monitor – Main.java, MySQL Workbench, Windows PowerShell, Inbox - melissa.neves@atos.net - Outlook, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Training | Microsoft Learn and 4 more pages - Work - Microsoft​ Edge, Document1 - Word, Mail, JamPostMessageWindow, , C:\Windows\System32\cmd.exe - ngrok  http 8000, settings.py - Bot-To-Human-Teams - Visual Studio Code, Sergio Tanaka | Microsoft Teams classic, safe-monitor – Main.java, MySQL Workbench, Windows PowerShell, Inbox - melissa.neves@atos.net - Outlook, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Training | Microsoft Learn and 4 more pages - Work - Microsoft​ Edge, Document1 - Word, Mail, JamPostMessageWindow, , C:\Windows\System32\cmd.exe - ngrok  http 8000, settings.py - Bot-To-Human-Teams - Visual Studio Code, Sergio Tanaka | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 10:47:54] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 10:47:54] Janelas: [safe-monitor – Conexao.java, MySQL Workbench, Windows PowerShell, Inbox - melissa.neves@atos.net - Outlook, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Training | Microsoft Learn and 4 more pages - Work - Microsoft​ Edge, Document1 - Word, Mail, JamPostMessageWindow, , C:\Windows\System32\cmd.exe - ngrok  http 8000, Sergio Tanaka | Microsoft Teams classic, settings.py - Bot-To-Human-Teams - Visual Studio Code, safe-monitor – Conexao.java, MySQL Workbench, Windows PowerShell, Inbox - melissa.neves@atos.net - Outlook, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Training | Microsoft Learn and 4 more pages - Work - Microsoft​ Edge, Document1 - Word, Mail, JamPostMessageWindow, , C:\Windows\System32\cmd.exe - ngrok  http 8000, Sergio Tanaka | Microsoft Teams classic, settings.py - Bot-To-Human-Teams - Visual Studio Code]
+
+
+
+[30/11/2023 | 11:58:20] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 11:58:20] Janelas: [safe-monitor – Main.java, MySQL Workbench, Microsoft SQL Server Management Studio, Connect to Server, Microsoft SQL Server Management Studio, ec2 - Notepad, (65) DE FRENTE COM BLOGUEIRINHA: LUÍSA SONZA - T2E31 | DiaTV - YouTube and 7 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Main.java, MySQL Workbench, Microsoft SQL Server Management Studio, Connect to Server, Microsoft SQL Server Management Studio, ec2 - Notepad, (65) DE FRENTE COM BLOGUEIRINHA: LUÍSA SONZA - T2E31 | DiaTV - YouTube and 7 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 11:59:59] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 11:59:59] Janelas: [safe-monitor – Conexao.java, MySQL Workbench, Microsoft SQL Server Management Studio, Connect to Server, Microsoft SQL Server Management Studio, ec2 - Notepad, (65) DE FRENTE COM BLOGUEIRINHA: LUÍSA SONZA - T2E31 | DiaTV - YouTube and 7 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Conexao.java, MySQL Workbench, Microsoft SQL Server Management Studio, Connect to Server, Microsoft SQL Server Management Studio, ec2 - Notepad, (65) DE FRENTE COM BLOGUEIRINHA: LUÍSA SONZA - T2E31 | DiaTV - YouTube and 7 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 12:02:43] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 12:02:43] Janelas: [safe-monitor – Query.java, MySQL Workbench, Microsoft SQL Server Management Studio, Connect to Server, Microsoft SQL Server Management Studio, ec2 - Notepad, (65) DE FRENTE COM BLOGUEIRINHA: LUÍSA SONZA - T2E31 | DiaTV - YouTube and 7 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Query.java, MySQL Workbench, Microsoft SQL Server Management Studio, Connect to Server, Microsoft SQL Server Management Studio, ec2 - Notepad, (65) DE FRENTE COM BLOGUEIRINHA: LUÍSA SONZA - T2E31 | DiaTV - YouTube and 7 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 12:07:39] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 12:07:39] Janelas: [safe-monitor – Query.java, ChatGPT and 7 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, Microsoft SQL Server Management Studio, Connect to Server, Microsoft SQL Server Management Studio, ec2 - Notepad, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Query.java, ChatGPT and 7 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, Microsoft SQL Server Management Studio, Connect to Server, Microsoft SQL Server Management Studio, ec2 - Notepad, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 12:11:36] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 12:11:36] Janelas: [ec2 - Notepad, MySQL Workbench, Microsoft SQL Server Management Studio, safe-monitor – Query.java, settings.py - Bot-To-Human-Teams - Visual Studio Code, (65) DE FRENTE COM BLOGUEIRINHA: LUÍSA SONZA - T2E31 | DiaTV - YouTube and 7 more pages - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Inbox - Atos ‎- Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, ec2 - Notepad, MySQL Workbench, Microsoft SQL Server Management Studio, safe-monitor – Query.java, settings.py - Bot-To-Human-Teams - Visual Studio Code, (65) DE FRENTE COM BLOGUEIRINHA: LUÍSA SONZA - T2E31 | DiaTV - YouTube and 7 more pages - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Inbox - Atos ‎- Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 12:36:00] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 12:36:00] Janelas: [safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, , (65) ANITTA - QUEM PODE, POD #36 - YouTube and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, settings.py - Bot-To-Human-Teams - Visual Studio Code, scriptSqlServer - Notepad, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, , (65) ANITTA - QUEM PODE, POD #36 - YouTube and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, settings.py - Bot-To-Human-Teams - Visual Studio Code, scriptSqlServer - Notepad, C:\Windows\System32\cmd.exe - ngrok  http 8000, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 12:43:25] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 12:43:25] Janelas: [safe-monitor – Query.java, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Query.java, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 12:59:31] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 12:59:31] Janelas: [, safe-monitor – Query.java, C:\Windows\System32\cmd.exe - ngrok  http 8000, MySQL Workbench, settings.py - Bot-To-Human-Teams - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, , safe-monitor – Query.java, C:\Windows\System32\cmd.exe - ngrok  http 8000, MySQL Workbench, settings.py - Bot-To-Human-Teams - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 13:07:25] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 13:07:25] Janelas: [safe-monitor – Query.java, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Query.java, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 13:09:34] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 13:09:34] Janelas: [safe-monitor – Query.java, ChatGPT and 5 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Query.java, ChatGPT and 5 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 13:11:47] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 13:11:47] Janelas: [safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MySQL Workbench, ChatGPT and 5 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MySQL Workbench, ChatGPT and 5 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 13:16:10] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 13:16:10] Janelas: [safe-monitor – Query.java, settings.py - Bot-To-Human-Teams - Visual Studio Code, ChatGPT and 5 more pages - Work - Microsoft​ Edge, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, , Inbox - Atos ‎- Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic, safe-monitor – Query.java, settings.py - Bot-To-Human-Teams - Visual Studio Code, ChatGPT and 5 more pages - Work - Microsoft​ Edge, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, , Inbox - Atos ‎- Mail, JamPostMessageWindow, , Melissa Neves (You) | Microsoft Teams classic]
+
+
+
+[30/11/2023 | 13:24:41] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 13:24:41] Janelas: [safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, Sergio Tanaka | Microsoft Teams classic, C:\Windows\System32\cmd.exe - ngrok  http 8000, MySQL Workbench, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, , safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, Sergio Tanaka | Microsoft Teams classic, C:\Windows\System32\cmd.exe - ngrok  http 8000, MySQL Workbench, scriptSqlServer - Notepad, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 13:46:30] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 13:46:30] Janelas: [safe-monitor – Main.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, Sergio Tanaka | Microsoft Teams classic, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Main.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, Sergio Tanaka | Microsoft Teams classic, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 13:47:46] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 13:47:46] Janelas: [safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, Sergio Tanaka | Microsoft Teams classic, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, Sergio Tanaka | Microsoft Teams classic, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 13:52:21] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 13:52:21] Janelas: [safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, Sergio Tanaka | Microsoft Teams classic, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, Sergio Tanaka | Microsoft Teams classic, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 14:00:22] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 14:00:22] Janelas: [safe-monitor – Main.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Sergio Tanaka | Microsoft Teams classic, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Main.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Sergio Tanaka | Microsoft Teams classic, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 14:02:15] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 14:02:15] Janelas: [safe-monitor – Main.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Sergio Tanaka | Microsoft Teams classic, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Main.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Sergio Tanaka | Microsoft Teams classic, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 14:04:18] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 14:04:18] Janelas: [safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Sergio Tanaka | Microsoft Teams classic, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Query.java, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Sergio Tanaka | Microsoft Teams classic, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 14:05:21] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 14:05:21] Janelas: [SQL Server Scripts1 - Microsoft SQL Server Management Studio, safe-monitor – Main.java, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Sergio Tanaka | Microsoft Teams classic, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , SQL Server Scripts1 - Microsoft SQL Server Management Studio, safe-monitor – Main.java, ChatGPT and 5 more pages - Work - Microsoft​ Edge, Sergio Tanaka | Microsoft Teams classic, Grupo-3-Pesquisa-e-inovacao/banco_de_dados and 1 more page - Work - Microsoft​ Edge, settings.py - Bot-To-Human-Teams - Visual Studio Code, MySQL Workbench, C:\Windows\System32\cmd.exe - ngrok  http 8000, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 15:03:47] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 15:03:47] Janelas: [safe-monitor – Query.java, settings.py - Bot-To-Human-Teams - Visual Studio Code, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend at Slack and 1 more page - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Manage your flows | Power Automate and 5 more pages - Work - Microsoft​ Edge, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, Sergio Tanaka | Microsoft Teams classic, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Query.java, settings.py - Bot-To-Human-Teams - Visual Studio Code, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend at Slack and 1 more page - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Manage your flows | Power Automate and 5 more pages - Work - Microsoft​ Edge, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, Sergio Tanaka | Microsoft Teams classic, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 15:11:27] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 15:11:27] Janelas: [safe-monitor – Conexao.java, Sergio Tanaka | Microsoft Teams classic, settings.py - Bot-To-Human-Teams - Visual Studio Code, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend at Slack and 1 more page - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Manage your flows | Power Automate and 5 more pages - Work - Microsoft​ Edge, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Conexao.java, Sergio Tanaka | Microsoft Teams classic, settings.py - Bot-To-Human-Teams - Visual Studio Code, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend at Slack and 1 more page - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Manage your flows | Power Automate and 5 more pages - Work - Microsoft​ Edge, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 15:13:43] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 15:13:43] Janelas: [safe-monitor – Main.java, Sergio Tanaka | Microsoft Teams classic, settings.py - Bot-To-Human-Teams - Visual Studio Code, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend at Slack and 1 more page - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Manage your flows | Power Automate and 5 more pages - Work - Microsoft​ Edge, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, , safe-monitor – Main.java, Sergio Tanaka | Microsoft Teams classic, settings.py - Bot-To-Human-Teams - Visual Studio Code, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend at Slack and 1 more page - Work - Microsoft​ Edge, C:\Windows\System32\cmd.exe - ngrok  http 8000, Manage your flows | Power Automate and 5 more pages - Work - Microsoft​ Edge, MySQL Workbench, SQL Server Scripts1 - Microsoft SQL Server Management Studio, scriptSqlServer - Notepad, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 18:41:29] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 18:41:29] Janelas: [safe-monitor – Main.java, MINGW64:/c/Users/a913666/Documents, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend: Aplicação que capta dados do hardware da maquina em que esta rodando. and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, MINGW64:/c/Users/a913666/Documents, Grupo-3-Pesquisa-e-inovacao/SafeMonitor-Backend: Aplicação que capta dados do hardware da maquina em que esta rodando. and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 18:53:19] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 18:53:19] Janelas: [Geral | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, safe-monitor – Query.java, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , Geral | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, safe-monitor – Query.java, MySQL Workbench, config.js - SafeMonitor-Frontend - Visual Studio Code, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 18:58:18] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 18:58:18] Janelas: [safe-monitor – Main.java, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, login.js - SafeMonitor-Frontend - Visual Studio Code, MySQL Workbench, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 19:01:31] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:01:31] Janelas: [login.js - SafeMonitor-Frontend - Visual Studio Code, safe-monitor – Main.java, MySQL Workbench, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , login.js - SafeMonitor-Frontend - Visual Studio Code, safe-monitor – Main.java, MySQL Workbench, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 19:03:38] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:03:38] Janelas: [safe-monitor – Main.java, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MINGW64:/c/Users/a913666/Documents, SQL Server Scripts1 - Microsoft SQL Server Management Studio, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 19:13:26] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:13:26] Janelas: [safe-monitor – Main.java, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MINGW64:/c/Users/a913666/Documents, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, Salas | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MINGW64:/c/Users/a913666/Documents, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
+
+
+
+[30/11/2023 | 19:16:00] REGISTRANDO INFORMAÇÕES JANELAS
+[30/11/2023 | 19:16:00] Janelas: [safe-monitor – Main.java, Computador | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MINGW64:/c/Users/a913666/Documents, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, , safe-monitor – Main.java, Computador | Dashboard - SafeMonitor and 4 more pages - Work - Microsoft​ Edge, MySQL Workbench, login.js - SafeMonitor-Frontend - Visual Studio Code, SQL Server Scripts1 - Microsoft SQL Server Management Studio, MINGW64:/c/Users/a913666/Documents, ec2 - Notepad, Sergio Tanaka | Microsoft Teams classic, Mail, JamPostMessageWindow, ]
