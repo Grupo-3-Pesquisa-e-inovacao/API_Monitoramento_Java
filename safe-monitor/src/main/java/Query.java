@@ -213,8 +213,8 @@ public class Query {
     }
 
     public void inserirTempoAtividade(Long tempo) {
-        con.update("INSERT INTO maquina(tempo_atiidade)" +
-                "VALUES(?);", tempo);
+        con.update("UPDATE maquina SET tempo_atividade = ? WHERE idMaquina = ?;",
+                tempo, maquina.getIdMaquina());
     }
 
 
