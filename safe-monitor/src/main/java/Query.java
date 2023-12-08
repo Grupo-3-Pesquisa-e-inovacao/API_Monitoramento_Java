@@ -212,7 +212,7 @@ public class Query {
 
     }
 
-    public void inserirTempoAtividade(Long tempo) {
+    public void inserirTempoAtividade(String tempo) {
         con.update("UPDATE maquina SET tempo_atividade = ? WHERE idMaquina = ?;",
                 tempo, maquina.getIdMaquina());
     }

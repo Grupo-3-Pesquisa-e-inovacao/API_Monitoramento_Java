@@ -39,9 +39,9 @@ public class Main {
         if(tempoAtividade <= 5) {
             System.out.println("Seu computador esta ligado a " + tempoAtividade + " dias, aconselhamos reiniciar");
         } else {
-            System.out.println("Seu computador esta ligado a " + tempoAtividade);
+            System.out.println("Seu computador esta ligado a " + tempoAtividade + " dias");
         }
-        query.inserirTempoAtividade(tempoAtividade);
+
 
         String email = "";
         String senha = "";
@@ -169,7 +169,8 @@ public class Main {
                 @Override
                 public void run() {
 
-
+                    //TEMPO USO
+                    query.inserirTempoAtividade(tempoAtividade.toString());
 
 
                     //USO CPU

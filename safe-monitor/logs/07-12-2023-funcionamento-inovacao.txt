@@ -90,3 +90,13 @@
 [07/12/2023 | 17:28:23] Janelas: [safe-monitor – Query.java, ChatGPT and 3 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (60))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code, safe-monitor – Query.java, ChatGPT and 3 more pages - Work - Microsoft​ Edge, SQLQuery1.sql - ec2-44-219-233-147.compute-1.amazonaws.com.safe_monitor (SafeMonitor (60))* - Microsoft SQL Server Management Studio, Setup, Mail, JamPostMessageWindow, , maquinaEpecifica.js - SafeMonitor-Frontend - Visual Studio Code]
 [07/12/2023 | 17:29:15] HxOutlook foi fechado com sucesso!
 [07/12/2023 | 17:29:22] HxOutlook foi fechado com sucesso!
+
+
+
+[07/12/2023 | 21:27:31] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 21:27:31] Janelas: [, safe-monitor – Main.java, MySQL Workbench, Instâncias | EC2 | us-east-1 e mais 3 páginas - Pessoal — Microsoft​ Edge, Instalador, Form1, safe-monitorLocal.jar (Excluído) - SafeMonitor-Backend - Visual Studio Code, , melissa@mel_notebook_hp: ~, , safe-monitor – Main.java, MySQL Workbench, Instâncias | EC2 | us-east-1 e mais 3 páginas - Pessoal — Microsoft​ Edge, Instalador, Form1, safe-monitorLocal.jar (Excluído) - SafeMonitor-Backend - Visual Studio Code, , melissa@mel_notebook_hp: ~]
+
+
+
+[07/12/2023 | 21:31:10] REGISTRANDO INFORMAÇÕES JANELAS
+[07/12/2023 | 21:31:10] Janelas: [safe-monitor – Main.java, MySQL Workbench, , melissa@mel_notebook_hp: ~, Instâncias | EC2 | us-east-1 e mais 3 páginas - Pessoal — Microsoft​ Edge, Instalador, Form1, safe-monitorLocal.jar (Excluído) - SafeMonitor-Backend - Visual Studio Code, safe-monitor – Main.java, MySQL Workbench, , melissa@mel_notebook_hp: ~, Instâncias | EC2 | us-east-1 e mais 3 páginas - Pessoal — Microsoft​ Edge, Instalador, Form1, safe-monitorLocal.jar (Excluído) - SafeMonitor-Backend - Visual Studio Code]
