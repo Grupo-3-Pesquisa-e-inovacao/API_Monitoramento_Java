@@ -212,6 +212,11 @@ public class Query {
 
     }
 
+    public void inserirTempoAtividade(Long tempo) {
+        con.update("INSERT INTO maquina(tempo_atiidade)" +
+                "VALUES(?);", tempo);
+    }
+
 
     public void inserirDadosCaptura(Double valor){
             con.update("INSERT INTO captura_dados (dt_hora, valor_monitorado, fk_tipoDados, fk_maquina, fk_componente, fk_tipoComponente) VALUES (now(), ?, ?, ?, ?,?);", valor, TipoDados.getId(), maquina.getIdMaquina(), idComponenteList.getId(), TipoComponente.getId());

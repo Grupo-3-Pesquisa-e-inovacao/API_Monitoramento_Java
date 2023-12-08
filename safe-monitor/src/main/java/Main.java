@@ -31,10 +31,17 @@ public class Main {
         Dispositivo dispositivo = new Dispositivo();
         Log log = new Log();
         List<String> janelaAntesDeRemoverDoBanco = new ArrayList<>();
+        Long tempoAtividade = ((sistema.getTempoAtividade() /60) /60) /24;
 
 
 
         System.out.println("Seja bem-vindo(a)!");
+        if(tempoAtividade <= 5) {
+            System.out.println("Seu computador esta ligado a " + tempoAtividade + " dias, aconselhamos reiniciar");
+        } else {
+            System.out.println("Seu computador esta ligado a " + tempoAtividade);
+        }
+        query.inserirTempoAtividade(tempoAtividade);
 
         String email = "";
         String senha = "";
